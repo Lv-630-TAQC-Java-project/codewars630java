@@ -1,4 +1,4 @@
-package com.ss.ita.kata.implementation.vladdmytriv;
+package com.ss.ita.kata.implementation.ErrDmitry404;
 
 import com.ss.ita.kata.Eight;
 
