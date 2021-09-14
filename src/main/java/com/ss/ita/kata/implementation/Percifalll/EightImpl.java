@@ -18,9 +18,33 @@ public class EightImpl implements Eight {
         return 0;
     }
 
+    /**
+     * Write a method, that will get an integer array as parameter
+     * and will process every number from this array.
+     * Return a new array with processing every number of the input-array like this:
+     * If the number has an integer square root, take this, otherwise square the number.
+     * [4,3,9,7,2,1] -> [2,9,3,49,4,1]
+     * The input array will always contain only positive numbers and will never be empty or null.
+     * The input array should not be modified!
+     */
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        if (array == null) throw new NullPointerException();
+        if (array.length == 0) throw new IllegalArgumentException();
+
+        int[] result = new int[array.length];
+
+        for (int i = 0; i < result.length; i++) {
+            double root = Math.sqrt(array[i]);
+
+            if (Math.floor(root) == root) {
+                result[i] = (int) root;
+            } else {
+                result[i] = array[i] * array[i];
+            }
+        }
+
+        return result;
     }
 
     @Override
