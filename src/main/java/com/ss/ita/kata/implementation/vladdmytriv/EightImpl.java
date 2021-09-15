@@ -22,10 +22,25 @@ public class EightImpl implements Eight {
     public int[] squareOrSquareRoot(int[] array) {
         return new int[0];
     }
+/*Given an array of integers.
+
+Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
+
+If the input array is empty or null, return an empty array.*/
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        int[] result = new int[2];
+        result[0]=0;
+        result[1]=0;
+        for (int j : input) {
+            if (j >= 0) {
+                result[0]++;
+            } else {
+                result[1] += j;
+            }
+        }
+        return result;
     }
 
     @Override
