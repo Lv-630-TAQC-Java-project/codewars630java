@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.vladdmytriv;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -44,7 +46,13 @@ public class EightImpl implements Eight {
     }
 
     @Override
-    public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+    public ArrayList<Integer> divisibleBy(int[] numbers, int divider) {
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0) {
+                result.add(i);
+            }
+        }
+        return result;
     }
 }
