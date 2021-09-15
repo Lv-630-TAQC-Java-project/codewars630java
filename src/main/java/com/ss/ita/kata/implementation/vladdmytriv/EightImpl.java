@@ -35,7 +35,16 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        double i = 1;
+        for (int j = 1; j < n; j++) {
+            i = i * j;
+        }
+        if (((i + 1) / n * n)%1==0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @Override
