@@ -26,12 +26,35 @@ public class EightImpl implements Eight {
         if (mpg <= 0) {
             return 0;
         }
-            return (float) Math.round(mpg * kminmiles/ imperialgallon *100)/100 ;
+        return (float) Math.round(mpg * kminmiles/ imperialgallon *100)/100 ;
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array is empty!");
+        }
+
+        for (int i : array) {
+            if (i < 0) {
+                throw new IllegalArgumentException("Element of array is negative!");
+            }
+        }
+
+        int[] result;
+        result = array;
+
+        for (int i = 0; i < result.length; i++) {
+
+            double numbers = Math.sqrt(array[i]);
+
+            if (Math.floor(numbers) == numbers) {
+                result[i] = (int) numbers;
+            } else {
+                result[i] = array[i] * array[i];
+            }
+        }
+        return result;
     }
 
     @Override
