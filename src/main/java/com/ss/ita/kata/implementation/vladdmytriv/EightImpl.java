@@ -13,10 +13,12 @@ You get given the time in hours and you need to return the number of litres Nath
         return (int) (time / 2);
     }
 
+    /*   Bob needs a fast way to calculate the volume of a cuboid with three values:
+         length, width and the height of the cuboid. Write a function to help Bob with this calculation.  */
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length * width * height;
     }
 
     @Override
