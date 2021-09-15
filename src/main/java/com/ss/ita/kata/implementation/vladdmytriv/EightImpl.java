@@ -23,9 +23,7 @@ public class EightImpl implements Eight {
         return new int[0];
     }
 /*Given an array of integers.
-
 Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
-
 If the input array is empty or null, return an empty array.*/
 
     @Override
@@ -36,7 +34,8 @@ If the input array is empty or null, return an empty array.*/
         for (int j : input) {
             if (j >= 0) {
                 result[0]++;
-            } else {
+            }
+            else {
                 result[1] += j;
             }
         }
