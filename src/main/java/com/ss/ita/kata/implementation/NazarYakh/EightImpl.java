@@ -5,17 +5,28 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+        if (time <= 0.0) {
+            return 0;
+        }
+        return (int) time / 2;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        if (length < 0 || width < 0 || height < 0) {
+            return 0;
+        }
+        return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float imperialgallon = 4.54609188f;
+        float kminmiles = 1.609344f;
+        if (mpg <= 0) {
+            return 0;
+        }
+            return (float) Math.round(mpg * kminmiles/ imperialgallon *100)/100 ;
     }
 
     @Override
