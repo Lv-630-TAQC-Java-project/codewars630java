@@ -3,13 +3,19 @@ package com.ss.ita.kata.implementation.vladdmytriv;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
+    /*Nathan loves cycling.
+Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+You get given the time in hours and you need to return the number of litres Nathan
+ will drink, rounded to the smallest value.
+ */
     @Override
     public int liters(double time) {
-        return 0;
+        return (int) (time / 2);
     }
 
     /*   Bob needs a fast way to calculate the volume of a cuboid with three values:
          length, width and the height of the cuboid. Write a function to help Bob with this calculation.  */
+
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
         return length * width * height;
