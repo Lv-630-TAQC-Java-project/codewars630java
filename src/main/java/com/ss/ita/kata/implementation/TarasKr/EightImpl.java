@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.TarasKr;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
+ 
 	/**
 	 * Nathan loves cycling. Because Nathan knows it is important to stay hydrated,
 	 * he drinks 0.5 litres of water per hour of cycling. You get given the time in
@@ -20,11 +21,29 @@ public class EightImpl implements Eight {
 		}
 		return (int) (0.5 * time);
 	}
-   
-    @Override
-    public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
-    }
+
+    /**
+	 * Bob needs a fast way to calculate the volume of a cuboid with three values:
+	 * length, width and the height of the cuboid. Write a function to help Bob with
+	 * this calculation.
+	 * 
+	 * @param length A Length cuboid
+	 * @param width  A Width cuboid
+	 * @param height A Height cuboid
+	 * 
+	 * @exception IllegalArgumentException IF (length < 0 || width < 0 || height <
+	 *                                     0)
+	 * @return volume of cubboid
+	 * 
+	 */
+	@Override
+	public double getVolumeOfCuboid(double length, double width, double height) {
+		if (length < 0 || width < 0 || height < 0) {
+			throw new IllegalArgumentException("Illegal argument!");
+		}
+		return length * width * height;
+	}
+
 
     @Override
     public float mpgToKPM(float mpg) {
