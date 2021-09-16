@@ -3,20 +3,14 @@ package com.ss.ita.kata.implementation.vladdmytriv;
 import com.ss.ita.kata.Eight;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EightImpl implements Eight {
-    /*Nathan loves cycling.
-Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
-You get given the time in hours and you need to return the number of litres Nathan
- will drink, rounded to the smallest value.
- */
+
     @Override
     public int liters(double time) {
         return (int) (time / 2);
     }
-
-    /*   Bob needs a fast way to calculate the volume of a cuboid with three values:
-         length, width and the height of the cuboid. Write a function to help Bob with this calculation.  */
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
@@ -54,13 +48,17 @@ You get given the time in hours and you need to return the number of litres Nath
     }
 
     @Override
-    public ArrayList<Integer> divisibleBy(int[] numbers, int divider) {
-        ArrayList<Integer> result = new ArrayList<>();
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % divider == 0) {
-                result.add(i);
+    public int[] divisibleBy(int[] numbers, int divider) {
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i:numbers) {
+            if (i % divider == 0) {
+                list.add(i);
             }
         }
-        return result;
+        int[]result = new int[list.size()];
+        for (int k=0;k<list.size();k++){
+            result[k]= list.get(k);
+        }
+        return result ;
     }
 }
