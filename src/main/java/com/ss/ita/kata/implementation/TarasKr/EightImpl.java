@@ -72,16 +72,6 @@ public class EightImpl implements Eight {
 		return (float) Math.round(mpg * kmInMile / litresInGallon * 100) / 100;
 	}
 
-	@Override
-	public int[] squareOrSquareRoot(int[] array) {
-		return new int[0];
-	}
-
-	@Override
-	public int[] countPositivesSumNegatives(int[] input) {
-		return new int[0];
-	}
-
 	/**
 	 * We need a function that can transform a string into a number. What ways of
 	 * achieving this do you know?
@@ -91,12 +81,60 @@ public class EightImpl implements Eight {
 		return Integer.parseInt("str");
 	}
 
+	/**
+	 * Write a method, that will get an integer array as parameter and will process
+	 * every number from this array. Return a new array with processing every number
+	 * of the input-array like this:
+	 * 
+	 * If the number has an integer square root, take this, otherwise square the
+	 * number.
+	 * 
+	 * [4,3,9,7,2,1] -> [2,9,3,49,4,1] The input array will always contain only
+	 * positive numbers and will never be empty or null.
+	 * 
+	 * The input array should not be modified!
+	 * 
+	 * @param A array of int
+	 * @exception IllegalArgumentException whith message "Error. Length of array is
+	 *                                     0." if (array.length == 0)
+	 * @exception IllegalArgumentException whith message "Error. Elements of array
+	 *                                     is negative." if (arrayElement < 0)
+	 * 
+	 * @return If the number has an integer square root, take this, otherwise square
+	 *         the number.
+	 * 
+	 */
+	@Override
+	public int[] squareOrSquareRoot(int[] array) {
+		if (array.length == 0) {
+			throw new IllegalArgumentException("Error. Length of array is 0.");
+		}
+		for (int arrayElement : array) {
+			if (arrayElement < 0) {
+				throw new IllegalArgumentException("Error. Elements of array is negative.");
+			}
+
+		}
+		int[] resultArray = array;
+		for (int i = 0; i < resultArray.length; i++) {
+			resultArray[i] = Math.sqrt(resultArray[i]) % 1 == 0 ? (int) Math.sqrt(resultArray[i])
+					: resultArray[i] * resultArray[i];
+		}
+		return resultArray;
+	}
+
+	@Override
+	public int[] countPositivesSumNegatives(int[] input) {
+		return new int[0];
+	}
+
 	@Override
 	public boolean amIWilson(double n) {
 		return false;
 	}
 
 	@Override
+
 	public double twoDecimalPlaces(double number) {
 		return 0;
 	}
