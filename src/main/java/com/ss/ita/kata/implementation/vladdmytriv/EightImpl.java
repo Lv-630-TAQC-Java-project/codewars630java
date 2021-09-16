@@ -69,7 +69,8 @@ If the input array is empty or null, return an empty array.*/
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        int number = Integer.parseInt(str);
+        return number;
     }
 
     @Override
