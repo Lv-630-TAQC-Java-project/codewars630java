@@ -50,15 +50,15 @@ public class EightImpl implements Eight {
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
         List<Integer> list = new ArrayList<Integer>();
-        for (int i:numbers) {
+        for (int i : numbers) {
             if (i % divider == 0) {
                 list.add(i);
             }
         }
-        int[]result = new int[list.size()];
-        for (int k=0;k<list.size();k++){
-            result[k]= list.get(k);
+        int[] result = new int[list.size()];
+        for (int k = 0; k < list.size(); k++) {
+            result[k] = list.get(k);
         }
-        return result ;
+        return result;
     }
 }
