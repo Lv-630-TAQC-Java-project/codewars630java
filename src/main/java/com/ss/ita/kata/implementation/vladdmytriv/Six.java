@@ -3,16 +3,21 @@ package com.ss.ita.kata.implementation.vladdmytriv;
 public class Six implements com.ss.ita.kata.Six {
     @Override
     public long findNb(long m) {
-        int n = 0;
-        int i = 1;
-        do {
-            m -= Math.pow(i, 3);
-            n++;
+        for (int n = 0;;n++) {
+            if (m > 0) {
+                int cubeVol = (int) Math.pow(n + 1, 3);
+                m -= cubeVol;
+            } else {
+                if (m == 0) {
+                    return n;
+                } else {
+                    if (m >= 0) {
+                        return (-1);
+                    }
+                }
+            }
         }
-        while (m == 0);
-        return n;
     }
-
 
 
     @Override
