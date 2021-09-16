@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.Percifalll;
 
 import com.ss.ita.kata.Eight;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -35,7 +38,26 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        return true;
+    }
+
+    public static boolean w(double n) {
+        BigDecimal leftOperand = fact(n - 1).add(BigDecimal.ONE);
+        BigDecimal rightOperand = BigDecimal.valueOf(n*n);
+        BigDecimal result = leftOperand.divide(rightOperand, 10, RoundingMode.FLOOR);
+
+        return result.stripTrailingZeros().scale() <= 0;
+    }
+
+    private static BigDecimal fact(double n) {
+        BigDecimal result = BigDecimal.ONE;
+        for (int i = 2; i <= n; i++)
+            result = result.multiply(BigDecimal.valueOf(i));
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(w(521));
     }
 
     @Override
