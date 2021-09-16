@@ -7,5 +7,5 @@ public interface Seven {
 
     String seriesSum(int n);
 
-    ArrayList<Integer> whereIsHe(int p, int bef, int aft);
+   int whereIsHe(int p, int bef, int aft);
 }

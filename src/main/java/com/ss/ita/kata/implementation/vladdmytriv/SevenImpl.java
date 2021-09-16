@@ -16,17 +16,17 @@ public class SevenImpl implements Seven {
         return null;
     }
 
-    public ArrayList<Integer> whereIsHe(int p, int bef, int aft) {
-        ArrayList<Integer> positions = new ArrayList<>();
+    public int whereIsHe(int p, int bef, int aft) {
+        int count = 0;
         int a = 0;
         int b = 0;
         for (int i = 1; i <= p; i++) {
             a=i-1;
             b=p-i;
             if (a >=bef && b <=aft){
-                positions.add(i);
+                count++;
             }
         }
-        return positions;
+        return count;
     }
 }

@@ -2,7 +2,7 @@ package com.ss.ita.kata.implementation.TarasKr;
 
 import com.ss.ita.kata.Seven;
 
-import java.util.ArrayList;
+
 
 public class SevenImpl implements Seven {
     @Override
@@ -16,7 +16,7 @@ public class SevenImpl implements Seven {
     }
 
     @Override
-    public ArrayList<Integer> whereIsHe(int p, int bef, int aft) {
-        return null;
+    public int whereIsHe(int p, int bef, int aft) {
+        return 0;
     }
 }
