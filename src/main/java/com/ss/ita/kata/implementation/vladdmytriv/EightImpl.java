@@ -19,17 +19,11 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        final float litresInGallon = 4.54609188f;
+        final float kmInMile = 1.609344f;
+
+        return (float) Math.round ((mpg*kmInMile/litresInGallon)*100)/100;
     }
-/*Write a method, that will get an integer array as parameter and will process every number from this array.
-Return a new array with processing every number of the input-array like this:
-
-If the number has an integer square root, take this, otherwise square the number.
-
-[4,3,9,7,2,1] -> [2,9,3,49,4,1]
-The input array will always contain only positive numbers and will never be empty or null.
-
-The input array should not be modified!*/
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
@@ -43,9 +37,6 @@ The input array should not be modified!*/
         }
         return array;
     }
-/*Given an array of integers.
-Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
-If the input array is empty or null, return an empty array.*/
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
