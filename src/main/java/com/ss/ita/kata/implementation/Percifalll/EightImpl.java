@@ -28,9 +28,15 @@ public class EightImpl implements Eight {
         return new int[0];
     }
 
+    /**
+     * We need a function that can transform a string into a number.
+     * What ways of achieving this do you know?
+     */
     @Override
-    public int stringToNumber(String str) {
-        return 0;
+    public int stringToNumber(String str){
+        return Integer.parseInt(str);
+        //or
+        //return new Integer(str);
     }
 
     @Override
