@@ -25,10 +25,27 @@ You get given the time in hours and you need to return the number of litres Nath
     public float mpgToKPM(float mpg) {
         return 0;
     }
+/*Write a method, that will get an integer array as parameter and will process every number from this array.
+Return a new array with processing every number of the input-array like this:
+
+If the number has an integer square root, take this, otherwise square the number.
+
+[4,3,9,7,2,1] -> [2,9,3,49,4,1]
+The input array will always contain only positive numbers and will never be empty or null.
+
+The input array should not be modified!*/
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for (int i=0;i< array.length;i++){
+           if (Math.sqrt(array[i])%1==0){
+               array[i]= (int) Math.sqrt(array[i]);
+            }
+           else{
+               array[i]= (int) Math.pow(array[i],2);
+           }
+        }
+        return array;
     }
 
     @Override
