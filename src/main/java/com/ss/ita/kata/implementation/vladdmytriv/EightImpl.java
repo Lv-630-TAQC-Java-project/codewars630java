@@ -89,7 +89,7 @@ If the input array is empty or null, return an empty array.*/
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.round((number*100)/100);
     }
 
     @Override
