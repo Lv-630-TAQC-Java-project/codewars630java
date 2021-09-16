@@ -3,7 +3,7 @@ package com.ss.ita.kata.implementation.TarasKr;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
- 
+
 	/**
 	 * Nathan loves cycling. Because Nathan knows it is important to stay hydrated,
 	 * he drinks 0.5 litres of water per hour of cycling. You get given the time in
@@ -22,7 +22,7 @@ public class EightImpl implements Eight {
 		return (int) (0.5 * time);
 	}
 
-    /**
+	/**
 	 * Bob needs a fast way to calculate the volume of a cuboid with three values:
 	 * length, width and the height of the cuboid. Write a function to help Bob with
 	 * this calculation.
@@ -43,7 +43,6 @@ public class EightImpl implements Eight {
 		}
 		return length * width * height;
 	}
-
 
 	/**
 	 * Sometimes, I want to quickly be able to convert miles per imperial gallon
@@ -73,34 +72,38 @@ public class EightImpl implements Eight {
 		return (float) Math.round(mpg * kmInMile / litresInGallon * 100) / 100;
 	}
 
-    @Override
-    public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
-    }
+	@Override
+	public int[] squareOrSquareRoot(int[] array) {
+		return new int[0];
+	}
 
-    @Override
-    public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
-    }
+	@Override
+	public int[] countPositivesSumNegatives(int[] input) {
+		return new int[0];
+	}
 
-    @Override
-    public int stringToNumber(String str) {
-        return 0;
-    }
+	/**
+	 * We need a function that can transform a string into a number. What ways of
+	 * achieving this do you know?
+	 */
+	@Override
+	public int stringToNumber(String str) {
+		return Integer.parseInt("str");
+	}
 
-    @Override
-    public boolean amIWilson(double n) {
-        return false;
-    }
+	@Override
+	public boolean amIWilson(double n) {
+		return false;
+	}
 
-    @Override
-    public double twoDecimalPlaces(double number) {
-        return 0;
-    }
+	@Override
+	public double twoDecimalPlaces(double number) {
+		return 0;
+	}
 
-    @Override
-    public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
-    }
+	@Override
+	public int[] divisibleBy(int[] numbers, int divider) {
+		return new int[0];
+	}
 
 }
