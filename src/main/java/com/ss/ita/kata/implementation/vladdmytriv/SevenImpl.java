@@ -16,7 +16,6 @@ public class SevenImpl implements Seven {
         return null;
     }
 
-    @Override
     public ArrayList<Integer> whereIsHe(int p, int bef, int aft) {
         ArrayList<Integer> positions = new ArrayList<>();
         int a = 0;

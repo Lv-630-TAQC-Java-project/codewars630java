@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.YevgenAleksandrovich;
 
 import com.ss.ita.kata.Seven;
 
+import java.util.ArrayList;
+
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
@@ -14,7 +16,7 @@ public class SevenImpl implements Seven {
     }
 
     @Override
-    public int whereIsHe(int p, int bef, int aft) {
-        return 0;
+    public ArrayList<Integer> whereIsHe(int p, int bef, int aft) {
+        return null;
     }
 }
