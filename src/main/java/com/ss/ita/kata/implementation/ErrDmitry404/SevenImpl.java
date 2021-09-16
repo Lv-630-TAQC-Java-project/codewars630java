@@ -2,8 +2,6 @@ package com.ss.ita.kata.implementation.ErrDmitry404;
 
 import com.ss.ita.kata.Seven;
 
-
-
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
