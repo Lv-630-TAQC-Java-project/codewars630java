@@ -3,8 +3,17 @@ package com.ss.ita.kata.implementation.vladdmytriv;
 public class Six implements com.ss.ita.kata.Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        int n = 0;
+        int i = 1;
+        do {
+            m -= Math.pow(i, 3);
+            n++;
+        }
+        while (m == 0);
+        return n;
     }
+
+
 
     @Override
     public String balance(String book) {
