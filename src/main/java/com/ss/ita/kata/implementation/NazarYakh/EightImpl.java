@@ -1,6 +1,7 @@
 package com.ss.ita.kata.implementation.NazarYakh;
-
+import java.util.ArrayList;
 import com.ss.ita.kata.Eight;
+
 
 public class EightImpl implements Eight {
     @Override
@@ -26,7 +27,7 @@ public class EightImpl implements Eight {
         if (mpg <= 0) {
             return 0;
         }
-            return (float) Math.round(mpg * kminmiles/ imperialgallon *100)/100 ;
+        return (float) Math.round(mpg * kminmiles / imperialgallon * 100) / 100;
     }
 
     @Override
@@ -46,7 +47,12 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        for (int j = 2; j < n; j++) {
+            if (n % j == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -56,6 +62,13 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> result = new ArrayList<>();
+//        int result = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0){
+                result.add(i);
+            }
+        }
+        return null;
     }
 }
