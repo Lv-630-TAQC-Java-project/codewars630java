@@ -1,5 +1,5 @@
 package com.ss.ita.kata.implementation.NazarYakh;
-
+import java.util.*;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
@@ -26,7 +26,7 @@ public class EightImpl implements Eight {
         if (mpg <= 0) {
             return 0;
         }
-        return (float) Math.round(mpg * kminmiles/ imperialgallon *100)/100 ;
+        return (float) Math.round(mpg * kminmiles / imperialgallon * 100) / 100;
     }
 
     @Override
@@ -86,11 +86,20 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return (double) Math.round(number*100)/100;
+        return (double) Math.round(number * 100) / 100;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+
+        List<Integer> list = new ArrayList<>();
+
+        for (int element : numbers) {
+            if (element % divider == 0) {
+                list.add(element);
+            }
+        }
+
+        return  list.stream().mapToInt(i->i).toArray();
     }
 }
