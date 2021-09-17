@@ -1,9 +1,18 @@
 package com.ss.ita.kata.implementation.NazarYakh;
 
-public class Six implements com.ss.ita.kata.Six {
+public class SixImpl implements com.ss.ita.kata.Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        long num = 0;
+        long sum = 0;
+        while(sum < m){
+            num += 1;
+            sum +=  (num*num*num);
+        }
+        if(sum == m){
+            return num;
+        }
+        return -1;
     }
 
     @Override
