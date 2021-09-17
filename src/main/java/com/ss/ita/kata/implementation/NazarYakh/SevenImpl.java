@@ -15,6 +15,15 @@ public class SevenImpl implements Seven {
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return 0;
+//        return (p-bef);
+        int result;
+
+        if (bef > aft){
+            result = Math.min(p-bef, p-aft);
+        } else {
+            result = Math.max(p-bef, p-aft);
+        }
+
+        return result;
     }
 }
