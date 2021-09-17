@@ -45,6 +45,7 @@ public class EightImpl implements Eight {
                 break;
             }
         }
+        if (n==1) isPrime = false;
         for (int j = 1; j < n; j++) {
             i = i * j;
         }
