@@ -35,6 +35,15 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
+        if (n > 1) {
+            double fact_n = n-1;
+            double sum = 1;
+            while (fact_n>1){
+                sum*=fact_n;
+                fact_n--;
+            }
+            return ((sum + 1) / (n * n)) % 1 == 0;
+        }
         return false;
     }
 
