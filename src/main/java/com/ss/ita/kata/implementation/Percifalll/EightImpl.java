@@ -88,14 +88,33 @@ public class EightImpl implements Eight {
         return result;
     }
 
+    /**
+     * Given an array of integers.
+     * Return an array, where the first element is the count of positives numbers
+     * and the second element is sum of negative numbers.
+     * If the input array is empty or null, return an empty array.
+     */
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) return new int[] {};
+        int count = 0, sum = 0;
+
+        for (int element : input) {
+            if (element > 0) count++;
+            if (element < 0) sum += element;
+        }
+        return new int[] {count, sum};
     }
 
+    /**
+     * We need a function that can transform a string into a number.
+     * What ways of achieving this do you know?
+     */
     @Override
-    public int stringToNumber(String str) {
-        return 0;
+    public int stringToNumber(String str){
+        return Integer.parseInt(str);
+        //or
+        //return new Integer(str);
     }
 
     @Override
