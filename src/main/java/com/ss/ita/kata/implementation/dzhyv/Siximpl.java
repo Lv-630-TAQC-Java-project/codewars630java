@@ -3,7 +3,15 @@ package com.ss.ita.kata.implementation.dzhyv;
 public class Siximpl implements com.ss.ita.kata.Six {
     @Override
     public long findNb(long m) {
-        return 0;
+    	long n = 0;
+        long sum = 0;
+        long count = 0;
+        while (sum < m){
+          count++;
+          n = count * count * count;
+          sum = sum + n;
+          }
+        return sum == m ? count : -1;
     }
 
     @Override
