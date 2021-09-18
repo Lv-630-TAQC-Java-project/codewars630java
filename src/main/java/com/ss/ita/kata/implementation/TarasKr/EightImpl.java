@@ -1,9 +1,11 @@
 package com.ss.ita.kata.implementation.TarasKr;
 
+import java.math.BigDecimal;
+
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
- 
+
 	/**
 	 * Nathan loves cycling. Because Nathan knows it is important to stay hydrated,
 	 * he drinks 0.5 litres of water per hour of cycling. You get given the time in
@@ -22,7 +24,7 @@ public class EightImpl implements Eight {
 		return (int) (0.5 * time);
 	}
 
-    /**
+	/**
 	 * Bob needs a fast way to calculate the volume of a cuboid with three values:
 	 * length, width and the height of the cuboid. Write a function to help Bob with
 	 * this calculation.
@@ -43,7 +45,6 @@ public class EightImpl implements Eight {
 		}
 		return length * width * height;
 	}
-
 
 	/**
 	 * Sometimes, I want to quickly be able to convert miles per imperial gallon
@@ -73,34 +74,60 @@ public class EightImpl implements Eight {
 		return (float) Math.round(mpg * kmInMile / litresInGallon * 100) / 100;
 	}
 
-    @Override
-    public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
-    }
+	@Override
+	public int[] squareOrSquareRoot(int[] array) {
+		return new int[0];
+	}
 
-    @Override
-    public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
-    }
+	@Override
+	public int[] countPositivesSumNegatives(int[] input) {
+		return new int[0];
+	}
 
-    @Override
-    public int stringToNumber(String str) {
-        return 0;
-    }
+	@Override
+	public int stringToNumber(String str) {
+		return 0;
+	}
 
-    @Override
-    public boolean amIWilson(double n) {
-        return false;
-    }
+	/**
+	 * Wilson primes satisfy the following condition. Let P represent a prime
+	 * number.
+	 * 
+	 * Then ((P-1)! + 1) / (P * P) should give a whole number.
+	 * 
+	 * Your task is to create a function that returns true if the given number is a
+	 * Wilson prime.
+	 * 
+	 * @param n input double
+	 * @retun true if n is Wilson prime? false if n not Wilson prime
+	 */
+	@Override
+	public boolean amIWilson(double n) {
+		BigDecimal factorial = BigDecimal.ONE;
+		if (n == 1) {
+			return false;
+		}
+		for (int i = 1; i <= n - 1; i++) {
+			factorial = factorial.multiply(BigDecimal.valueOf(i));
+		}
+		try {
+			return ((factorial.add(BigDecimal.ONE)).divide(BigDecimal.valueOf((long) Math.pow(n, 2)))).scale() == 0
+					? true
+					: false;
+		} catch (ArithmeticException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
-    @Override
-    public double twoDecimalPlaces(double number) {
-        return 0;
-    }
+	@Override
+	public double twoDecimalPlaces(double number) {
+		return 0;
+	}
 
-    @Override
-    public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
-    }
+	@Override
+	public int[] divisibleBy(int[] numbers, int divider) {
+		return new int[0];
+	}
 
 }
