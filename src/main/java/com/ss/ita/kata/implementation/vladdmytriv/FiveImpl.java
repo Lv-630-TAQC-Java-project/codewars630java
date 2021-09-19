@@ -10,9 +10,27 @@ public class FiveImpl implements Five {
         return 0;
     }
 
+    private static boolean prime(long i) {
+        for (long j = 2; j < i / 2; j++) {
+            if (i % j == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long x = 0;
+        for (long i = m; i <= n; i++) {
+            if (prime(i)) {
+                if (i - x == g) {
+                    return new long[] { x, i };
+                }
+                x = i;
+            }
+        }
+        return null;
     }
 
     @Override
