@@ -9,39 +9,43 @@ import java.util.List;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-        System.out.println(v.length);
         if (v.length == 0) return 0;
         if (v.length == 1) return 1;
+        int max = 0;
 
-        int iterationMax = 1;
-        int max = iterationMax;
-        int start = 0;
-        int current = v[0];
-        for (int i = 1; i < v.length; i++) {
-            if (current >= v[i]) iterationMax++;
-            else {
-                iterationMax += checkBehind(v, start);
-                max = Math.max(iterationMax, max);
-                iterationMax = 1;
-                start = i;
-            }
-            if (i == v.length - 1) iterationMax+= checkBehind(v,start);
-            max = Math.max(iterationMax, max);
-            current = v[i];
+        for (int i = 0; i < v.length; ) {
+            int[] result = getRangeSum(v, i);
+            if (result[0] > max) max = result[0];
+            i = result[1];
         }
 
         return max;
     }
 
-    private static int checkBehind(int[] array, int index) {
-        int sum = 0;
-        int current = array[index];
-        for (int i = index - 1; i >= 0; i--) {
-            if (current >= array[i]) sum++;
-            else break;
-            current = array[i];
+    private static int[] getRangeSum(int[] v, int index) {
+        boolean isReachableLeft = true, isReachableRight = true;
+        int sum = 1;
+        int i = index, j = index;
+        while (isReachableLeft || isReachableRight) {
+            if (i >= v.length - 1) isReachableRight = false;
+            if (j < 1) isReachableLeft = false;
+
+            if (isReachableRight && v[i] >= v[i + 1]) sum++;
+            else isReachableRight = false;
+
+            if (isReachableLeft && v[j] >= v[j - 1]) sum++;
+            else isReachableLeft = false;
+
+            if (isReachableLeft) j--;
+            if (isReachableRight) i++;
         }
-        return sum;
+        return new int[]{sum, i+1};
+    }
+
+    public static void main(String[] args) {
+        int[] a = new int[]{1, 2, 1, 2, 1};
+        FiveImpl x = new FiveImpl();
+        System.out.println(x.artificialRain(a));
     }
 
     @Override
