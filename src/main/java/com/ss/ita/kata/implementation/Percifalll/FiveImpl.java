@@ -36,12 +36,6 @@ public class FiveImpl implements Five {
         return sum.multiply(BigInteger.valueOf(4));
     }
 
-    public static void main(String[] args) {
-        FiveImpl a = new FiveImpl();
-        BigInteger number = new BigInteger("5");
-        System.out.println(a.perimeter(number));
-    }
-
     @Override
     public double solveSum(double m) {
         return 0;
