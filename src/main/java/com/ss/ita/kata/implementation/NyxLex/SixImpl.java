@@ -12,6 +12,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
         long x = 1;
         long y = 0;
         while (y<=m) {
+
             y += Math.pow(x, 3);
             if (y == m) return x;
             x += 1;
