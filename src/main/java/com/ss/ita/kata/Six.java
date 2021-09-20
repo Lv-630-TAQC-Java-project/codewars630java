@@ -1,13 +1,15 @@
 package com.ss.ita.kata;
 
-public interface Six {
-    long findNb(long m);
+import java.util.List;
 
-    String balance(String book);
+public interface Six {
+    long findNb(double m);
+
+    String balance(String book, String redactedBook);
 
     double f(double x);
 
-    double mean(String town, String strng);
+    static abstract List<Double> mean(String town, String strng);
 
     double variance(String town, String strng);
 
