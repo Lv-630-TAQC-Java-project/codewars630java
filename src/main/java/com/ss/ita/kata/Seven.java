@@ -1,9 +1,12 @@
 package com.ss.ita.kata;
 
 public interface Seven {
+
+    static int WhereIsHe(int p, int bef, int aft);
+
     long newAvg(double[] arr, double navg);
 
-    String seriesSum(int n);
+    int seriesSum(int n);
 
-    int whereIsHe(int p, int bef, int aft);
+    void whereIsHe(int p, int bef, int aft);
 }

@@ -1,8 +1,10 @@
 package com.ss.ita.kata.implementation.YevgenAleksandrovich;
 
 public class Six implements com.ss.ita.kata.Six {
+
     @Override
     public long findNb(long m) {
+
         return 0;
     }
 
@@ -18,21 +20,25 @@ public class Six implements com.ss.ita.kata.Six {
 
     @Override
     public double mean(String town, String strng) {
+
         return 0;
     }
 
     @Override
     public double variance(String town, String strng) {
+
         return 0;
     }
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
+
         return null;
     }
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
+
         return null;
     }
 }

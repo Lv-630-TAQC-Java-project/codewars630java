@@ -1,7 +1,9 @@
 package com.ss.ita.kata;
 
 public interface Eight {
-    int liters(final double time);
+    abstract <time> int liters(double time);
+
+    <time> int liters(double, time);
 
     double getVolumeOfCuboid(final double length, final double width, final double height);
 

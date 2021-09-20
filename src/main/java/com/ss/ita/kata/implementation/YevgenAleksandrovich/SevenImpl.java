@@ -112,4 +112,5 @@ public abstract class SevenImpl<function> implements Seven {
             }
             return ;
         }
-
+    }
+    */
