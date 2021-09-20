@@ -1,5 +1,8 @@
 package com.ss.ita.kata.implementation.TarasKr;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
@@ -162,10 +165,46 @@ public class EightImpl implements Eight {
 		return 0;
 	}
 
+	/**
+	 * Complete the function which takes two arguments and returns all numbers which
+	 * are divisible by the given divisor. First argument is an array of numbers and
+	 * the second is the divisor.
+	 * 
+	 * @param int[]   numbers A array of int
+	 * @param diveder int divider
+	 * @exception IllegalArgumentException if (numbers == null || numbers.length ==
+	 *                                     0) whith message "Error. Array is null or
+	 *                                     empty"
+	 * 
+	 * @exception IllegalArgumentException if (divider == 0) whith message "Error.
+	 *                                     Array is null or empty"
+	 * 
+	 * @return array number which divisible whith divisor
+	 * 
+	 */
 	@Override
 
 	public int[] divisibleBy(int[] numbers, int divider) {
-		return new int[0];
+		if (numbers == null || numbers.length == 0) {
+			throw new IllegalArgumentException("Error. Array is null or empty");
+
+		}
+		if (divider == 0) {
+			throw new IllegalArgumentException("Error. Argument is 0.");
+
+		}
+		List<Integer> ls = new ArrayList<Integer>();
+		for (int elementNumbers : numbers) {
+			if (elementNumbers % divider == 0) {
+				ls.add(elementNumbers);
+			}
+		}
+
+		int[] resArray = new int[ls.size()];
+		for (int i = 0; i < ls.size(); i++) {
+			resArray[i] = ls.get(i);
+		}
+		return resArray;
 	}
 
 }
