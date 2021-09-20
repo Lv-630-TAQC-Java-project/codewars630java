@@ -41,14 +41,12 @@ public class FiveImpl implements Five {
         for (int i = 0; i < arr.length; i++) {
            arr[i]= Long.parseLong(digits[i]);
         }
-
         for (int i = 1; i < arr.length; i++) {
             if(arr[i]<=min) {
                 min=arr[i];
                 indexMinList.add(i);
             }
         }
-
         long c = arr[0];
         arr[0]=arr[indexMinList.get(indexMinList.size()-1)];
         arr[indexMinList.get(indexMinList.size()-1)]=c;
@@ -66,7 +64,6 @@ public class FiveImpl implements Five {
                 list.remove(i);
             }
         }
-
         long[] res = new long[list.size()];
         for (int i = 0; i < list.size(); i++) {
             res[i]=list.get(i);
