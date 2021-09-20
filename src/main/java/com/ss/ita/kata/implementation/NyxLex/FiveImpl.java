@@ -22,7 +22,19 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        int per;
+        int size = n.intValue();
+        int[] arr = new int[size+1];
+        arr[0] = 1;
+        arr[1] = 1;
+        int sum = 0;
+        for (int i = 2; i < arr.length; i++) {
+                arr[i] += arr[i-2]+arr[i-1];
+                sum+=arr[i];
+
+        }
+        per = 4*(sum+2);
+        return BigInteger.valueOf(per);
     }
 
     @Override
