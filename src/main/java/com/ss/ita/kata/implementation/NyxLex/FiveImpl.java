@@ -27,7 +27,9 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        double res = (2*m+1-Math.sqrt(4*m+1))/(2*m);
+        if (res > 1 || res < 0 ) throw new IllegalArgumentException() ;
+        return  res;
     }
 
     @Override
