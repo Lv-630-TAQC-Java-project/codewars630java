@@ -17,7 +17,18 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+
+
+        if (n < 0)
+            throw new IllegalArgumentException();
+        // 125/5=25 25/5=5 5/5=1 25+5+1=31
+        // 125/5=25 125/25=5 125/125=1 25+5+1=31
+        int trailingZeros = 0;
+
+        for (int i = 5; n / i >= 1; i *= 5)
+            trailingZeros += n / i;
+
+        return trailingZeros;
     }
 
     @Override
