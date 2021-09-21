@@ -99,6 +99,20 @@ public class Siximpl implements com.ss.ita.kata.Six {
 
 	@Override
 	public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-		return null;
+		if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
+			return "";
+		}
+		String returnString = "";
+		for (String firstLetter : lstOf1stLetter) {
+			int sum = 0;
+			for (String art : lstOfArt) {
+				if (art.charAt(0) == firstLetter.charAt(0)) {
+					String[] split = art.split(" ");
+					sum = sum + Integer.parseInt(split[1]);
+				}
+			}
+			returnString = returnString + "(" + firstLetter + " : " + sum + ") - ";
+		}
+		return returnString.substring(0, returnString.length() - 3);
 	}
 }
