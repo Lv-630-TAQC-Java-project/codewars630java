@@ -73,6 +73,43 @@ public class EightImpl implements Eight {
 	}
 
 	/**
+	 * Given an array of integers.
+	 * 
+	 * Return an array, where the first element is the count of positives numbers
+	 * and the second element is sum of negative numbers.
+	 * 
+	 * If the input array is empty or null, return an empty array.
+	 * 
+	 * Example For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15],
+	 * you should return [10, -65].
+	 */
+	@Override
+	public int[] countPositivesSumNegatives(int[] input) {
+		int[] resultArray = { 0, 0 };
+		if (input == null || input.length == 0) {
+			return new int[0];
+		}
+
+		for (int arrayElement : input) {
+			if (arrayElement > 0) {
+				resultArray[0] += 1;
+			} else {
+				resultArray[1] += arrayElement;
+			}
+		}
+		return resultArray;
+	}
+	
+	/**
+	 * We need a function that can transform a string into a number. What ways of
+	 * achieving this do you know?
+	 */
+	@Override
+	public int stringToNumber(String str) {
+		return Integer.parseInt("str");
+	}
+
+	/**
 	 * Write a method, that will get an integer array as parameter and will process
 	 * every number from this array. Return a new array with processing every number
 	 * of the input-array like this:
@@ -115,26 +152,18 @@ public class EightImpl implements Eight {
 	}
 
 	@Override
-	public int[] countPositivesSumNegatives(int[] input) {
-		return new int[0];
-	}
-
-	@Override
-	public int stringToNumber(String str) {
-		return 0;
-	}
-
-	@Override
 	public boolean amIWilson(double n) {
 		return false;
 	}
 
 	@Override
+
 	public double twoDecimalPlaces(double number) {
 		return 0;
 	}
 
 	@Override
+
 	public int[] divisibleBy(int[] numbers, int divider) {
 		return new int[0];
 	}
