@@ -6,6 +6,8 @@ import java.math.BigInteger;
 
 public class FiveImpl implements Five {
 
+    private BigInteger n;
+
     /**Little Petya often visits his grandmother in the countryside. The grandmother has a large vertical garden, which can be represented as a set of n rectangles of varying height. Due to the newest irrigation system we can create artificial rain above them.
 
      Creating artificial rain is an expensive operation. That's why we limit ourselves to creating the artificial rain only above one section. The water will then flow to the neighbouring sections but only if each of their heights does not exceed the height of the previous watered section.
@@ -143,6 +145,7 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
+        this.n = n;
         int k= n.intValue()+1;
         int[] f = new int[k];
         f[0] = 1;
