@@ -1,6 +1,6 @@
 package com.ss.ita.kata.implementation.VladGranat;
 
-public class Six implements com.ss.ita.kata.Six {
+public class SixImpl implements com.ss.ita.kata.Six {
     @Override
     public long findNb(long m) {
         return 0;
