@@ -152,7 +152,7 @@ public class FiveImpl implements Five {
             f[i] = f[i - 1] + f[i - 2];
             sum+=f[i];
         }
-
+        //
         return BigInteger.valueOf(sum*4);
     }
 /**Consider the sequence U(n, x) = x + 2x**2 + 3x**3 + .. + nx**n where x is a real number and n a positive integer.
