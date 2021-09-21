@@ -18,7 +18,7 @@ public class FiveImpl implements Five {
      The most optimal choice will be either of the sections with the height of 3 because the water will flow to its neighbours covering 4 sections altogether: 2, 3, 3, 2. You can see this process in the following illustration:*/
     @Override
     public int artificialRain(int[] v) {
-
+    //
         int rain = 1;
         int count = 1;
         int start = 0;
