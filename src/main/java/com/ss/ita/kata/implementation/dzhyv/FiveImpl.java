@@ -17,7 +17,11 @@ public class FiveImpl implements Five {
 
 	@Override
 	public int zeros(int n) {
-		return 0;
+		int count = 0;
+		for (int i = 5; n / i >= 1; i = i * 5) {
+			count = count + n / i;
+		}
+		return count;
 	}
 
 	@Override
