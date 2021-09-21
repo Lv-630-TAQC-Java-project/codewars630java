@@ -62,7 +62,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
             if (toFindScore == otherScore) draws++;
             if (toFindScore > otherScore) wins++;
-            else loses++;
+            if (toFindScore < otherScore) loses++;
 
             scored += toFindScore;
             conceded += otherScore;
