@@ -13,7 +13,7 @@ public class Six implements com.ss.ita.kata.Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x / (1 + Math.sqrt(x + 1));
     }
 
     @Override
