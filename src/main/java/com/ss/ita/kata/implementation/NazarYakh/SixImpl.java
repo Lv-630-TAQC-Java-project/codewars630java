@@ -1,6 +1,8 @@
 package com.ss.ita.kata.implementation.NazarYakh;
 
+
 public class SixImpl implements com.ss.ita.kata.Six {
+
     @Override
     public long findNb(long m) {
         return 0;
