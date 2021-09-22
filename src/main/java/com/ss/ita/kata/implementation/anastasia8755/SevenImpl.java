@@ -15,6 +15,6 @@ public class SevenImpl implements Seven {
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return 0;
+        return p - Math.max(bef + 1, p - aft) + 1;
     }
 }
