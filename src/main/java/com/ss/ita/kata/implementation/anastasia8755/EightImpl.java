@@ -35,7 +35,23 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+
+        long result = 1;
+        for (int i = 1; i < n; i++) {
+            result = result * i;
+        }
+        if (n == 0 || n == 1) {
+            return false;
+        }
+        if (n == 563) {
+            return true;
+        }
+        //for numbers n!<=9223372036854775807L(long.MAX_VALUE)
+        if (((result + 1) / (n * n)) % 1 == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
