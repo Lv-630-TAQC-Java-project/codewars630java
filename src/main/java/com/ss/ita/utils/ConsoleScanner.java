@@ -80,26 +80,56 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public BigDecimal readBigDecimal() {
-        return null;
+        while(true){
+            if (scanner.hasNext()){
+                return scanner.nextBigDecimal();
+            } else {
+                System.out.println("Incorrect input! Please enter BigDecimal.");
+            }
+        }
     }
 
     @Override
     public double[] readDoubleArray() {
-        return new double[0];
+        while(true){
+            if (scanner.hasNext()){
+                return new double[]{scanner.nextDouble()};
+            } else {
+                System.out.println("Incorrect input! Please enter double[].");
+            }
+        }
     }
 
     @Override
     public int[] readIntArray() {
-        return new int[0];
+        while(true){
+            if (scanner.hasNext()){
+                return new int[]{scanner.nextInt()};
+            } else {
+                System.out.println("Incorrect input! Please enter int[].");
+            }
+        }
     }
 
     @Override
     public String[] onlyForStockSummaryMethod() {
-        return new String[0];
+        while(true){
+            if (scanner.hasNext()){
+                return new String[]{scanner.next()};
+            } else {
+                System.out.println("Incorrect input! Please enter String[].");
+            }
+        }
     }
 
     @Override
     public String[] readStringArray() {
-        return new String[0];
+        while(true){
+            if (scanner.hasNext()){
+                return new String[]{scanner.next()};
+            } else {
+                System.out.println("Incorrect input! Please enter String[].");
+            }
+        }
     }
 }
