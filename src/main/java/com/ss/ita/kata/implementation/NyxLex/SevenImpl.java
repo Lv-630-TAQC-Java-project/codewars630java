@@ -5,16 +5,42 @@ import com.ss.ita.kata.Seven;
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
-        return 0;
+        double sum = 0;
+        for (double i:arr) {
+                sum+=i;
+        }
+        long result = (long) Math.ceil(navg*(arr.length+1)-sum);
+        if (result<0) throw new IllegalArgumentException();
+        return result;
     }
 
     @Override
     public String seriesSum(int n) {
-        return null;
+        int counter = 4;
+        double sum=1;
+
+        for (int i = 1; i < n; i++) {
+            sum+=(double) 1/counter;
+            counter+=3;
+
+        }
+        double scale = Math.pow(10, 2);
+
+        return String.valueOf(Math.round(sum * scale) / scale);
     }
 
     @Override
-    public int whereIsHe(int p, int bef, int aft) {
-        return 0;
+    public int whereIsHe(int p, int bef, int aft) {  
+      int counter=0;
+          int a,b;
+          for(int i=1;i<=p;i++)
+          {
+           a=i-1;
+           b=p-i;
+           if(a>=bef && b<=aft){
+                counter++;
+             }
+           }
+          return counter;
     }
 }
