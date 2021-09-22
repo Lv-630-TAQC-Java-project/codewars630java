@@ -17,17 +17,45 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+
+
+        if (n < 0)
+            throw new IllegalArgumentException();
+        // 125/5=25 25/5=5 5/5=1 25+5+1=31
+        // 125/5=25 125/25=5 125/125=1 25+5+1=31
+        int trailingZeros = 0;
+
+        for (int i = 5; n / i >= 1; i *= 5)
+            trailingZeros += n / i;
+
+        return trailingZeros;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+
+
+        int number = n.intValue();
+        int total = 0;
+        int first = 1;
+        int second = 1;
+        int third;
+
+        for (int i = 0; i < number + 1; i++) {
+            third = first + second;
+            total += first;
+            first = second;
+            second = third;
+        }
+
+        return BigInteger.valueOf((total) * 4);
     }
 
     @Override
     public double solveSum(double m) {
-        return 0;
+
+        double s = Math.sqrt(4 * m + 1);
+        return (2 * m + 1 - s) / (2 * m);
     }
 
     @Override
