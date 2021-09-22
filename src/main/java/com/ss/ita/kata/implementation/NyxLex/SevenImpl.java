@@ -16,7 +16,17 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        return null;
+        int counter = 4;
+        double sum=1;
+
+        for (int i = 1; i < n; i++) {
+            sum+=(double) 1/counter;
+            counter+=3;
+
+        }
+        double scale = Math.pow(10, 2);
+
+        return String.valueOf(Math.round(sum * scale) / scale);
     }
 
     @Override
