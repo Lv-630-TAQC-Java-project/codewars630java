@@ -43,8 +43,43 @@ public class Runner {
     }
     public void TASK_8_3() {}
     public void TASK_8_4() {}
-    public void TASK_8_5() {}
-    public void TASK_8_6() {}
+    /**
+     * Count of positives, sum of negatives
+     */
+    public void TASK_8_5() {
+        System.out.println("\n" +
+                "Given an array of integers.\n" +
+                "Return an array, where the first element is the count of positives numbers\n" +
+                "and the second element is sum of negative numbers."
+        );
+
+        int[] array = scanner.readIntArray();
+
+        int[] result = eight.countPositivesSumNegatives(array);
+
+        System.out.println(
+                String.format("Your array contains %d positive numbers\n" +
+                        "and %d is the sum of negatives", result[0], result[1])
+        );
+    }
+    /**
+     * String into a number
+     */
+    public void TASK_8_6() {
+        System.out.print(
+                "Its a function that can transform a string into a number.\n" +
+                        "Enter your number:"
+        );
+
+        String input = scanner.readString();
+
+        try {
+            int result = eight.stringToNumber(input);
+            System.out.println("Your number is " + result);
+        } catch (Exception exception) {
+            System.out.println("Its not a number");
+        }
+    }
     public void TASK_8_7() {}
     public void TASK_8_8() {}
     public void TASK_8_9() {
@@ -96,7 +131,20 @@ public class Runner {
     	System.out.println("Result: " + res);
     }
 
-    public void TASK_5_1() {}
+    /**
+     * Artificial rain
+     */
+    public void TASK_5_1() {
+        System.out.println("Garden, which can be represented as a set of n rectangles of varying height.\n" +
+                "Due to the newest irrigation system we can create artificial rain above them.\n" +
+                "Enter int array that will represent a set of rectangles"
+        );
+
+        int[] array = scanner.readIntArray();
+        int result = five.artificialRain(array);
+
+        System.out.println("The maximum number of watered sections - " + result);
+    }
     public void TASK_5_2() {}
     public void TASK_5_3() {}
     public void TASK_5_4() {}
