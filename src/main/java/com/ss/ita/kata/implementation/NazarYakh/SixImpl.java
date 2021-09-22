@@ -5,11 +5,11 @@ public class SixImpl implements com.ss.ita.kata.Six {
     public long findNb(long m) {
         long num = 0;
         long sum = 0;
-        while(sum < m){
+        while (sum < m) {
             num += 1;
-            sum +=  (num*num*num);
+            sum += (num * num * num);
         }
-        if(sum == m){
+        if (sum == m) {
             return num;
         }
         return -1;

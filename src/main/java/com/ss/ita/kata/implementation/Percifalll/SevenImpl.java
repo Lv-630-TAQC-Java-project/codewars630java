@@ -17,9 +17,9 @@ public class SevenImpl implements Seven {
      * Your task is to write a function which returns the sum of following series upto nth term(parameter).
      * Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
      * Rules:
-     *     You need to round the answer to 2 decimal places and return it as String.
-     *     If the given value is 0 then it should return 0.00
-     *     You will only be given Natural Numbers as arguments.
+     * You need to round the answer to 2 decimal places and return it as String.
+     * If the given value is 0 then it should return 0.00
+     * You will only be given Natural Numbers as arguments.
      */
     @Override
     public String seriesSum(int n) {
@@ -51,14 +51,14 @@ public class SevenImpl implements Seven {
     public int whereIsHe(int p, int bef, int aft) {
         // Variables "bef" and "after" are used as bounds of positions
         // that Vasya can occupy
-        if (p <= 0 ) return 0;
+        if (p <= 0) return 0;
         int positionsCount = 0;
 
-        for (int i = 0; i <= p; i++){
+        for (int i = 0; i <= p; i++) {
             // Here we check if position is after left/front bound
-            if (i - 1 >= bef){
+            if (i - 1 >= bef) {
                 // And here we check if position is before right/back bound
-                if (p - i <= aft){
+                if (p - i <= aft) {
                     positionsCount++;
                 }
             }

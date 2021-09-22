@@ -1,14 +1,14 @@
 package com.ss.ita.kata.implementation.vladdmytriv;
 
+import java.util.ArrayList;
+
 import static java.lang.Double.parseDouble;
-import static java.lang.Math.*;
-import java.util.*;
-import static java.lang.Double.*;
+import static java.lang.Math.pow;
 import static java.lang.String.*;
 
-public class Six implements com.ss.ita.kata.Six {
+public class SixImpl implements com.ss.ita.kata.Six {
 
-    private static String data = "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" +
+    private static final String data = "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" +
             "\n" +
             "London:Jan 48.0,Feb 38.9,Mar 39.9,Apr 42.2,May 47.3,Jun 52.1,Jul 59.5,Aug 57.2,Sep 55.4,Oct 62.0,Nov 59.0,Dec 52.9" +
             "\n" +
@@ -28,7 +28,7 @@ public class Six implements com.ss.ita.kata.Six {
             "\n" +
             "Lima:Jan 1.2,Feb 0.9,Mar 0.7,Apr 0.4,May 0.6,Jun 1.8,Jul 4.4,Aug 3.1,Sep 3.3,Oct 1.7,Nov 0.5,Dec 0.7";
 
-    private static String data1 = "Rome:Jan 90.2,Feb 73.2,Mar 80.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 147.7,Nov 121.0,Dec 97.9" +
+    private static final String data1 = "Rome:Jan 90.2,Feb 73.2,Mar 80.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 147.7,Nov 121.0,Dec 97.9" +
             "\n" +
             "London:Jan 58.0,Feb 38.9,Mar 49.9,Apr 42.2,May 67.3,Jun 52.1,Jul 59.5,Aug 77.2,Sep 55.4,Oct 62.0,Nov 69.0,Dec 52.9" +
             "\n" +
@@ -51,7 +51,7 @@ public class Six implements com.ss.ita.kata.Six {
 
     @Override
     public long findNb(long m) {
-        for (int n = 0;;n++) {
+        for (int n = 0; ; n++) {
             if (m > 0) {
                 int cubeVol = (int) Math.pow(n + 1, 3);
                 m -= cubeVol;
@@ -78,7 +78,7 @@ public class Six implements com.ss.ita.kata.Six {
 
         double expense = 0;
         double originalBalance = parseDouble(bookMass[0]);
-        bookMass[0]="Original Balance: " + originalBalance;
+        bookMass[0] = "Original Balance: " + originalBalance;
         for (int i = 1; i < bookMass.length; i++) {
             String[] oneLine = bookMass[i].split(" ");
             double price = parseDouble(oneLine[2]);
@@ -86,7 +86,7 @@ public class Six implements com.ss.ita.kata.Six {
             String newBalance = valueOf(originalBalance - price);
             bookMass[i] = join(" ", oneLine).concat(" Balance " + newBalance);
         }
-        String finalLine = join("\n", bookMass).concat("\nTotal expense " + format("%.2f",expense) + "\nAverage expense " + format("%.2f",expense / numberOfPurchase)).replaceAll(",",".");
+        String finalLine = join("\n", bookMass).concat("\nTotal expense " + format("%.2f", expense) + "\nAverage expense " + format("%.2f", expense / numberOfPurchase)).replaceAll(",", ".");
         return finalLine;
     }
 
@@ -130,17 +130,17 @@ public class Six implements com.ss.ita.kata.Six {
 
     @Override
     public double variance(String town, String strng) {
-        double sumOfDiff=0;
+        double sumOfDiff = 0;
 
         double average = mean(town, strng);
         String[] rainfallsPerMonth = getTownWithMonthRainfall(town, strng);
         int numberOfMonths = rainfallsPerMonth.length;
         double diff = 0;
         for (int i = 0; i < numberOfMonths; i++) {
-           diff = pow((average - parseDouble(rainfallsPerMonth[i])),2);
-           sumOfDiff += diff;
+            diff = pow((average - parseDouble(rainfallsPerMonth[i])), 2);
+            sumOfDiff += diff;
         }
-        return sumOfDiff/numberOfMonths;
+        return sumOfDiff / numberOfMonths;
     }
 
     @Override
@@ -169,10 +169,10 @@ public class Six implements com.ss.ita.kata.Six {
             count = 0;
         }
         for (int k = 0; k < lstOf1stLetter.length; k++) {
-           String categoryWithNumber = "(".concat(lstOf1stLetter[k].concat(" : " + String.valueOf(counts.get(k)))).concat(")");
-           category.add(categoryWithNumber);
+            String categoryWithNumber = "(".concat(lstOf1stLetter[k].concat(" : " + counts.get(k))).concat(")");
+            category.add(categoryWithNumber);
         }
-        String result =join(" - ",category);
+        String result = join(" - ", category);
         return result;
     }
 }

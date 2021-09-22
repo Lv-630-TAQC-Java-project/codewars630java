@@ -22,18 +22,17 @@ public class EightImpl implements Eight {
         final float litresInGallon = 4.54609188f;
         final float kmInMile = 1.609344f;
 
-        return (float) Math.round ((mpg*kmInMile/litresInGallon)*100)/100;
+        return (float) Math.round((mpg * kmInMile / litresInGallon) * 100) / 100;
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        for (int i=0;i< array.length;i++){
-           if (Math.sqrt(array[i])%1==0){
-               array[i]= (int) Math.sqrt(array[i]);
+        for (int i = 0; i < array.length; i++) {
+            if (Math.sqrt(array[i]) % 1 == 0) {
+                array[i] = (int) Math.sqrt(array[i]);
+            } else {
+                array[i] = (int) Math.pow(array[i], 2);
             }
-           else{
-               array[i]= (int) Math.pow(array[i],2);
-           }
         }
         return array;
     }
@@ -41,13 +40,12 @@ public class EightImpl implements Eight {
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
         int[] result = new int[2];
-        result[0]=0;
-        result[1]=0;
+        result[0] = 0;
+        result[1] = 0;
         for (int j : input) {
             if (j >= 0) {
                 result[0]++;
-            }
-            else {
+            } else {
                 result[1] += j;
             }
         }
@@ -65,27 +63,23 @@ public class EightImpl implements Eight {
         double i = 1;
         int temp;
         boolean isPrime = true;
-        for (int k=2;k<=n/2;k++){
-            temp = (int) (n%k);
+        for (int k = 2; k <= n / 2; k++) {
+            temp = (int) (n % k);
             if (temp == 0) {
-                isPrime=false;
+                isPrime = false;
                 break;
             }
         }
-        if (n==1) isPrime = false;
+        if (n == 1) isPrime = false;
         for (int j = 1; j < n; j++) {
             i = i * j;
         }
-        if (((i + 1) / n * n) % 1 == 0 && isPrime) {
-            return true;
-        } else {
-            return false;
-        }
+        return ((i + 1) / n * n) % 1 == 0 && isPrime;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return Math.round((number*100)/100);
+        return Math.round((number * 100) / 100);
     }
 
     @Override

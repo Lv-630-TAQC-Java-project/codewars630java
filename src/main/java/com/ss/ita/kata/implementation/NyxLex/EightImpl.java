@@ -5,30 +5,29 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return (int)(time/2);
+        return (int) (time / 2);
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-         if((length<=0&&width>=0&&height>=0))
+        if ((length <= 0 && width >= 0 && height >= 0))
             return -1;
-        return length*width*height;
+        return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
         float gallon = 4.54609188f;
         float mile = 1.609344f;
-        return (float) Math.round((mpg*mile)/gallon*100)/100;
+        return (float) Math.round((mpg * mile) / gallon * 100) / 100;
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-       for (int i = 0; i < array.length; i++) {
-            if (Math.sqrt(array[i])*Math.sqrt(array[i])==array[i]){
-                array[i]= (int) Math.sqrt(array[i]);
-            }
-            else array[i] = array[i]*array[i];
+        for (int i = 0; i < array.length; i++) {
+            if (Math.sqrt(array[i]) * Math.sqrt(array[i]) == array[i]) {
+                array[i] = (int) Math.sqrt(array[i]);
+            } else array[i] = array[i] * array[i];
         }
         return array;
     }
@@ -47,7 +46,7 @@ public class EightImpl implements Eight {
                 array[1] = sum;
             }
         }
-        if (input==null) return emptyArr;
+        if (input == null) return emptyArr;
         return array;
     }
 
@@ -59,10 +58,10 @@ public class EightImpl implements Eight {
     @Override
     public boolean amIWilson(double n) {
         if (n > 1) {
-            double fact_n = n-1;
+            double fact_n = n - 1;
             double sum = 1;
-            while (fact_n>1){
-                sum*=fact_n;
+            while (fact_n > 1) {
+                sum *= fact_n;
                 fact_n--;
             }
             return ((sum + 1) / (n * n)) % 1 == 0;
@@ -79,7 +78,7 @@ public class EightImpl implements Eight {
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
         int count = 0;
-        int counter=0;
+        int counter = 0;
         for (int number : numbers) {
             if (number % divider == 0) count++;
         }
