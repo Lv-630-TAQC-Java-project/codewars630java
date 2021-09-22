@@ -58,10 +58,11 @@ public class FiveImpl implements Five {
         return sum.multiply(BigInteger.valueOf(4));
     }
 
-    @Override
-    public double solveSum(double m) {
-        return 0;
-    }
+	@Override
+	public double solveSum(double m) {
+		return (2 * m + 1 - Math.sqrt(4 * m + 1)) / (2 * m);
+	}
+
 
     @Override
     public long[] smallest(long n) {
