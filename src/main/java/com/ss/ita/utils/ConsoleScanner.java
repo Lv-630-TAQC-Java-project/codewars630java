@@ -47,10 +47,11 @@ public class ConsoleScanner implements Scanner {
     @Override
     public double readDouble() {
         while(true){
-            if (scanner.hasNext()){
+            if (scanner.hasNextDouble()){
                 return scanner.nextDouble();
             } else {
                 System.out.println("Incorrect input! Please enter double.");
+                scanner.next();
             }
         }
     }
@@ -103,7 +104,7 @@ public class ConsoleScanner implements Scanner {
     @Override
     public int[] readIntArray() {
         while(true){
-            if (scanner.hasNext()){
+            if (scanner.hasNextInt()){
                 return new int[]{scanner.nextInt()};
             } else {
                 System.out.println("Incorrect input! Please enter int[].");
