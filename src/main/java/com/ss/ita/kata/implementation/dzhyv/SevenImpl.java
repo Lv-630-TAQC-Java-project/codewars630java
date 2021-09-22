@@ -19,7 +19,13 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        return null;
+    	double sum = 0;
+        double divisor = 1;
+        for (int i = 0; i < n; i++){
+          sum = sum + 1/divisor;
+          divisor = divisor + 3;
+        }
+        return String.format("%.2f", sum);
     }
 
     @Override
