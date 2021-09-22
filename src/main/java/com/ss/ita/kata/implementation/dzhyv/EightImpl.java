@@ -5,7 +5,7 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+    	return (int)Math.floor(time*0.5);
     }
 
     @Override
@@ -20,7 +20,15 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+    	int[] finalArray = new int[array.length];
+        for (int i = 0; i < array.length; i++){
+        	if (Math.sqrt(array[i])%1 == 0){
+        		finalArray[i] = (int)Math.sqrt(array[i]);
+        		} else {
+        			finalArray[i] = array[i]*array[i];        		
+        		}
+        }
+    	return finalArray;
     }
 
     @Override
@@ -45,6 +53,20 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+    	int c = 0;
+        int b = 0;
+        for (int i = 0; i < numbers.length; i++){
+          if (numbers[i]%divider == 0){
+            c++;
+          }
+        }
+        int[] array = new int[c];
+        for (int j =0; j < numbers.length; j++){
+          if (numbers[j]%divider == 0){
+            array[b] = numbers[j];
+            b++;
+          }
+        }
+        return array;
     }
 }
