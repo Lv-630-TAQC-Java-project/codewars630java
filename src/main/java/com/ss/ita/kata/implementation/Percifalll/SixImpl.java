@@ -1,6 +1,7 @@
 package com.ss.ita.kata.implementation.Percifalll;
 
 import java.math.BigInteger;
+import java.util.*;
 
 public class SixImpl implements com.ss.ita.kata.Six {
     /**
@@ -57,6 +58,30 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        if (lstOfArt == null || lstOfArt.length == 0) return "";
+        if (lstOf1stLetter == null || lstOf1stLetter.length == 0) return "";
+
+        Map<String, List<String>> map = new HashMap<>();
+        List<String> categories = Arrays.asList(lstOf1stLetter);
+        categories.forEach(c -> map.put(c, new ArrayList<>()));
+
+        for (String code : lstOfArt) {
+            String firstLetter = code.substring(0, 1);
+            if (categories.contains(firstLetter)) {
+                List<String> temp = map.get(firstLetter);
+                temp.add(code);
+            }
+        }
+
+        List<String> formatted = new ArrayList<>();
+        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+            String category = entry.getKey();
+            int sum = entry.getValue().stream()
+                    .map(s -> s.replaceAll("\\D*", ""))
+                    .mapToInt(Integer::parseInt)
+                    .sum();
+            formatted.add(String.format("(%s : %d)", category, sum));
+        }
+        return String.join(" - ", formatted);
     }
 }
