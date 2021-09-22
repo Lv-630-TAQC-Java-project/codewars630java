@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.Percifalll;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.Arrays;
+
 public class EightImpl implements Eight {
 
     /**
@@ -129,6 +131,12 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        if (numbers == null) throw new NullPointerException();
+        if (numbers.length == 0) return numbers;
+        if (divider == 0) throw new IllegalArgumentException();
+
+        return Arrays.stream(numbers)
+                .filter(x -> x % divider == 0)
+                .toArray();
     }
 }
