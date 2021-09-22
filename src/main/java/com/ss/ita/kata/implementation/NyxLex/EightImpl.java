@@ -49,7 +49,8 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        double scale = Math.pow(10, 2);
+        return Math.ceil(number * scale) / scale;
     }
 
     @Override
