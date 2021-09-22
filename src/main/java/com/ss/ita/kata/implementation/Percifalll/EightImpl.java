@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.Percifalll;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.Arrays;
+
 public class EightImpl implements Eight {
 
     /**
@@ -122,13 +124,28 @@ public class EightImpl implements Eight {
         return false;
     }
 
+    /**
+     * Each number should be formatted that it is rounded to two decimal places.
+     * You don't need to check whether the input is a valid number
+     * because only valid numbers are used in the tests.
+     *
+     * Example:
+     * 5.5589 is rounded 5.56
+     * 3.3424 is rounded 3.34
+     */
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Double.parseDouble(String.format("%.2f", number));
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        if (numbers == null) throw new NullPointerException();
+        if (numbers.length == 0) return numbers;
+        if (divider == 0) throw new IllegalArgumentException();
+
+        return Arrays.stream(numbers)
+                .filter(x -> x % divider == 0)
+                .toArray();
     }
 }
