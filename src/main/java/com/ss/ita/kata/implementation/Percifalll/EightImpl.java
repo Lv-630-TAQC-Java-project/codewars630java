@@ -2,6 +2,10 @@ package com.ss.ita.kata.implementation.Percifalll;
 
 import com.ss.ita.kata.Eight;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Arrays;
+
 public class EightImpl implements Eight {
 
     /**
@@ -117,18 +121,54 @@ public class EightImpl implements Eight {
         //return new Integer(str);
     }
 
+    /**
+     * Wilson primes satisfy the following condition. Let P represent a prime number.
+     * Then ((P-1)! + 1) / (P * P) should give a whole number.
+     * Your task is to create a function that returns true if the given number is a Wilson prime.
+     */
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        BigDecimal leftOperand = fact(n - 1).add(BigDecimal.ONE);
+        BigDecimal rightOperand = BigDecimal.valueOf(n*n);
+        BigDecimal result = leftOperand.divide(rightOperand, 10, RoundingMode.FLOOR);
+
+        return result.stripTrailingZeros().scale() <= 0;
     }
 
+    /**
+     * This method is used in "amIWilson" method
+     * It counts factorial for given double number
+     * without recursion
+     */
+    private static BigDecimal fact(double n) {
+        BigDecimal result = BigDecimal.ONE;
+        for (int i = 2; i <= n; i++)
+            result = result.multiply(BigDecimal.valueOf(i));
+        return result;
+    }
+
+    /**
+     * Each number should be formatted that it is rounded to two decimal places.
+     * You don't need to check whether the input is a valid number
+     * because only valid numbers are used in the tests.
+     *
+     * Example:
+     * 5.5589 is rounded 5.56
+     * 3.3424 is rounded 3.34
+     */
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Double.parseDouble(String.format("%.2f", number));
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        if (numbers == null) throw new NullPointerException();
+        if (numbers.length == 0) return numbers;
+        if (divider == 0) throw new IllegalArgumentException();
+
+        return Arrays.stream(numbers)
+                .filter(x -> x % divider == 0)
+                .toArray();
     }
 }

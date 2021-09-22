@@ -1,5 +1,8 @@
 package com.ss.ita.kata.implementation.TarasKr;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
@@ -73,6 +76,34 @@ public class EightImpl implements Eight {
 	}
 
 	/**
+	 * Given an array of integers.
+	 * 
+	 * Return an array, where the first element is the count of positives numbers
+	 * and the second element is sum of negative numbers.
+	 * 
+	 * If the input array is empty or null, return an empty array.
+	 * 
+	 * Example For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15],
+	 * you should return [10, -65].
+	 */
+	@Override
+	public int[] countPositivesSumNegatives(int[] input) {
+		int[] resultArray = { 0, 0 };
+		if (input == null || input.length == 0) {
+			return new int[0];
+		}
+
+		for (int arrayElement : input) {
+			if (arrayElement > 0) {
+				resultArray[0] += 1;
+			} else {
+				resultArray[1] += arrayElement;
+			}
+		}
+		return resultArray;
+	}
+	
+	/**
 	 * We need a function that can transform a string into a number. What ways of
 	 * achieving this do you know?
 	 */
@@ -124,24 +155,61 @@ public class EightImpl implements Eight {
 	}
 
 	@Override
-	public int[] countPositivesSumNegatives(int[] input) {
-		return new int[0];
-	}
-
-	@Override
 	public boolean amIWilson(double n) {
 		return false;
 	}
 
+	/**
+	 * Each number should be formatted that it is rounded to two decimal places.
+	 * 
+	 * @param number input number
+	 * @return number rounded to two decimal places
+	 */
 	@Override
-
 	public double twoDecimalPlaces(double number) {
-		return 0;
+		return (Math.round(number * 100)) / 100.00;
 	}
 
+	/**
+	 * Complete the function which takes two arguments and returns all numbers which
+	 * are divisible by the given divisor. First argument is an array of numbers and
+	 * the second is the divisor.
+	 * 
+	 * @param int[]   numbers A array of int
+	 * @param diveder int divider
+	 * @exception IllegalArgumentException if (numbers == null || numbers.length ==
+	 *                                     0) whith message "Error. Array is null or
+	 *                                     empty"
+	 * 
+	 * @exception IllegalArgumentException if (divider == 0) whith message "Error.
+	 *                                     Array is null or empty"
+	 * 
+	 * @return array number which divisible whith divisor
+	 * 
+	 */
 	@Override
+
 	public int[] divisibleBy(int[] numbers, int divider) {
-		return new int[0];
+		if (numbers == null || numbers.length == 0) {
+			throw new IllegalArgumentException("Error. Array is null or empty");
+
+		}
+		if (divider == 0) {
+			throw new IllegalArgumentException("Error. Argument is 0.");
+
+		}
+		List<Integer> ls = new ArrayList<Integer>();
+		for (int elementNumbers : numbers) {
+			if (elementNumbers % divider == 0) {
+				ls.add(elementNumbers);
+			}
+		}
+
+		int[] resArray = new int[ls.size()];
+		for (int i = 0; i < ls.size(); i++) {
+			resArray[i] = ls.get(i);
+		}
+		return resArray;
 	}
 
 }
