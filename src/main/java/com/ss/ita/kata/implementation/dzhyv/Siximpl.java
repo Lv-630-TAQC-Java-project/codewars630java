@@ -116,4 +116,5 @@ public class Siximpl implements com.ss.ita.kata.Six {
 		return returnString.substring(0, returnString.length() - 3);
 	}
 
+
 }
