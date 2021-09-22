@@ -159,10 +159,15 @@ public class EightImpl implements Eight {
 		return false;
 	}
 
+	/**
+	 * Each number should be formatted that it is rounded to two decimal places.
+	 * 
+	 * @param number input number
+	 * @return number rounded to two decimal places
+	 */
 	@Override
-
 	public double twoDecimalPlaces(double number) {
-		return 0;
+		return (Math.round(number * 100)) / 100.00;
 	}
 
 	/**
