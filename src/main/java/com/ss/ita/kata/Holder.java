@@ -1,11 +1,18 @@
 package com.ss.ita.kata;
 
-public interface Holder {
-    Eight getEightImpl();
+import com.ss.ita.kata.implementation.Percifalll.KataHolder;
 
-    Seven getSevenImpl();
+public abstract class Holder {
+    protected Eight eight;
+    protected Seven seven;
+    protected Six six;
+    protected Five five;
 
-    Six getSixImpl();
+    public abstract Eight getEightImpl();
 
-    Five getFiveImpl();
+    public abstract  Seven getSevenImpl();
+
+    public abstract Six getSixImpl();
+
+    public abstract Five getFiveImpl();
 }

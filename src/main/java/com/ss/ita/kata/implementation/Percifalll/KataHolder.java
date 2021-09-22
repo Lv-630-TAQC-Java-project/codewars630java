@@ -2,12 +2,7 @@ package com.ss.ita.kata.implementation.Percifalll;
 
 import com.ss.ita.kata.*;
 
-public class KataHolder implements Holder {
-    private Eight eight;
-    private Seven seven;
-    private Six six;
-    private Five five;
-
+public class KataHolder extends Holder {
     private static KataHolder holder;
 
     private KataHolder() {
