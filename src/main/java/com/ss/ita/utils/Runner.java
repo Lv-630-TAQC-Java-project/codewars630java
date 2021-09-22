@@ -59,6 +59,7 @@ public class Runner {
     public void TASK_6_5() {
     	System.out.println("Ranking NBA teams");
     	System.out.println("Enter team to find");
+        new Runner();
     	String teamName = scanner.readString();
     	System.out.println("Enter match results in separated by ;");
     	String resultSheet = scanner.readString();
@@ -67,6 +68,7 @@ public class Runner {
     public void TASK_6_6() {
     	System.out.println("Help the bookseller!");
     	System.out.println("Enter array of codes.Example code: ABART 20");
+        new Runner();
     	String[] stocklist = scanner.readStringArray();
     	System.out.println("Enter array of categories.Example category: A");
     	String[] categories = scanner.readStringArray();
