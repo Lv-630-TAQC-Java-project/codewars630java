@@ -1,4 +1,5 @@
 package com.ss.ita.kata.implementation.NazarYakh;
+
 import java.util.*;
 import com.ss.ita.kata.Eight;
 
@@ -81,7 +82,12 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        for (int j = 2; j < n; j++) {
+            if (n % j == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
