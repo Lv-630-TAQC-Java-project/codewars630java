@@ -1,6 +1,5 @@
 package com.ss.ita.kata.implementation.NyxLex;
 
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
