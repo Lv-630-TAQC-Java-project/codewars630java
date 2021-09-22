@@ -19,8 +19,27 @@ public class Runner {
         five = holder.getFiveImpl();
     }
 
-    public void TASK_8_1() {}
-    public void TASK_8_2() {}
+    public void TASK_8_1(){
+        System.out.println("Get number of litres Nathan will drink during entered time");
+        System.out.println("Enter time");
+        new Runner();
+        double input = Double.parseDouble(scanner.readString());
+        int res = eight.liters(input);
+        System.out.println(res);
+    }
+
+    public void TASK_8_2() {
+        System.out.println("Calculate the volume of a cuboid ");
+        System.out.println("Enter length");
+        new Runner();
+        double length = Double.parseDouble(scanner.readString());
+        System.out.println("Enter width");
+        double width = Double.parseDouble(scanner.readString());
+        System.out.println("Enter height");
+        double height = Double.parseDouble(scanner.readString());
+        double res = eight.getVolumeOfCuboid(length,width,height);
+        System.out.println(res);
+    }
     public void TASK_8_3() {}
     public void TASK_8_4() {}
     public void TASK_8_5() {}
