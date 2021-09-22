@@ -8,6 +8,21 @@ import java.util.List;
 import java.util.stream.LongStream;
 
 public class FiveImpl implements Five {
+    private static boolean isPrime(long number) {
+        return number > 1
+                && LongStream.rangeClosed(2, (long) Math.sqrt(number))
+                .noneMatch(n -> (number % n == 0));
+    }
+
+    private static long replace(long value, int i, int j) {
+        StringBuilder builder = new StringBuilder(String.valueOf(value));
+
+        char digit = builder.charAt(i);
+        builder.deleteCharAt(i);
+        builder.insert(j, digit);
+        return Long.parseLong(builder.toString());
+    }
+
     @Override
     public int artificialRain(int[] v) {
         return 0;
@@ -19,18 +34,12 @@ public class FiveImpl implements Five {
         for (long i = m; i <= n; i++) {
             if (isPrime(i)) tempPrimes.add(i);
         }
-        long[] primes = tempPrimes.stream().mapToLong(a->a).toArray();
+        long[] primes = tempPrimes.stream().mapToLong(a -> a).toArray();
         if (primes.length == 0) return null;
-        for(int i = 0; i < primes.length - 1; i++){
-            if (Math.abs(primes[i] - primes[i + 1]) == g) return new long[]{primes[i], primes[i+1]};
+        for (int i = 0; i < primes.length - 1; i++) {
+            if (Math.abs(primes[i] - primes[i + 1]) == g) return new long[]{primes[i], primes[i + 1]};
         }
         return null;
-    }
-
-    private static boolean isPrime(long number) {
-        return number > 1
-                && LongStream.rangeClosed(2, (long) Math.sqrt(number))
-                .noneMatch(n -> (number % n == 0));
     }
 
     @Override
@@ -52,7 +61,7 @@ public class FiveImpl implements Five {
         BigInteger n_2 = BigInteger.ZERO;
         BigInteger sum = BigInteger.ONE;
 
-        for (BigInteger i = BigInteger.valueOf(2); i.compareTo(n.add(BigInteger.ONE)) <= 0; i = i.add(BigInteger.ONE)){
+        for (BigInteger i = BigInteger.valueOf(2); i.compareTo(n.add(BigInteger.ONE)) <= 0; i = i.add(BigInteger.ONE)) {
             BigInteger current = n_1.add(n_2);
             sum = sum.add(current);
             n_2 = n_1;
@@ -64,7 +73,7 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return (2*m+1-Math.sqrt(4*m+1))/(2*m);
+        return (2 * m + 1 - Math.sqrt(4 * m + 1)) / (2 * m);
     }
 
     @Override
@@ -79,7 +88,7 @@ public class FiveImpl implements Five {
                 if (i == j) continue;
 
                 long replaced = replace(n, i, j);
-                if (replaced < smallestValue){
+                if (replaced < smallestValue) {
                     smallestValue = replaced;
                     smallestI = i;
                     smallestJ = j;
@@ -88,14 +97,5 @@ public class FiveImpl implements Five {
         }
 
         return new long[]{smallestValue, smallestI, smallestJ};
-    }
-
-    private static long replace(long value, int i, int j) {
-        StringBuilder builder = new StringBuilder(String.valueOf(value));
-
-        char digit = builder.charAt(i);
-        builder.deleteCharAt(i);
-        builder.insert(j, digit);
-        return Long.parseLong(builder.toString());
     }
 }

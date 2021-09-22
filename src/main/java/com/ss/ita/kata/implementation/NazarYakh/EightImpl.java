@@ -1,7 +1,9 @@
 package com.ss.ita.kata.implementation.NazarYakh;
 
-import java.util.*;
 import com.ss.ita.kata.Eight;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EightImpl implements Eight {
     @Override
@@ -106,6 +108,6 @@ public class EightImpl implements Eight {
             }
         }
 
-        return  list.stream().mapToInt(i->i).toArray();
+        return list.stream().mapToInt(i -> i).toArray();
     }
 }

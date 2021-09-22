@@ -17,14 +17,13 @@ public class SevenImpl implements Seven {
     @Override
     public String seriesSum(int n) {
         double sum = 0.00;
-        if(n==0){
+        if (n == 0) {
             return String.valueOf(sum);
-        }
-        else {
+        } else {
             for (int j = 0; j < n; j++) {
                 sum += 1.0 / (double) (1 + j * 3);
             }
-            double sum1 = Math.round(sum*100)/100D;
+            double sum1 = Math.round(sum * 100) / 100D;
             return String.valueOf(sum1);
         }
     }
