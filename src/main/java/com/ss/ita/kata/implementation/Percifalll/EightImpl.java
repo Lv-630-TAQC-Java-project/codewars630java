@@ -9,6 +9,18 @@ import java.util.Arrays;
 public class EightImpl implements Eight {
 
     /**
+     * This method is used in "amIWilson" method
+     * It counts factorial for given double number
+     * without recursion
+     */
+    private static BigDecimal fact(double n) {
+        BigDecimal result = BigDecimal.ONE;
+        for (int i = 2; i <= n; i++)
+            result = result.multiply(BigDecimal.valueOf(i));
+        return result;
+    }
+
+    /**
      * Nathan loves cycling.
      * Because Nathan knows it is important to stay hydrated,
      * he drinks 0.5 litres of water per hour of cycling.
@@ -20,7 +32,7 @@ public class EightImpl implements Eight {
      * time = 11.8--> litres = 5
      */
     @Override
-    public int liters(double time){
+    public int liters(double time) {
         if (time <= 0.0) return 0;
 
         return (int) time / 2;
@@ -47,9 +59,9 @@ public class EightImpl implements Eight {
      * into kilometers per liter.
      * Create an application that will display the number of kilometers per liter (output)
      * based on the number of miles per imperial gallon (input).
-     *  Make sure to round off the result to two decimal points.
-     *  If the answer ends with a 0, it should be rounded off without the 0.
-     *  So instead of 5.50, we should get 5.5.
+     * Make sure to round off the result to two decimal points.
+     * If the answer ends with a 0, it should be rounded off without the 0.
+     * So instead of 5.50, we should get 5.5.
      * 1 Imperial Gallon = 4.54609188 litres
      * 1 Mile = 1.609344 kilometres
      */
@@ -100,14 +112,14 @@ public class EightImpl implements Eight {
      */
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        if (input == null || input.length == 0) return new int[] {};
+        if (input == null || input.length == 0) return new int[]{};
         int count = 0, sum = 0;
 
         for (int element : input) {
             if (element > 0) count++;
             if (element < 0) sum += element;
         }
-        return new int[] {count, sum};
+        return new int[]{count, sum};
     }
 
     /**
@@ -115,7 +127,7 @@ public class EightImpl implements Eight {
      * What ways of achieving this do you know?
      */
     @Override
-    public int stringToNumber(String str){
+    public int stringToNumber(String str) {
         return Integer.parseInt(str);
         //or
         //return new Integer(str);
@@ -129,29 +141,17 @@ public class EightImpl implements Eight {
     @Override
     public boolean amIWilson(double n) {
         BigDecimal leftOperand = fact(n - 1).add(BigDecimal.ONE);
-        BigDecimal rightOperand = BigDecimal.valueOf(n*n);
+        BigDecimal rightOperand = BigDecimal.valueOf(n * n);
         BigDecimal result = leftOperand.divide(rightOperand, 10, RoundingMode.FLOOR);
 
         return result.stripTrailingZeros().scale() <= 0;
     }
 
     /**
-     * This method is used in "amIWilson" method
-     * It counts factorial for given double number
-     * without recursion
-     */
-    private static BigDecimal fact(double n) {
-        BigDecimal result = BigDecimal.ONE;
-        for (int i = 2; i <= n; i++)
-            result = result.multiply(BigDecimal.valueOf(i));
-        return result;
-    }
-
-    /**
      * Each number should be formatted that it is rounded to two decimal places.
      * You don't need to check whether the input is a valid number
      * because only valid numbers are used in the tests.
-     *
+     * <p>
      * Example:
      * 5.5589 is rounded 5.56
      * 3.3424 is rounded 3.34

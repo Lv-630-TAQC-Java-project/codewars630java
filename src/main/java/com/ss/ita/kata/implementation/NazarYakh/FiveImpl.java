@@ -3,7 +3,8 @@ package com.ss.ita.kata.implementation.NazarYakh;
 import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FiveImpl implements Five {
     @Override
@@ -50,15 +51,16 @@ public class FiveImpl implements Five {
                 return false;
             }
         }
-        return true;    }
+        return true;
+    }
 
     @Override
     public int zeros(int n) {
         int i = 1;
         int result = 0;
-        while (n >= i){
-            i *=5;
-            result += n/i;
+        while (n >= i) {
+            i *= 5;
+            result += n / i;
         }
 
         return result;
@@ -66,22 +68,22 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        List<Integer> fibonacci_sequense = new ArrayList<Integer>(){{
+        List<Integer> fibonacci_sequense = new ArrayList<Integer>() {{
             add(0);
             add(1);
         }};
 
-        for(int i = 2; i < n.intValue() + 2; i++) {
-            int next_number = fibonacci_sequense.get(i-1) + fibonacci_sequense.get(i-2);
-            fibonacci_sequense.add( next_number );
+        for (int i = 2; i < n.intValue() + 2; i++) {
+            int next_number = fibonacci_sequense.get(i - 1) + fibonacci_sequense.get(i - 2);
+            fibonacci_sequense.add(next_number);
         }
 
-        return new BigInteger( String.valueOf( fibonacci_sequense.stream().mapToInt(Integer::intValue).sum() * 4 ) );
+        return new BigInteger(String.valueOf(fibonacci_sequense.stream().mapToInt(Integer::intValue).sum() * 4));
     }
 
     @Override
     public double solveSum(double m) {
-        return (1-Math.sqrt((4*m)+1))/(2*m)+1;
+        return (1 - Math.sqrt((4 * m) + 1)) / (2 * m) + 1;
     }
 
     @Override
@@ -89,21 +91,22 @@ public class FiveImpl implements Five {
         long[] smallest = new long[]{n, 0, 0};
         StringBuilder oldNum = new StringBuilder(String.valueOf(n));
         StringBuilder newNum = new StringBuilder(oldNum);
-        for (int i = 0; i < oldNum.length(); i++){
+        for (int i = 0; i < oldNum.length(); i++) {
             char element_for_change = oldNum.charAt(i);
             newNum.deleteCharAt(i);
-            for (int j=0; j <= newNum.length(); j++){
+            for (int j = 0; j <= newNum.length(); j++) {
                 newNum.insert(j, element_for_change);
-                if (Long.parseLong(newNum.toString()) == smallest[0] && smallest[1] > i){
-                    smallest = new long[]{Long.parseLong(newNum.toString()),i, j};
+                if (Long.parseLong(newNum.toString()) == smallest[0] && smallest[1] > i) {
+                    smallest = new long[]{Long.parseLong(newNum.toString()), i, j};
                 }
-                if (Long.parseLong(newNum.toString()) < smallest[0]){
+                if (Long.parseLong(newNum.toString()) < smallest[0]) {
                     smallest = new long[]{Long.parseLong(newNum.toString()), i, j};
                 }
                 newNum.deleteCharAt(j);
             }
             newNum.insert(i, element_for_change);
         }
-        return smallest;    }
+        return smallest;
+    }
 }
 

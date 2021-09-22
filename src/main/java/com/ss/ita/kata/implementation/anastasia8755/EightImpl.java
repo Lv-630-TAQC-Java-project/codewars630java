@@ -81,11 +81,7 @@ public class EightImpl implements Eight {
             return true;
         }
         //for numbers n!<=9223372036854775807L(long.MAX_VALUE)
-        if (((result + 1) / (n * n)) % 1 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return ((result + 1) / (n * n)) % 1 == 0;
     }
 
     @Override
