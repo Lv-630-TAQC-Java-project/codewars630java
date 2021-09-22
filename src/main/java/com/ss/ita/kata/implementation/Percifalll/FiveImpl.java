@@ -8,44 +8,17 @@ import java.util.List;
 
 public class FiveImpl implements Five {
     @Override
-    public int artificialRain(int[] v) {
-        if (v.length == 0) return 0;
-        if (v.length == 1) return 1;
-        int max = 0;
-
-        for (int i = 0; i < v.length; ) {
-            int[] result = getRangeSum(v, i);
-            if (result[0] > max) max = result[0];
-            i = result[1];
+    public int artificialRain(int[] garden) {
+        int left = 0, area = 0, record = 1;
+        for(int i = 1; i < garden.length; i++){
+            if(garden[i] < garden[i - 1]) left = i;
+            else if(garden[i] > garden[i-1]){
+                area = Math.max(area, record);
+                record = i - left;
+            }
+            record++;
         }
-
-        return max;
-    }
-
-    private static int[] getRangeSum(int[] v, int index) {
-        boolean isReachableLeft = true, isReachableRight = true;
-        int sum = 1;
-        int i = index, j = index;
-        while (isReachableLeft || isReachableRight) {
-            if (i >= v.length - 1) isReachableRight = false;
-            if (j < 1) isReachableLeft = false;
-
-            if (isReachableRight && v[i] >= v[i + 1]) sum++;
-            else isReachableRight = false;
-
-            if (isReachableLeft && v[j] >= v[j - 1]) sum++;
-            else isReachableLeft = false;
-
-            if (isReachableLeft) j--;
-            if (isReachableRight) i++;
-        }
-        return new int[]{sum, i+1};
-    }
-
-    public static void main(String[] args) {
-        int[] a = new int[]{1, 2, 1, 2, 1};
-        FiveImpl x = new FiveImpl();
-        System.out.println(x.artificialRain(a));
+        return Math.max(area, record);
     }
 
     @Override
