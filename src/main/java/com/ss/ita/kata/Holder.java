@@ -8,6 +8,10 @@ public abstract class Holder {
     protected Six six;
     protected Five five;
 
+    protected Holder(){
+
+    }
+
     public abstract Eight getEightImpl();
 
     public abstract  Seven getSevenImpl();
