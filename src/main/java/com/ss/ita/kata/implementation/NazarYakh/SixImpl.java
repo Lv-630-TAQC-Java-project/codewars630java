@@ -17,7 +17,23 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
     @Override
     public String balance(String book) {
-        return null;
+        String t = book.replaceAll("([^\\n. \\da-zA-Z])", "");
+        String[] arr = t.split("[\\n]+");
+        double current = Double.parseDouble(arr[0]);
+        double total = 0;
+        int count = 0;
+        StringBuilder result = new StringBuilder();
+        result.append("Original_Balance:_" + arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            count++;
+            String[] line = arr[i].split("[ ]+");
+            current -= Double.parseDouble(line[2]);
+            total += Double.parseDouble(line[2]);
+            String u = String.format("\n%s_%s_%s_Balance_%.2f", line[0], line[1], line[2], current);
+            result.append(u);
+        }
+        result.append(String.format("\nTotal expense_%.2f\nAverage expense__%.2f", total, total / count));
+        return result.toString();
     }
 
     @Override
