@@ -1,10 +1,18 @@
 package com.ss.ita.kata.implementation.NazarYakh;
 
 public class SixImpl implements com.ss.ita.kata.Six {
-
     @Override
     public long findNb(long m) {
-        return 0;
+        long num = 0;
+        long sum = 0;
+        while(sum < m){
+            num += 1;
+            sum +=  (num*num*num);
+        }
+        if(sum == m){
+            return num;
+        }
+        return -1;
     }
 
     @Override
@@ -34,6 +42,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
+
         if (lstOfArt.length == 0 || lstOf1stLetter.length == 0)
             return "";
 
