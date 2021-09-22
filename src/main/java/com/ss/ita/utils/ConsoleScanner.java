@@ -2,36 +2,80 @@ package com.ss.ita.utils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.*;
 
 public class ConsoleScanner implements Scanner {
+    private final java.util.Scanner scanner = new java.util.Scanner(System.in);
+
     @Override
     public int readInt() {
-        return 0;
+        while (true) {
+            if (scanner.hasNext()) {
+                return scanner.nextInt();
+            } else {
+                System.out.println("Incorrect input! Please enter int.");
+                scanner.next();
+            }
+        }
     }
 
     @Override
     public long readLong() {
-        return 0;
+        while (true) {
+            if (scanner.hasNext()) {
+                return scanner.nextLong();
+            } else {
+                System.out.println("Incorrect input. Please enter long.");
+                scanner.next();
+            }
+        }
     }
 
     @Override
     public float readFloat() {
-        return 0;
+        while (true) {
+            if (scanner.hasNext()) {
+                return scanner.nextFloat();
+            } else {
+                System.out.println("Incorrect input! Please enter float.");
+                scanner.next();
+            }
+        }
     }
+
 
     @Override
     public double readDouble() {
-        return 0;
+        while(true){
+            if (scanner.hasNext()){
+                return scanner.nextDouble();
+            } else {
+                System.out.println("Incorrect input! Please enter double.");
+            }
+        }
     }
 
     @Override
     public String readString() {
-        return null;
+        while (true) {
+            if (scanner.hasNext()){
+                return scanner.nextLine();
+            } else {
+                System.out.println("Incorrect input! Please enter string.");
+                scanner.next();
+            }
+        }
     }
 
     @Override
     public BigInteger readBigInteger() {
-        return null;
+        while (true){
+            if (scanner.hasNext()){
+                return scanner.nextBigInteger();
+            } else{
+                System.out.println("Incorrect input! Please enter BigInteger.");
+            }
+        }
     }
 
     @Override
