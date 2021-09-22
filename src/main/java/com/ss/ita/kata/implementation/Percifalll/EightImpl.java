@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.Percifalll;
 
 import com.ss.ita.kata.Eight;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 public class EightImpl implements Eight {
@@ -119,9 +121,30 @@ public class EightImpl implements Eight {
         //return new Integer(str);
     }
 
+    /**
+     * Wilson primes satisfy the following condition. Let P represent a prime number.
+     * Then ((P-1)! + 1) / (P * P) should give a whole number.
+     * Your task is to create a function that returns true if the given number is a Wilson prime.
+     */
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        BigDecimal leftOperand = fact(n - 1).add(BigDecimal.ONE);
+        BigDecimal rightOperand = BigDecimal.valueOf(n*n);
+        BigDecimal result = leftOperand.divide(rightOperand, 10, RoundingMode.FLOOR);
+
+        return result.stripTrailingZeros().scale() <= 0;
+    }
+
+    /**
+     * This method is used in "amIWilson" method
+     * It counts factorial for given double number
+     * without recursion
+     */
+    private static BigDecimal fact(double n) {
+        BigDecimal result = BigDecimal.ONE;
+        for (int i = 2; i <= n; i++)
+            result = result.multiply(BigDecimal.valueOf(i));
+        return result;
     }
 
     /**
