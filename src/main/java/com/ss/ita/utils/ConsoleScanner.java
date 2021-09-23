@@ -2,7 +2,7 @@ package com.ss.ita.utils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.*;
+
 
 public class ConsoleScanner implements Scanner {
     private final java.util.Scanner scanner = new java.util.Scanner(System.in);
