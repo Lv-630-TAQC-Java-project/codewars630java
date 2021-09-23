@@ -50,7 +50,6 @@ public class Runner {
 	public void TASK_8_3() {
 		System.out.println("Miles per gallon to kilometers per liter");
 		System.out.println("Enter mpg");
-		new Runner();
 		float mpg = scanner.readFloat();
 		float res = eight.mpgToKPM(mpg);
 		System.out.println(res);
@@ -59,6 +58,7 @@ public class Runner {
 	public void TASK_8_4() {
 		System.out.println("To square(root) or not to square(root)");
 		int [] array = scanner.readIntArray();
+		System.out.println("result " + Arrays.toString(eight.squareOrSquareRoot(array)) );
 
 	}
 
