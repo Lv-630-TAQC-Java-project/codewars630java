@@ -19,5 +19,4 @@ public interface Eight {
 
     int[] divisibleBy(final int[] numbers, final int divider);
 
-    float mpgToKPM();
 }

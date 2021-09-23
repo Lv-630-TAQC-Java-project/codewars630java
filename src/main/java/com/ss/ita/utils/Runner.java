@@ -3,7 +3,7 @@ package com.ss.ita.utils;
 import com.ss.ita.kata.*;
 import com.ss.ita.kata.Eight;
 
-import com.ss.ita.kata.implementation.VladGranat.EightImpl;
+
 import com.ss.ita.kata.implementation.users.User;
 
 import java.util.Arrays;
@@ -103,6 +103,7 @@ public class Runner {
 
 	public void TASK_8_8() {
 		double num;
+		System.out.println(Description.TASK_6_3.getTask());
 		System.out.println("Each number should be formatted that it is rounded to two decimal places.");
 		System.out.print("Input number: ");
 		num = scanner.readDouble();

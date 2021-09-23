@@ -70,10 +70,5 @@ public class EightImpl implements Eight {
         return new int[0];
     }
 
-    @Override
-    public float mpgToKPM() {
-        return 0;
-    }
-
 
 }

@@ -36,7 +36,6 @@ public class EightImpl implements Eight {
     public int[] countPositivesSumNegatives(int[] input) {
         int count = 0;
         int sum = 0;
-        int[] emptyArr = {};
         int[] array = new int[2];
         for (int k : input) {
             if (k > 0) count++;
@@ -46,7 +45,6 @@ public class EightImpl implements Eight {
                 array[1] = sum;
             }
         }
-        if (input == null) return emptyArr;
         return array;
     }
 

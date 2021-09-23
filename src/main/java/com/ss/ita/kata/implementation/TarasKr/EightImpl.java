@@ -123,7 +123,7 @@ public class EightImpl implements Eight {
      * <p>
      * The input array should not be modified!
      *
-     * @param A array of int
+     * @param array array of int
      * @return If the number has an integer square root, take this, otherwise square
      * the number.
      * @throws IllegalArgumentException whith message "Error. Length of array is
@@ -171,8 +171,8 @@ public class EightImpl implements Eight {
      * are divisible by the given divisor. First argument is an array of numbers and
      * the second is the divisor.
      *
-     * @param int[]   numbers A array of int
-     * @param diveder int divider
+     * @param numbers   numbers A array of int
+     * @param divider int divider
      * @return array number which divisible whith divisor
      * @throws IllegalArgumentException if (numbers == null || numbers.length ==
      *                                  0) whith message "Error. Array is null or
@@ -181,7 +181,6 @@ public class EightImpl implements Eight {
      *                                  Array is null or empty"
      */
     @Override
-
     public int[] divisibleBy(int[] numbers, int divider) {
         if (numbers == null || numbers.length == 0) {
             throw new IllegalArgumentException("Error. Array is null or empty");
@@ -191,7 +190,7 @@ public class EightImpl implements Eight {
             throw new IllegalArgumentException("Error. Argument is 0.");
 
         }
-        List<Integer> ls = new ArrayList<Integer>();
+        List<Integer> ls = new ArrayList<>();
         for (int elementNumbers : numbers) {
             if (elementNumbers % divider == 0) {
                 ls.add(elementNumbers);
