@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class FiveImpl implements Five {
-    private static boolean prime(long i) {
+   private static boolean prime(long i) {
         for (long j = 2; j < i / 2; j++) {
             if (i % j == 0) {
                 return false;

@@ -7,7 +7,7 @@ import java.util.Arrays;
 public enum User {
     
 	VLADYSLAV_DMYTRIV ("Vladyslav Dmytriv", com.ss.ita.kata.implementation.vladdmytriv.KataHolder.getInstance()),
-	GRANT_VLAD("Grand Vlad", com.ss.ita.kata.implementation.VladGranat.KataHolder.getInstance()),
+	GRANAT_VLAD("Granat Vlad", com.ss.ita.kata.implementation.VladGranat.KataHolder.getInstance()),
 	HUZAR_DMITRY("Huzar Dmitry", com.ss.ita.kata.implementation.ErrDmitry404.KataHolder.getInstance()),
 	VOLODYMYR_KOSTYRA("Volodymyr Kostyra", com.ss.ita.kata.implementation.Percifalll.KataHolder.getInstance()),
 	TARAS_KRASITSKYI("Krasitskyi Taras", com.ss.ita.kata.implementation.TarasKr.KataHolder.getInstance()),

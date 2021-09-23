@@ -2,7 +2,7 @@ package com.ss.ita.utils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.*;
+
 
 public class ConsoleScanner implements Scanner {
     private final java.util.Scanner scanner = new java.util.Scanner(System.in);
@@ -92,13 +92,20 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public double[] readDoubleArray() {
-        while (true) {
-            if (scanner.hasNext()) {
-                return new double[]{scanner.nextDouble()};
+        System.out.print("Length of the array:");
+        double[] array = new double[(int) readDouble()];
+
+        int i = 0;
+        while (i < array.length) {
+            String line = scanner.next();
+            if (line.matches("-?\\d+(\\.\\d+)?")) {
+                array[i] = Double.parseDouble(line);
+                i++;
             } else {
-                System.out.println("Incorrect input! Please enter double[].");
+                System.out.println("Incorrect input! Please enter double.");
             }
         }
+        return array;
     }
 
     @Override
