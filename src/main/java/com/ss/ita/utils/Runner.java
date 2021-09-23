@@ -92,10 +92,18 @@ public class Runner {
 		System.out.print("Input number: ");
 		num = scanner.readDouble();
 		boolean result = eight.amIWilson(num);
-		System.out.println( num + "is a Wilson Prime = " + result );
+		System.out.println( num + "is a Wilson Prime: " + result );
 	}
 
 	public void TASK_8_8() {
+		double num = 0;
+		System.out.println("Each number should be formatted that it is rounded to two decimal places.");
+		System.out.print("Input number: ");
+		num = scanner.readDouble();
+		double result = eight.twoDecimalPlaces(num);
+		System.out.println( "Rounde to two decimal places: " + result );
+		
+		
 	}
 
 	public void TASK_8_9() {
