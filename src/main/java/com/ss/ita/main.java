@@ -12,11 +12,11 @@ public class main {
         Menu m = new Menu();
         m.run();
 
-        ConsoleScanner cs = new ConsoleScanner();
+//        ConsoleScanner cs = new ConsoleScanner();
 
-        Runner runner = new Runner();
-        runner.setUser(User.VOLODYMYR_KOSTYRA);
-        runner.TASK_5_6();
+//        Runner runner = new Runner();
+//        runner.setUser(User.VOLODYMYR_KOSTYRA);
+//        runner.TASK_5_6();
 
     }
 }
