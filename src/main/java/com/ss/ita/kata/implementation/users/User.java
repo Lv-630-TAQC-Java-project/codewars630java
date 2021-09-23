@@ -31,20 +31,13 @@ public enum User {
 	public int getId() {
 		return id;
 	}
+
 	public Holder getHolder() {
 		return holder;
 	}
 
 	public String getName() {
 		return name;
-	}
-
-	public static void print() {
-		int nb = 1;
-		for (User element : User.values()) {
-			System.out.println("\t" + nb + ". " + element.getName());
-			nb++;
-		}
 	}
 
 }

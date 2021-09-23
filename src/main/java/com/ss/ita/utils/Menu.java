@@ -10,10 +10,21 @@ public class Menu {
 		for (User element : User.values()) {
 			System.out.println("\t" + element.getId() + ". " + element.getName());
 		}
-		System.out.println("Input authors number: ");
+		System.out.print("Input authors number: ");
 		authorNumber = cs.readInt();
+		User[] usersArray = User.values();
+		try {
+		if (authorNumber >= 1 && authorNumber <= 10) {
+			runTasks.setUser(usersArray[authorNumber - 1]);
+			System.out.println(usersArray[authorNumber - 1].getName());
+		} else {
+			throw new IllegalArgumentException("Error!");
+		}
+		}catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			// TODO: handle exception
+		}
 
-		runTasks.setUser(User.GRANAT_VLAD);
 		System.out.println("Tasks: ");
 		System.out.println("\tSome tasks list: ");
 		System.out.println("\tSome tasks list: ");
