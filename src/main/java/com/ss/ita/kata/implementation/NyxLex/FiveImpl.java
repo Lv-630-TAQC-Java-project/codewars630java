@@ -3,6 +3,9 @@ package com.ss.ita.kata.implementation.NyxLex;
 import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class FiveImpl implements Five {
     @Override

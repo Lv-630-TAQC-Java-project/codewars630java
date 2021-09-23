@@ -46,11 +46,12 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public double readDouble() {
-        while(true){
-            if (scanner.hasNext()){
+        while (true) {
+            if (scanner.hasNextDouble()) {
                 return scanner.nextDouble();
             } else {
                 System.out.println("Incorrect input! Please enter double.");
+                scanner.next();
             }
         }
     }
@@ -58,7 +59,7 @@ public class ConsoleScanner implements Scanner {
     @Override
     public String readString() {
         while (true) {
-            if (scanner.hasNext()){
+            if (scanner.hasNext()) {
                 return scanner.nextLine();
             } else {
                 System.out.println("Incorrect input! Please enter string.");
@@ -69,10 +70,10 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public BigInteger readBigInteger() {
-        while (true){
-            if (scanner.hasNext()){
+        while (true) {
+            if (scanner.hasNext()) {
                 return scanner.nextBigInteger();
-            } else{
+            } else {
                 System.out.println("Incorrect input! Please enter BigInteger.");
             }
         }
@@ -80,8 +81,8 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public BigDecimal readBigDecimal() {
-        while(true){
-            if (scanner.hasNext()){
+        while (true) {
+            if (scanner.hasNext()) {
                 return scanner.nextBigDecimal();
             } else {
                 System.out.println("Incorrect input! Please enter BigDecimal.");
@@ -91,8 +92,8 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public double[] readDoubleArray() {
-        while(true){
-            if (scanner.hasNext()){
+        while (true) {
+            if (scanner.hasNext()) {
                 return new double[]{scanner.nextDouble()};
             } else {
                 System.out.println("Incorrect input! Please enter double[].");
@@ -102,19 +103,26 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public int[] readIntArray() {
-        while(true){
-            if (scanner.hasNext()){
-                return new int[]{scanner.nextInt()};
+        System.out.print("Length of the array:");
+        int[] array = new int[readInt()];
+
+        int i = 0;
+        while (i < array.length) {
+            String line = scanner.next();
+            if (line.matches("-?\\d+(\\.\\d+)?")) {
+                array[i] = Integer.parseInt(line);
+                i++;
             } else {
-                System.out.println("Incorrect input! Please enter int[].");
+                System.out.println("Incorrect input! Please enter integer.");
             }
         }
+        return array;
     }
 
     @Override
     public String[] onlyForStockSummaryMethod() {
-        while(true){
-            if (scanner.hasNext()){
+        while (true) {
+            if (scanner.hasNext()) {
                 return new String[]{scanner.next()};
             } else {
                 System.out.println("Incorrect input! Please enter String[].");
@@ -124,8 +132,8 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public String[] readStringArray() {
-        while(true){
-            if (scanner.hasNext()){
+        while (true) {
+            if (scanner.hasNext()) {
                 return new String[]{scanner.next()};
             } else {
                 System.out.println("Incorrect input! Please enter String[].");
