@@ -9,8 +9,10 @@ public enum Description {
     TASK_8_6("TASK 8.6 Convert a String to a Number!\n" + "description"),
     TASK_8_7("TASK 8.7 Willson primes\n" + "description"),
     TASK_8_8("TASK 8.8 Formatting decimal places\n" + "description"),
-    TASK_8_9("TASK 8.9 Find numbers which are divisible by given number\n" + "description"),
-    TASK_7_1("TASK 7.1\n" + "description"),
+    TASK_8_9("TASK 8.9\nFind numbers which are divisible by given number"),
+    TASK_7_1("TASK 7.1\n" + "The function new_avg(arr, navg)" +
+            " should return the expected donation (rounded up to the next integer)" +
+            " that will permit to reach the average navg."),
     TASK_7_2("TASK 7.2\n" + "description"),
     TASK_7_3("TASK 7.3\n" + "description"),
     TASK_6_1("TASK 6.1\n" + "description"),
@@ -34,7 +36,12 @@ public enum Description {
     TASK_5_3("TASK 5.3\n" + "description"),
     TASK_5_4("TASK 5.4\n" + "description"),
     TASK_5_5("TASK 5.5\n" + "description"),
-    TASK_5_6("TASK 5.6\n" + "description");
+    TASK_5_6("TASK 5.6\n" + "You have a positive number n consisting of digits.\n" +
+            "You can do at most one operation: Choosing the index of a digit\n" +
+            "in the number, remove this digit at that index and insert it back\n" +
+            "to another or at the same place in the number in order to find the" +
+            "smallest number you can get.\n"+
+            "Input long value:\n");
 
     private final String task;
 

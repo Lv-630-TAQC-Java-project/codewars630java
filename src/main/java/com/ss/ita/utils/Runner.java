@@ -103,7 +103,7 @@ public class Runner {
 
 	public void TASK_8_8() {
 		double num;
-		System.out.println(Description.TASK_6_3.getTask());
+		System.out.println(Description.TASK_8_8.getTask());
 		System.out.println("Each number should be formatted that it is rounded to two decimal places.");
 		System.out.print("Input number: ");
 		num = scanner.readDouble();
@@ -113,23 +113,20 @@ public class Runner {
 	}
 
 	public void TASK_8_9() {
+		System.out.println(Description.TASK_8_9.getTask());
 
-		System.out.println(" Function which takes two arguments(int array,int divider) and "
-				+ "returns all numbers which are divisible by the given divisor");
-		System.out.println("Input array : ");
+		System.out.println("Input array ");
 		int[] array = scanner.readIntArray();
-		System.out.println("Input divider : ");
+		System.out.println("Input divider: ");
 
 		int divider = scanner.readInt();
 		int[] resArray = eight.divisibleBy(array, divider);
-		System.out.println(Arrays.toString(resArray));
+		System.out.println("Res: "+Arrays.toString(resArray));
 
 	}
 
 	public void TASK_7_1() {
-		System.out.println("The function new_avg(arr, navg)" +
-				" should return the expected donation (rounded up to the next integer)" +
-				" that will permit to reach the average navg.");
+		System.out.println(Description.TASK_7_1.getTask());
 		double[] array = scanner.readDoubleArray();
 		System.out.println("Input navg:");
 		double navg = scanner.readDouble();
@@ -224,12 +221,7 @@ public class Runner {
 	}
 
 	public void TASK_5_6() {
-		System.out.println("You have a positive number n consisting of digits." +
-				" You can do at most one operation: Choosing the index of a digit" +
-				" in the number, remove this digit at that index and insert it back" +
-				" to another or at the same place in the number in order to find the" +
-				" smallest number you can get.");
-		System.out.println("Input long value:");
+		System.out.println(Description.TASK_5_6.getTask());
 		long value = scanner.readLong();
 		System.out.println("Res: " + Arrays.toString(five.smallest(value)));
 	}

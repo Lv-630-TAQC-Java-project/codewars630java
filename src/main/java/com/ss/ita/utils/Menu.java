@@ -13,10 +13,10 @@ public class Menu {
 //		double res = new SixImpl().f(input);
 //		System.out.println(res);
 		Runner runner = new Runner();
-		runner.setUser(User.NAZAR_YAKH);
-		runner.TASK_6_3();
-//		runner.setUser(User.YURIY_KURIAN);
-//		runner.TASK_8_9();
+//		runner.setUser(User.NAZAR_YAKH);
+//		runner.TASK_6_3();
+		runner.setUser(User.YURIY_KURIAN);
+		runner.TASK_5_6();
 
 	}
 	
