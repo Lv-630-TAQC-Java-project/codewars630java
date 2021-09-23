@@ -27,10 +27,11 @@ public class Runner {
 	}
 
 	public void TASK_8_1() {
-		System.out.println("Get number of litres Nathan will drink during entered time");
-		System.out.println("Enter time");
+		
+		System.out.println("Task description: " + Description.TASK_8_1.getDescription());
+		System.out.println("Enter time:");
 		double input = scanner.readDouble();
-		System.out.println(eight.liters(input));
+		System.out.print(eight.liters(input));
 	}
 
 	public void TASK_8_2() {

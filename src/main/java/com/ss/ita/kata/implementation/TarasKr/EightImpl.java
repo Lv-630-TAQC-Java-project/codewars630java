@@ -16,6 +16,7 @@ public class EightImpl implements Eight {
 	 */
 	@Override
 	public int liters(double time) {
+		System.out.println("\tTaras krasitskyi");
 		if (time < 0) {
 			throw new IllegalArgumentException("Illegar argument! Time is non-negative.");
 		}
