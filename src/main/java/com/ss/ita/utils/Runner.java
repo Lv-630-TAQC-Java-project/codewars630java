@@ -1,7 +1,6 @@
 package com.ss.ita.utils;
 
 import com.ss.ita.kata.*;
-
 import com.ss.ita.kata.Eight;
 
 import com.ss.ita.kata.implementation.users.User;
@@ -9,7 +8,6 @@ import com.ss.ita.kata.implementation.users.User;
 import java.util.Arrays;
 
 public class Runner {
-
 	private final ConsoleScanner scanner = new ConsoleScanner();
 	private Eight eight;
 	private Seven seven;
@@ -92,7 +90,7 @@ public class Runner {
 		System.out.print("Input number: ");
 		num = scanner.readDouble();
 		boolean result = eight.amIWilson(num);
-		System.out.println(num + "is a Wilson Prime: " + result);
+		System.out.println(num + " is a Wilson Prime: " + result);
 	}
 
 	public void TASK_8_8() {
@@ -142,6 +140,11 @@ public class Runner {
 	}
 
 	public void TASK_6_3() {
+		System.out.println(Description.TASK_6_3.getTask());
+		System.out.println("\nEnter X (e.g. \"1e-15\"): ");
+		double input = scanner.readDouble();
+		double res = six.f(input);
+		System.out.println("A \"good\" result: " + res);
 	}
 
 	public void TASK_6_4() {

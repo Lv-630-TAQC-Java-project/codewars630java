@@ -34,7 +34,7 @@ public class ConsoleScanner implements Scanner {
     @Override
     public float readFloat() {
         while (true) {
-            if (scanner.hasNext()) {
+            if (scanner.hasNextFloat()) {
                 return scanner.nextFloat();
             } else {
                 System.out.println("Incorrect input! Please enter float.");
