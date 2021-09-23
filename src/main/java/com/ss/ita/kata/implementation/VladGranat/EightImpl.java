@@ -5,32 +5,54 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+
+        return (int) (time / 2);
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+
+        return (length * width * height);
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float gallon = 4.54609188f;
+        float mile = 1.609344f;
+        float out = (mpg * mile) / gallon;
+
+        return (float) Math.round(out * 100) / 100;
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for (int i = 0; i < array.length; i++) {
+            double sqr = Math.sqrt(array[i]);
+            if (sqr == Math.round(sqr)) {
+                array[i] = (int) sqr;
+            } else {
+                array[i] = array[i] * array[i];
+            }
+        }
+
+        return array;
     }
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) return new int[]{};
+        int count = 0, sum = 0;
+        for (int i : input) {
+            if (i > 0) count++;
+            if (i < 0) sum += i;
+        }
+
+        return new int[]{count, sum};
     }
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
