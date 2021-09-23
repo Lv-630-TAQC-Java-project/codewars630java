@@ -7,10 +7,53 @@ public class Menu {
     private final Scanner scanner;
     private final User[] userList;
 
+    private final Runnable[] fifthKataMethods;
+    private final Runnable[] sixthKataMethods;
+    private final Runnable[] seventhKataMethods;
+    private final Runnable[] eightKataMethods;
+
     public Menu() {
         runner = new Runner();
         scanner = new ConsoleScanner();
         userList = User.values();
+
+        // Creating arrays for each kata
+        // that will contain corresponding methods
+        fifthKataMethods = new Runnable[]{
+                runner::TASK_5_1,
+                runner::TASK_5_2,
+                runner::TASK_5_3,
+                runner::TASK_5_4,
+                runner::TASK_5_5,
+                runner::TASK_5_6
+        };
+
+        sixthKataMethods = new Runnable[]{
+                runner::TASK_6_1,
+                runner::TASK_6_2,
+                runner::TASK_6_3,
+                runner::TASK_6_4,
+                runner::TASK_6_5,
+                runner::TASK_6_6
+        };
+
+        seventhKataMethods = new Runnable[]{
+                runner::TASK_7_1,
+                runner::TASK_7_2,
+                runner::TASK_7_3
+        };
+
+        eightKataMethods = new Runnable[]{
+                runner::TASK_8_1,
+                runner::TASK_8_2,
+                runner::TASK_8_3,
+                runner::TASK_8_4,
+                runner::TASK_8_5,
+                runner::TASK_8_6,
+                runner::TASK_8_7,
+                runner::TASK_8_8,
+                runner::TASK_8_9
+        };
     }
 
     public void run() {
@@ -72,15 +115,6 @@ public class Menu {
     }
 
     private void runFifthKata() {
-        Runnable[] fifthKataMethods = new Runnable[]{
-                runner::TASK_5_1,
-                runner::TASK_5_2,
-                runner::TASK_5_3,
-                runner::TASK_5_4,
-                runner::TASK_5_5,
-                runner::TASK_5_6
-        };
-
         System.out.println("\n" + "# Kata 5" + "\n");
 
         do {
@@ -96,15 +130,6 @@ public class Menu {
     }
 
     private void runSixthKata() {
-        Runnable[] sixthKataMethods = new Runnable[]{
-                runner::TASK_6_1,
-                runner::TASK_6_2,
-                runner::TASK_6_3,
-                runner::TASK_6_4,
-                runner::TASK_6_5,
-                runner::TASK_6_6
-        };
-
         System.out.println("\n" + "# Kata 6" + "\n");
 
         do {
@@ -120,12 +145,6 @@ public class Menu {
     }
 
     private void runSeventhKata() {
-        Runnable[] seventhKataMethods = new Runnable[]{
-                runner::TASK_7_1,
-                runner::TASK_7_2,
-                runner::TASK_7_3
-        };
-
         System.out.println("\n" + "# Kata 7" + "\n");
 
         do {
@@ -141,18 +160,6 @@ public class Menu {
     }
 
     private void runEightKata() {
-        Runnable[] eightKataMethods = new Runnable[]{
-                runner::TASK_8_1,
-                runner::TASK_8_2,
-                runner::TASK_8_3,
-                runner::TASK_8_4,
-                runner::TASK_8_5,
-                runner::TASK_8_6,
-                runner::TASK_8_7,
-                runner::TASK_8_8,
-                runner::TASK_8_9
-        };
-
         System.out.println("\n" + "# Kata 8" + "\n");
 
         do {
@@ -185,7 +192,6 @@ public class Menu {
      * This method receives <b>methods array</b>.<br>
      * Then it asks user to select a task number in console.<br>
      * After it check if number is correct and runs corresponding <b>method</b> from <b>array</b>.
-     *
      * @param methods array of methods
      * @return false if user chose to move back to task selection
      */
