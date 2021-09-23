@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class FiveImpl implements Five {
+
     @Override
     public int artificialRain(int[] v) {
         ArrayList<Integer> massOfNum = new ArrayList<Integer>();
@@ -70,17 +71,34 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int count = 0;
+        if (n < 0) {
+            return -1;
+        }
+        for (int i = 5; n / i >= 1; i *= 5) {
+            count += n / i;
+        }
+        return count;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        int k = n.intValue() + 1;
+        int[] f = new int[k];
+        f[0] = 1;
+        f[1] = 1;
+        int sum = 2;
+        for (int i = 2; i < k; i++) {
+            f[i] = f[i - 1] + f[i - 2];
+            sum += f[i];
+        }
+
+        return BigInteger.valueOf(sum * 4);
     }
 
     @Override
     public double solveSum(double m) {
-        return (2*m+1-Math.sqrt(4*m+1))/(2*m);
+        return (2 * m + 1 - Math.sqrt(4 * m + 1)) / (2 * m);
     }
 
     @Override
