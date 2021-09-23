@@ -5,6 +5,7 @@ import com.ss.ita.kata.Five;
 import java.math.BigInteger;
 
 public class FiveImpl implements Five {
+
     private static boolean isPrime(long i) {
         for (long j = 2; j < i / 2; j++) {
             if (i % j == 0) {
@@ -16,7 +17,21 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+		    int leftSide = 0;
+		    int size = 0;
+		    int max = 1;
+		    for (int i = 1; i < v.length; i++) {
+			      if (v[i] < v[i - 1]) {
+				        leftSide = i;
+			      } else if (v[i] > v[i - 1]) {
+				        if (size < max) {
+					          size = max;
+				        }
+				        max = i - leftSide;
+			      }
+		        max++;
+		    }
+		    return Math.max(max, size);
     }
 
     @Override
