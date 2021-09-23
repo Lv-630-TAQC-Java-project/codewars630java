@@ -102,7 +102,7 @@ public class ConsoleScanner implements Scanner {
                 array[i] = Double.parseDouble(line);
                 i++;
             } else {
-                System.out.println("Incorrect input! Please enter integer.");
+                System.out.println("Incorrect input! Please enter double.");
             }
         }
         return array;

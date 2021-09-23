@@ -81,7 +81,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
             String[] oneLine = bookMass[i].split(" ");
             double price = parseDouble(oneLine[2]);
             expense += price;
-            String newBalance = valueOf(originalBalance - price);
+            String newBalance = String.valueOf(originalBalance - price);
             bookMass[i] = join(" ", oneLine).concat(" Balance " + newBalance);
         }
         String finalLine = join("\n", bookMass).concat("\nTotal expense " + format("%.2f", expense) + "\nAverage expense " + format("%.2f", expense / numberOfPurchase)).replaceAll(",", ".");
