@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.NazarYakh;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -26,36 +29,85 @@ public class EightImpl implements Eight {
         if (mpg <= 0) {
             return 0;
         }
-            return (float) Math.round(mpg * kminmiles/ imperialgallon *100)/100 ;
+        return (float) Math.round(mpg * kminmiles / imperialgallon * 100) / 100;
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array is empty!");
+        }
+
+        for (int i : array) {
+            if (i < 0) {
+                throw new IllegalArgumentException("Element of array is negative!");
+            }
+        }
+
+        int[] result;
+        result = array;
+
+        for (int i = 0; i < result.length; i++) {
+
+            double numbers = Math.sqrt(array[i]);
+
+            if (Math.floor(numbers) == numbers) {
+                result[i] = (int) numbers;
+            } else {
+                result[i] = array[i] * array[i];
+            }
+        }
+        return result;
     }
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        int positive_count = 0;
+        int negative_sum = 0;
+
+        for (int element : input) {
+            if (element < 0) {
+                negative_sum += element;
+            } else {
+                positive_count += 1;
+            }
+        }
+
+        return new int[]{positive_count, negative_sum};
     }
+
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        for (int j = 2; j < n; j++) {
+            if (n % j == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return (double) Math.round(number * 100) / 100;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+
+        List<Integer> list = new ArrayList<>();
+
+        for (int element : numbers) {
+            if (element % divider == 0) {
+                list.add(element);
+            }
+        }
+
+        return list.stream().mapToInt(i -> i).toArray();
     }
 }
