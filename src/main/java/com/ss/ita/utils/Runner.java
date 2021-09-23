@@ -111,22 +111,26 @@ public class Runner {
 				+ "returns all numbers which are divisible by the given divisor");
 		System.out.println("Input array : ");
 		new Runner();
-		String s = scanner.readString();
-		int[] arr = new int[s.length()];
-		String[] str = s.split("");
-
-		for (int i = 0; i < arr.length; i++) {
-			arr[i] = Integer.parseInt(str[i]);
-		}
+		int[] array = scanner.readIntArray();
 		System.out.println("Input divider : ");
 
 		int divider = scanner.readInt();
-		int[] resArray = eight.divisibleBy(arr, divider);
+		int[] resArray = eight.divisibleBy(array, divider);
 		System.out.println(Arrays.toString(resArray));
 
 	}
 
 	public void TASK_7_1() {
+		System.out.println("The function new_avg(arr, navg)" +
+				" should return the expected donation (rounded up to the next integer)" +
+				" that will permit to reach the average navg.");
+		double[] array = scanner.readDoubleArray();
+
+		System.out.println("Input navg:");
+		double navg = scanner.readDouble();
+	//	long res = Long.parseLong(String.valueOf(seven.newAvg(array,navg)));
+		System.out.println("Result :");
+		System.out.println(Long.parseLong(String.valueOf(seven.newAvg(array,navg))));
 	}
 
 	public void TASK_7_2() {
