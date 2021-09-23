@@ -28,7 +28,6 @@ public class Runner {
 	public void TASK_8_1() {
 		System.out.println("Get number of litres Nathan will drink during entered time");
 		System.out.println("Enter time");
-		new Runner();
 		double input = scanner.readDouble();
 		System.out.println(eight.liters(input));
 	}
@@ -36,7 +35,6 @@ public class Runner {
 	public void TASK_8_2() {
 		System.out.println("Calculate the volume of a cuboid ");
 		System.out.println("Enter length");
-		new Runner();
 		double length = Double.parseDouble(scanner.readString());
 		System.out.println("Enter width");
 		double width = Double.parseDouble(scanner.readString());
