@@ -7,5 +7,6 @@ public class main {
         System.out.println("Run!");
         Menu m = new Menu();
         m.run();
+        
     }
 }

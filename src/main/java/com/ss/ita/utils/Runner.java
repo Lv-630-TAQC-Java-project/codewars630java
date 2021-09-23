@@ -15,7 +15,6 @@ public class Runner {
 
 	public void setUser(User user) {
 		Holder holder = user.getHolder();
-
 		eight = holder.getEightImpl();
 		seven = holder.getSevenImpl();
 		six = holder.getSixImpl();
