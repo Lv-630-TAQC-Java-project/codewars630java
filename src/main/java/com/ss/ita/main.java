@@ -15,8 +15,8 @@ public class main {
         ConsoleScanner cs = new ConsoleScanner();
 
         Runner runner = new Runner();
-        runner.setUser(User.VLADYSLAV_DMYTRIV);
-        runner.TASK_7_1();
+        runner.setUser(User.VOLODYMYR_KOSTYRA);
+        runner.TASK_5_6();
 
     }
 }

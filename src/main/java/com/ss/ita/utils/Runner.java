@@ -4,6 +4,7 @@ import com.ss.ita.kata.*;
 
 import com.ss.ita.kata.Eight;
 
+import com.ss.ita.kata.implementation.VladGranat.EightImpl;
 import com.ss.ita.kata.implementation.users.User;
 
 import java.util.Arrays;
@@ -45,9 +46,18 @@ public class Runner {
 	}
 
 	public void TASK_8_3() {
+		System.out.println("Miles per gallon to kilometers per liter");
+		System.out.println("Enter mpg");
+		float mpg = scanner.readFloat();
+		float res = eight.mpgToKPM(mpg);
+		System.out.println(res);
 	}
 
 	public void TASK_8_4() {
+		System.out.println("To square(root) or not to square(root)");
+		int [] array = scanner.readIntArray();
+		System.out.println("result " + Arrays.toString(eight.squareOrSquareRoot(array)) );
+
 	}
 
 	/**
@@ -62,8 +72,8 @@ public class Runner {
 
 		int[] result = eight.countPositivesSumNegatives(array);
 
-		System.out.println(String.format("Your array contains %d positive numbers\n" + "and %d is the sum of negatives",
-				result[0], result[1]));
+		System.out.printf("Your array contains %d positive numbers\n" + "and %d is the sum of negatives%n",
+				result[0], result[1]);
 	}
 
 	/**
@@ -83,7 +93,7 @@ public class Runner {
 	}
 
 	public void TASK_8_7() {
-		double num = 0;
+		double num;
 		System.out.println("Wilson primes satisfy the following condition. Let P represent a prime number.\r\n" + "\r\n"
 				+ "Then ((P-1)! + 1) / (P * P) should give a whole number.\r\n" + "\r\n"
 				+ "Your task is to create a function that returns true if the given number is a Wilson prime.");
@@ -94,7 +104,7 @@ public class Runner {
 	}
 
 	public void TASK_8_8() {
-		double num = 0;
+		double num;
 		System.out.println("Each number should be formatted that it is rounded to two decimal places.");
 		System.out.print("Input number: ");
 		num = scanner.readDouble();
@@ -108,7 +118,6 @@ public class Runner {
 		System.out.println(" Function which takes two arguments(int array,int divider) and "
 				+ "returns all numbers which are divisible by the given divisor");
 		System.out.println("Input array : ");
-		new Runner();
 		int[] array = scanner.readIntArray();
 		System.out.println("Input divider : ");
 
@@ -123,10 +132,8 @@ public class Runner {
 				" should return the expected donation (rounded up to the next integer)" +
 				" that will permit to reach the average navg.");
 		double[] array = scanner.readDoubleArray();
-
 		System.out.println("Input navg:");
 		double navg = scanner.readDouble();
-	//	long res = Long.parseLong(String.valueOf(seven.newAvg(array,navg)));
 		System.out.println("Result :");
 		System.out.println(Long.parseLong(String.valueOf(seven.newAvg(array,navg))));
 	}
@@ -194,7 +201,7 @@ public class Runner {
 	}
 
 	public void TASK_5_5() {
-		double num = 0;
+		double num;
 		System.out.println(
 				"Consider the sequence U(n, x) = x + 2x**2 + 3x**3 + .. + nx**n where x is a real number and n a positive integer.\r\n"
 						+ "\r\n"
@@ -213,6 +220,14 @@ public class Runner {
 	}
 
 	public void TASK_5_6() {
+		System.out.println("You have a positive number n consisting of digits." +
+				" You can do at most one operation: Choosing the index of a digit" +
+				" in the number, remove this digit at that index and insert it back" +
+				" to another or at the same place in the number in order to find the" +
+				" smallest number you can get.");
+		System.out.println("Input long value:");
+		long value = scanner.readLong();
+		System.out.println("Res: " + Arrays.toString(five.smallest(value)));
 	}
 
 }
