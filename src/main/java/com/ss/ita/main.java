@@ -11,10 +11,12 @@ public class main {
         System.out.println("Run!");
         Menu m = new Menu();
         m.run();
+
         ConsoleScanner cs = new ConsoleScanner();
 
         Runner runner = new Runner();
         runner.setUser(User.YURIY_KURIAN);
         runner.TASK_8_9();
+
     }
 }

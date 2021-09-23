@@ -34,4 +34,16 @@ public enum User {
     public String getName() {
         return name;
     }
+    
+     public static void print() {
+    	 int nb = 1;
+    	 for (User element : User.values()) {
+    		 System.out.println("\t" + nb + ". "+ element.getName());
+    		nb++; 
+    	 }
+     }
+
+	
+		
+	
 }
