@@ -188,6 +188,13 @@ public class Menu {
         System.out.println(String.format(format, 0, "close the program"));
     }
 
+    /**
+     * This method receives <b>methods array</b>.<br>
+     * Then it asks user to select a task number in console.<br>
+     * After it check if number is correct and runs corresponding <b>method</b> from <b>array</b>.
+     * @param methods array of methods
+     * @return false if user chose to move back to task selection
+     */
     private boolean runSelectedMethod(Runnable[] methods) {
         while (true) {
             System.out.print("Input:");
