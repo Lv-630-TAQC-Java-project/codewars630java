@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.vladdmytriv;
 import java.util.ArrayList;
 
 import static java.lang.Double.*;
+import static java.lang.Math.pow;
 import static java.lang.String.*;
 
 public class SixImpl implements com.ss.ita.kata.Six {
@@ -51,7 +52,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
     public long findNb(long m) {
         for (int n = 0; ; n++) {
             if (m > 0) {
-                int cubeVol = (int) Math.pow(n + 1, 3);
+                int cubeVol = (int) pow(n + 1, 3);
                 m -= cubeVol;
             } else {
                 if (m == 0) {
