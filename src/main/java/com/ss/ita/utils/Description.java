@@ -15,9 +15,16 @@ public enum Description {
             " that will permit to reach the average navg."),
     TASK_7_2("TASK 7.2\n" + "description"),
     TASK_7_3("TASK 7.3\n" + "description"),
-    TASK_6_1("TASK 6.1\n" + "description"),
+    TASK_6_1("TASK 6.1\n" + "Task is to construct a building which will be a pile of n cubes.\n "
+            + "The cube at the bottom will have a volume of n^3, the cube above will have volume of (n-1)^3.\n "
+            + "And so on until the top which will have a volume of 1^3.\n"),
     TASK_6_2(
-            "TASK 6.2\n" + "description"),
+            "TASK 6.2\n" + "You are given a (small) check book as a - sometimes - cluttered (by non-alphanumeric characters) string:\n"
+                    + "The first line shows the original balance. Each other line (when not blank) gives information: check number,\n"
+                    + " category, check amount. (Input form may change depending on the language).\n"
+                    + "First you have to clean the lines keeping only letters, digits, dots and spaces.\n"
+                    + "Then return a report as a string. On each line of the report you have to add the new balance.\n "
+                    + "Then in the last two lines the total expense and the average expense.\n "),
     TASK_6_3("TASK 6.3\n\n" +
             "Consider the function\n\n" +
             "f: x -> sqrt(1 + x) - 1 at x = 1e-15.\n\n" +

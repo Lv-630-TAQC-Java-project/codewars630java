@@ -138,9 +138,31 @@ public class Runner {
     }
 
     public void TASK_6_1() {
+        System.out.println(Description.TASK_6_1.getTask());
+
+        System.out.println("Input the total volume m of the building example 4183059834009L ");
+        long m = scanner.readLong();
+
+        long result = six.findNb(m);
+        if (result == -1) {
+            System.out.println("There is no such n of cubes");
+        } else {
+            System.out.println("Amount of cubes in building: " + result);
+        }
     }
 
     public void TASK_6_2() {
+        System.out.println(Description.TASK_6_2.getTask());
+
+        String input = "1233.00\n125 Hardware;! 24.80?\n123 Flowers 93.50;\n127 Meat 120.90\n120 Picture 34.00\n124 Gasoline 11.00\n" +
+                "123 Photos;! 71.40?\n122 Picture 93.50\n132 Tyres;! 19.00,?;\n129 Stamps; 13.60\n129 Fruits{} 17.60\n129 Market;! 128.00?\n121 Gasoline;! 13.60?";
+        System.out.println("We have such data for input:\n" + input);
+        System.out.println("\nDo you want to change it?\n1-Yes\n2-No");
+        if (scanner.readInt() == 1) {
+            input = scanner.readString();
+        }
+        String result = six.balance(input);
+        System.out.println(result);
     }
 
     public void TASK_6_3() {
