@@ -1,8 +1,12 @@
 package com.ss.ita.kata.implementation.vladdmytriv;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static java.lang.Double.*;
+import static java.lang.Math.pow;
 import static java.lang.String.*;
 import static java.lang.Math.*;
 
@@ -52,7 +56,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
     public long findNb(long m) {
         for (int n = 0; ; n++) {
             if (m > 0) {
-                int cubeVol = (int) Math.pow(n + 1, 3);
+                int cubeVol = (int) pow(n + 1, 3);
                 m -= cubeVol;
             } else {
                 if (m == 0) {
@@ -140,7 +144,37 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return null;
+        int wins = 0, loses = 0, draws = 0, scored = 0, conceded = 0;
+
+        if (toFind.equals("")) return "";
+
+        String[] teamGames = Arrays.stream(resultSheet.split(","))
+                .filter(s -> s.contains(toFind))
+                .toArray(String[]::new);
+
+        if (teamGames.length == 0) return String.format("%s:This team didn't play!", toFind);
+
+        Pattern pattern = Pattern.compile("((\\s?[0-9]*[A-Z]*[a-z]+)+)\\s(\\d+)\\s((\\s?[0-9]*[A-Z]*[a-z]+)+)\\s(\\d+)");
+        for (String gameInfo : teamGames) {
+            if (gameInfo.matches(".+\\d+\\.\\d+.+")) return "Error(float number):" + gameInfo;
+            Matcher matcher = pattern.matcher(gameInfo);
+            if (!matcher.matches()) continue;
+
+            String firstTeam = matcher.group(1);
+            String secondTeam = matcher.group(4);
+            int firstTeamScore = Integer.parseInt(matcher.group(3));
+            int secondTeamScore = Integer.parseInt(matcher.group(6));
+            int toFindTeamScore = (firstTeam.equals(toFind)) ? firstTeamScore : secondTeamScore;
+            int otherTeamScore = (toFindTeamScore == firstTeamScore) ? secondTeamScore : firstTeamScore;
+
+            if (toFindTeamScore == otherTeamScore) draws++;
+            if (toFindTeamScore > otherTeamScore) wins++;
+            if (toFindTeamScore < otherTeamScore) loses++;
+            scored += toFindTeamScore;
+            conceded += otherTeamScore;
+        }
+        return String.format("%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d",
+                toFind, wins, draws, loses, scored, conceded, wins * 3 + draws);
     }
 
     @Override
