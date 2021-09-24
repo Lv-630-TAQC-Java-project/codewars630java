@@ -58,7 +58,7 @@ public class EightImpl implements Eight {
     @Override
     public boolean amIWilson(double n) {
 
-        return ((n-1) + 1) / (n*n) == 0;
+        return ((n - 1) + 1) / (n * n) == 0;
     }
 
     @Override
@@ -70,4 +70,6 @@ public class EightImpl implements Eight {
     public int[] divisibleBy(int[] numbers, int divider) {
         return new int[0];
     }
+
+
 }
