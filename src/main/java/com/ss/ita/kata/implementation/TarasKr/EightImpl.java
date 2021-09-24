@@ -126,7 +126,7 @@ public class EightImpl implements Eight {
 	 * 
 	 * The input array should not be modified!
 	 * 
-	 * @param A array of int
+	 * @param array array of int
 	 * @exception IllegalArgumentException whith message "Error. Length of array is
 	 *                                     0." if (array.length == 0)
 	 * @exception IllegalArgumentException whith message "Error. Elements of array
@@ -177,7 +177,7 @@ public class EightImpl implements Eight {
 			factorial = factorial.multiply(BigDecimal.valueOf(i));
 		}
 		try {
-			return (factorial.add(BigDecimal.ONE)).divide(BigDecimal.valueOf((long) Math.pow(n, 2)))).scale() == 0;
+			return (factorial.add(BigDecimal.ONE)).divide(BigDecimal.valueOf((long) Math.pow(n, 2))).scale() == 0;
 		} catch (ArithmeticException e) {
 			e.printStackTrace();
 		}

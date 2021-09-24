@@ -2,10 +2,6 @@ package com.ss.ita.kata.implementation.dzhyv;
 
 import com.ss.ita.kata.Six;
 
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
@@ -100,51 +96,7 @@ public class SixImpl implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        if (toFind.isEmpty()) {
-            return "";
-        }
-
-        String[] matches = Arrays.stream(resultSheet.split(",")).filter(s -> s.contains(toFind + " "))
-                .toArray(String[]::new);
-        if (matches.length == 0) {
-            return toFind + ":This team didn't play!";
-        }
-        Pattern pattern = Pattern
-                .compile("((\\s?[0-9]*[A-Z]*[a-z]+)+)\\s(\\d+)\\s((\\s?[0-9]*[A-Z]*[a-z]+)+)\\s(\\d+)");
-        int wins = 0;
-        int loses = 0;
-        int draws = 0;
-        int scored = 0;
-        int conc = 0;
-        for (String str : matches) {
-            if (str.matches(".+\\d+\\.\\d+.+"))
-                return "Error(float number):" + str;
-            String team;
-            int team1Score;
-            int team2Score;
-            Matcher matcher = pattern.matcher(str);
-            if (!matcher.matches()) {
-                continue;
-            }
-            team = matcher.group(1);
-            team1Score = Integer.parseInt(matcher.group(3));
-            team2Score = Integer.parseInt(matcher.group(6));
-            int finalScore = (team.equals(toFind)) ? team1Score : team2Score;
-            int otherScore = (finalScore == team1Score) ? team2Score : team1Score;
-            if (finalScore > otherScore) {
-                wins++;
-            }
-            if (finalScore < otherScore) {
-                loses++;
-            }
-            if (finalScore == otherScore) {
-                draws++;
-            }
-            scored = scored + finalScore;
-            conc = conc + otherScore;
-        }
-        return toFind + ":W=" + wins + ";D=" + draws + ";L=" + loses + ";Scored=" + scored + ";Conceded=" + conc
-                + ";Points=" + ((wins * 3) + draws);
+        return null;
     }
 
     @Override
