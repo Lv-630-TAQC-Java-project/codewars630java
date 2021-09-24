@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.lang.Double.*;
+import static java.lang.Double.parseDouble;
 import static java.lang.Math.pow;
 import static java.lang.String.*;
 
@@ -60,10 +60,6 @@ public class SixImpl implements com.ss.ita.kata.Six {
             } else {
                 if (m == 0) {
                     return n;
-                } else {
-                    if (m >= 0) {
-                        return (-1);
-                    }
                 }
             }
         }

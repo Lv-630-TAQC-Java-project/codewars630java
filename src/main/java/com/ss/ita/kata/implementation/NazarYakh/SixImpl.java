@@ -1,19 +1,43 @@
 package com.ss.ita.kata.implementation.NazarYakh;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.regex.*;
 
 public class SixImpl implements com.ss.ita.kata.Six {
-
     @Override
     public long findNb(long m) {
-        return 0;
+        long num = 0;
+        long sum = 0;
+        while (sum < m) {
+            num += 1;
+            sum += (num * num * num);
+        }
+        if (sum == m) {
+            return num;
+        }
+        return -1;
     }
 
     @Override
     public String balance(String book) {
-        return null;
+        String t = book.replaceAll("([^\\n. \\da-zA-Z])", "");
+        String[] arr = t.split("[\\n]+");
+        double current = Double.parseDouble(arr[0]);
+        double total = 0;
+        int count = 0;
+        StringBuilder result = new StringBuilder();
+        result.append("Original_Balance:_" + arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            count++;
+            String[] line = arr[i].split("[ ]+");
+            current -= Double.parseDouble(line[2]);
+            total += Double.parseDouble(line[2]);
+            String u = String.format("\n%s_%s_%s_Balance_%.2f", line[0], line[1], line[2], current);
+            result.append(u);
+        }
+        result.append(String.format("\nTotal expense_%.2f\nAverage expense__%.2f", total, total / count));
+        return result.toString();
     }
 
     @Override
@@ -33,9 +57,9 @@ public class SixImpl implements com.ss.ita.kata.Six {
         // Split strng by town
         String line = "";
         String temp = "";
-        for (String s: splitStrng){
+        for (String s : splitStrng) {
             temp = s;
-            if (town.equals(temp.split(":")[0])){
+            if (town.equals(temp.split(":")[0])) {
                 line = s;
                 System.out.println(line);
                 break;
@@ -43,7 +67,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
         }
 
         // If city is not in the list, return -1
-        if (line.length() == 0){
+        if (line.length() == 0) {
             return -1;
         }
 
@@ -52,12 +76,12 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
         // Sum of all values for the year
         double sum = 0;
-        for (String s: arrOfLine){
+        for (String s : arrOfLine) {
             sum += Double.parseDouble(s);
         }
 
         // Return average double value
-        return sum/(arrOfLine.length);
+        return sum / (arrOfLine.length);
     }
 
     @Override
@@ -70,24 +94,24 @@ public class SixImpl implements com.ss.ita.kata.Six {
         double mean = mean(town, strng);
         String temp = "";
         String line = "";
-        for (String s: arr){
+        for (String s : arr) {
             temp = s;
-            if (town.equals(temp.split(":")[0])){
+            if (town.equals(temp.split(":")[0])) {
                 line = s;
                 break;
             }
         }
 
-        if (line.length() == 0 || line.length() == town.length()){
+        if (line.length() == 0 || line.length() == town.length()) {
             return -1;
         }
 
         String[] res = line.replaceAll("[^0-9.0-9 ]", "").trim().split(" ");
-        for (String s: res){
+        for (String s : res) {
             sum += Math.pow((Double.parseDouble(s) - mean), 2);
         }
 
-        return sum/res.length;
+        return sum / res.length;
     }
 
     @Override
@@ -154,6 +178,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
+
         if (lstOfArt.length == 0 || lstOf1stLetter.length == 0)
             return "";
 

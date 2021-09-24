@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static java.lang.Double.parseDouble;
-import static java.lang.Math.*;
+import static java.lang.Math.pow;
 import static java.lang.String.*;
 
 public class SixImpl implements com.ss.ita.kata.Six {
@@ -15,7 +15,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
     public long findNb(long m) {
         long x = 1;
         long y = 0;
-        while (y<=m) {
+        while (y <= m) {
 
             y += pow(x, 3);
             if (y == m) return x;
@@ -37,28 +37,28 @@ public class SixImpl implements com.ss.ita.kata.Six {
         double scale = Math.pow(10, 2);
         BigDecimal bd = new BigDecimal(originalBalance);
         bd = bd.setScale(2, RoundingMode.HALF_UP);
-        originalBalance =  Math.ceil(originalBalance * scale) / scale;
-        bookMass[0]="Original Balance: " + bd;
+        originalBalance = Math.ceil(originalBalance * scale) / scale;
+        bookMass[0] = "Original Balance: " + bd;
         for (int i = 1; i < bookMass.length; i++) {
             String[] oneLine = bookMass[i].split(" ");
             price = parseDouble(oneLine[2]);
             expense += price;
             String newBalance = valueOf(originalBalance - price);
 
-            price =  Math.ceil(price * scale) / scale;
-            originalBalance -=price;
+            price = Math.ceil(price * scale) / scale;
+            originalBalance -= price;
 
-            originalBalance =  Math.round(originalBalance * scale) / scale;
+            originalBalance = Math.round(originalBalance * scale) / scale;
 
             double number = parseDouble(newBalance);
 
-            number =  Math.round(number * scale) / scale;
+            number = Math.round(number * scale) / scale;
 
             String newBalance_2 = valueOf(number);
             bookMass[i] = join(" ", oneLine).concat(" Balance " + newBalance_2);
         }
-        return join("\\r\\n", bookMass).concat("\\r\\nTotal expense " + format("%.2f",expense)
-                + "\\r\\nAverage expense " + format("%.2f",expense / numberOfPurchase)).replaceAll(",",".");
+        return join("\\r\\n", bookMass).concat("\\r\\nTotal expense " + format("%.2f", expense)
+                + "\\r\\nAverage expense " + format("%.2f", expense / numberOfPurchase)).replaceAll(",", ".");
     }
 
     @Override
@@ -68,7 +68,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
 
     @Override
-    public  double mean(String town, String strng) {
+    public double mean(String town, String strng) {
         String[] strArr = strng.split("\n");
         String str = "0";
         for (String s : strArr) {
@@ -89,8 +89,9 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
         return sum / 12;
     }
+
     @Override
-    public  double variance(String town, String strng) {
+    public double variance(String town, String strng) {
         double sum = 0;
         String[] strArr = strng.split("\n");
         String str = "0";
@@ -115,6 +116,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
         return sum / 12;
     }
+
     @Override
     public String nbaCup(String resultSheet, String toFind) {
         String[] nbaResults = Arrays.stream(resultSheet.split(","))
@@ -146,7 +148,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
         }
 
         if (nbaResults.length == 0)
-            return toFind+":This team didn't play!";
+            return toFind + ":This team didn't play!";
 
         return format("%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d",
                 toFind, wins, draws, loses, scored, conceded, wins * 3 + draws);

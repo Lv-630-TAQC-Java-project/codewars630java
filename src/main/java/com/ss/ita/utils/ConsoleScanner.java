@@ -34,7 +34,7 @@ public class ConsoleScanner implements Scanner {
     @Override
     public float readFloat() {
         while (true) {
-            if (scanner.hasNext()) {
+            if (scanner.hasNextFloat()) {
                 return scanner.nextFloat();
             } else {
                 System.out.println("Incorrect input! Please enter float.");
@@ -93,7 +93,7 @@ public class ConsoleScanner implements Scanner {
     @Override
     public double[] readDoubleArray() {
         System.out.print("Length of the array:");
-        double[] array = new double[(int) readDouble()];
+        double[] array = new double[readInt()];
 
         int i = 0;
         while (i < array.length) {
