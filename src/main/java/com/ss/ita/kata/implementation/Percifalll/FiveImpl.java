@@ -6,8 +6,17 @@ import java.math.BigInteger;
 
 public class FiveImpl implements Five {
     @Override
-    public int artificialRain(int[] v) {
-        return 0;
+    public int artificialRain(int[] garden) {
+        int left = 0, area = 0, record = 1;
+        for(int i = 1; i < garden.length; i++){
+            if(garden[i] < garden[i - 1]) left = i;
+            else if(garden[i] > garden[i-1]){
+                area = Math.max(area, record);
+                record = i - left;
+            }
+            record++;
+        }
+        return Math.max(area, record);
     }
 
     @Override
