@@ -5,7 +5,6 @@ import com.ss.ita.kata.implementation.users.User;
 public class Menu {
     private final Runner runner;
     private final Scanner scanner;
-    private final User[] userList;
 
     private final Runnable[] fifthKataMethods;
     private final Runnable[] sixthKataMethods;
@@ -15,7 +14,6 @@ public class Menu {
     public Menu() {
         runner = new Runner();
         scanner = new ConsoleScanner();
-        userList = User.values();
 
         // Creating arrays for each kata
         // that will contain corresponding methods
@@ -66,12 +64,12 @@ public class Menu {
 
             // getting valid user number
             while (true) {
-                System.out.print("Choose user number:");
+                System.out.print("Choose option:");
                 int userNumber = scanner.readInt();
 
                 if (userNumber == 0) break user;
-                if (userNumber > 0 && userNumber <= userList.length) {
-                    runner.setUser(userList[userNumber - 1]);
+                if (userNumber > 0 && userNumber <= User.values().length) {
+                    runner.setUser(User.values()[userNumber - 1]);
                     break;
                 } else System.out.println("Wrong user number");
             }
@@ -80,7 +78,7 @@ public class Menu {
             kata:
             while (true) {
                 System.out.println("\n" + "#Kata selection" + "\n");
-                System.out.print("Choose kata number" + "\n" +
+                System.out.print("Choose option" + "\n" +
                         "\t" + "8 - eight kata" + "\n" +
                         "\t" + "7 - seventh kata" + "\n" +
                         "\t" + "6 - sixth kata" + "\n" +
@@ -115,10 +113,10 @@ public class Menu {
     }
 
     private void runFifthKata() {
-        System.out.println("\n" + "# Kata 5" + "\n");
+        System.out.println("\n" + "# Kata 5");
 
         do {
-            System.out.println("Tasks list" + "\n" +
+            System.out.println("\n" + "Tasks list" + "\n" +
                     "\t" + "1 - Artificial rain" + "\n" +
                     "\t" + "2 - Gap in primes" + "\n" +
                     "\t" + "3 - Trailing zeros in factorial" + "\n" +
@@ -130,10 +128,10 @@ public class Menu {
     }
 
     private void runSixthKata() {
-        System.out.println("\n" + "# Kata 6" + "\n");
+        System.out.println("\n" + "# Kata 6");
 
         do {
-            System.out.println("Tasks list" + "\n" +
+            System.out.println("\n" + "Tasks list" + "\n" +
                     "\t" + "1 - Build a pile of cubes" + "\n" +
                     "\t" + "2 - Easy balance checking" + "\n" +
                     "\t" + "3 - Float point approximation" + "\n" +
@@ -145,25 +143,22 @@ public class Menu {
     }
 
     private void runSeventhKata() {
-        System.out.println("\n" + "# Kata 7" + "\n");
+        System.out.println("\n" + "# Kata 7");
 
         do {
-            System.out.println("Tasks list" + "\n" +
-                    "\t" + "1 - Build a pile of cubes" + "\n" +
-                    "\t" + "2 - Easy balance checking" + "\n" +
-                    "\t" + "3 - Float point approximation" + "\n" +
-                    "\t" + "4 - Rainfall" + "\n" +
-                    "\t" + "5 - Ranking NBA" + "\n" +
-                    "\t" + "6 - Help the bookseller!"
+            System.out.println("\n" + "Tasks list" + "\n" +
+                    "\t" + "1 - Looking for a benefactor" + "\n" +
+                    "\t" + "2 - Sum of the first nth term of Series" + "\n" +
+                    "\t" + "3 - Where is Vasya?"
             );
         } while (runSelectedMethod(seventhKataMethods));
     }
 
     private void runEightKata() {
-        System.out.println("\n" + "# Kata 8" + "\n");
+        System.out.println("\n" + "# Kata 8");
 
         do {
-            System.out.println("Tasks list" + "\n" +
+            System.out.println("\n" + "Tasks list" + "\n" +
                     "\t" + "1 - Keep Hydrated!" + "\n" +
                     "\t" + "2 - Volume of a cuboid" + "\n" +
                     "\t" + "3 - Miles per gallon to kilometers per liter" + "\n" +
@@ -180,18 +175,19 @@ public class Menu {
 
     private void printUserList() {
         String format = "\t%2d  %17s";
-        for (int i = 0; i < userList.length; i++) {
+        System.out.println(String.format(format, 0, "Close the program"));
+        for (int i = 0; i < User.values().length; i++) {
             System.out.println(
-                    String.format(format, i + 1, userList[i].getName())
+                    String.format(format, i + 1, User.values()[i].getName())
             );
         }
-        System.out.println(String.format(format, 0, "close the program"));
     }
 
     /**
      * This method receives <b>methods array</b>.<br>
      * Then it asks user to select a task number in console.<br>
      * After it check if number is correct and runs corresponding <b>method</b> from <b>array</b>.
+     *
      * @param methods array of methods
      * @return false if user chose to move back to task selection
      */
