@@ -37,7 +37,8 @@ public enum Description {
 			+ "Given a string of results and the name of a team your function nba_cup (or nbaCup or ...) will return as a string:\n"
 			+ "the name of the team followed by : , number of wins, draws, loses, scored points, conceded points\n"
 			+ "and finally a kind of marks in our ranking system\n"
-			+ "a team marks 3 if its a win, 1 if its a draw, 0 if its a loss" + "The return format is:\n"
+			+ "a team marks 3 if its a win, 1 if its a draw, 0 if its a loss\n" 
+		 	+ "The return format is:\n"
 			+ "Team Name:W=nb of wins;D=nb of draws;L=nb of losses;Scored=nb;Conceded=nb;Points=nb"),
 	TASK_6_6("TASK 6.6\n" + "A bookseller has lots of books classified in 26 categories labeled A, B, ... Z.\n"
 			+ "Each book has a code c of 3, 4, 5 or more characters.\n"
