@@ -1,6 +1,8 @@
 package com.ss.ita.kata.implementation.dzhyv;
 
-public class Siximpl implements com.ss.ita.kata.Six {
+import com.ss.ita.kata.Six;
+
+public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
     	long n = 0;
