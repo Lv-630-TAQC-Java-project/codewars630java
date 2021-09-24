@@ -28,14 +28,14 @@ public class Runner {
 
 	public void TASK_8_1() {
 		
-		System.out.println("Task description: " + Description.TASK_8_1.getDescription());
+		System.out.println("\tTask description: " + Description.TASK_8_1.getDescription());
 		System.out.println("Enter time:");
 		double input = scanner.readDouble();
 		System.out.print(eight.liters(input));
 	}
 
 	public void TASK_8_2() {
-		System.out.println("Calculate the volume of a cuboid ");
+		System.out.println("\tTask description: " + Description.TASK_8_2.getDescription());
 		System.out.println("Enter length");
 		double length = Double.parseDouble(scanner.readString());
 		System.out.println("Enter width");
@@ -47,7 +47,7 @@ public class Runner {
 	}
 
 	public void TASK_8_3() {
-		System.out.println("Miles per gallon to kilometers per liter");
+		System.out.println("\tTask description: " + Description.TASK_8_3.getDescription());
 		System.out.println("Enter mpg");
 		float mpg = scanner.readFloat();
 		float res = eight.mpgToKPM(mpg);
@@ -55,7 +55,7 @@ public class Runner {
 	}
 
 	public void TASK_8_4() {
-		System.out.println("To square(root) or not to square(root)");
+		System.out.println("\tTask description: " + Description.TASK_8_4.getDescription());
 		int [] array = scanner.readIntArray();
 		System.out.println("result " + Arrays.toString(eight.squareOrSquareRoot(array)) );
 
@@ -65,9 +65,7 @@ public class Runner {
 	 * Count of positives, sum of negatives
 	 */
 	public void TASK_8_5() {
-		System.out.println("\n" + "Given an array of integers.\n"
-				+ "Return an array, where the first element is the count of positives numbers\n"
-				+ "and the second element is sum of negative numbers.");
+		System.out.println("\tTask description: " + Description.TASK_8_5.getDescription());
 
 		int[] array = scanner.readIntArray();
 
@@ -81,7 +79,7 @@ public class Runner {
 	 * String into a number
 	 */
 	public void TASK_8_6() {
-		System.out.print("Its a function that can transform a string into a number.\n" + "Enter your number:");
+		System.out.println("\tTask description: " + Description.TASK_8_6.getDescription());
 
 		String input = scanner.readString();
 
@@ -95,9 +93,7 @@ public class Runner {
 
 	public void TASK_8_7() {
 		double num;
-		System.out.println("Wilson primes satisfy the following condition. Let P represent a prime number.\r\n" + "\r\n"
-				+ "Then ((P-1)! + 1) / (P * P) should give a whole number.\r\n" + "\r\n"
-				+ "Your task is to create a function that returns true if the given number is a Wilson prime.");
+		System.out.println("\tTask description: " + Description.TASK_8_7.getDescription());
 		System.out.print("Input number: ");
 		num = scanner.readDouble();
 		boolean result = eight.amIWilson(num);
@@ -106,7 +102,7 @@ public class Runner {
 
 	public void TASK_8_8() {
 		double num;
-		System.out.println("Each number should be formatted that it is rounded to two decimal places.");
+		System.out.println("\tTask description: " + Description.TASK_8_8.getDescription());
 		System.out.print("Input number: ");
 		num = scanner.readDouble();
 		double result = eight.twoDecimalPlaces(num);
@@ -116,8 +112,7 @@ public class Runner {
 
 	public void TASK_8_9() {
 
-		System.out.println(" Function which takes two arguments(int array,int divider) and "
-				+ "returns all numbers which are divisible by the given divisor");
+		System.out.println("\tTask description: " + Description.TASK_8_9.getDescription());
 		System.out.println("Input array : ");
 		int[] array = scanner.readIntArray();
 		System.out.println("Input divider : ");
@@ -129,7 +124,7 @@ public class Runner {
 	}
 
 	public void TASK_7_1() {
-		System.out.println("The function new_avg(arr, navg)" +
+		System.out.println("\tThe function new_avg(arr, navg)" +
 				" should return the expected donation (rounded up to the next integer)" +
 				" that will permit to reach the average navg.");
 		double[] array = scanner.readDoubleArray();
