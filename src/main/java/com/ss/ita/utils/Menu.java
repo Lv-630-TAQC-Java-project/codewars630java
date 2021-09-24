@@ -93,6 +93,7 @@ public class Menu {
 										if (descArray[i].getKyu() == kyu) {
 											System.out.println("\t" + (i + 1) + ". " + descArray[i].getKyu() + " KYU - "
 													+ descArray[i].getName());
+											taskLs.add(i);
 										}
 									}
 									break;
