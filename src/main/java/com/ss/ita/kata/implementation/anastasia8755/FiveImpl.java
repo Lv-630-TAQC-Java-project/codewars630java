@@ -60,6 +60,24 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        long[] smallest = new long[]{n, 0, 0};
+        StringBuilder old = new StringBuilder(String.valueOf(n));
+        StringBuilder newN = new StringBuilder(old);
+        for (int i = 0; i < old.length(); i++) {
+            char changeElement = old.charAt(i);
+            newN.deleteCharAt(i);
+            for (int j = 0; j <= newN.length(); j++) {
+                newN.insert(j, changeElement);
+                if (Long.parseLong(newN.toString()) == smallest[0] && smallest[1] > i) {
+                    smallest = new long[]{Long.parseLong(newN.toString()), i, j};
+                }
+                if (Long.parseLong(newN.toString()) < smallest[0]) {
+                    smallest = new long[]{Long.parseLong(newN.toString()), i, j};
+                }
+                newN.deleteCharAt(j);
+            }
+            newN.insert(i, changeElement);
+        }
+        return smallest;
     }
 }
