@@ -29,8 +29,32 @@ public enum Description {
             "A \"good\" answer is 4.99999999999999875... * 1e-16.\n" +
             "Can you modify f(x) to give a good approximation of f(x) in the neighborhood of 0?"),
     TASK_6_4("TASK 6.4\n" + "description"),
-    TASK_6_5("TASK 6.5\n" + "description"),
-    TASK_6_6("TASK 6.6\n" + "description"),
+	TASK_6_5("TASK 6.6\n"
+			+ "You are given a string with results of NBA teams separated by commas e.g:\n"
+			+ "Los Angeles Clippers 104 Dallas Mavericks 88,New York Knicks 101 Atlanta Hawks 112\n"
+			+ "A team name is composed of one, two or more words built with letters or digits:\n" 
+			+ "Atlanta Hawks, Philadelphia 76ers...\n"
+			+ "Given a string of results and the name of a team your function nba_cup (or nbaCup or ...) will return as a string:\n"
+			+ "the name of the team followed by : , number of wins, draws, loses, scored points, conceded points\n"
+			+ "and finally a kind of marks in our ranking system\n"
+			+ "a team marks 3 if its a win, 1 if its a draw, 0 if its a loss" + "The return format is:\n"
+			+ "Team Name:W=nb of wins;D=nb of draws;L=nb of losses;Scored=nb;Conceded=nb;Points=nb"),
+	TASK_6_6("TASK 6.6\n" + "A bookseller has lots of books classified in 26 categories labeled A, B, ... Z.\n"
+			+ "Each book has a code c of 3, 4, 5 or more characters.\n"
+			+ "The 1st character of a code is a capital letter which defines the book category.\n"
+			+ "In the bookseller's stocklist each code c is followed by a space and by a positive integer n (int n>=0)\n" 
+			+ "which indicates the quantity of books of this code in stock.\n"
+			+ "For example an extract of a stocklist could be:\n"
+			+ "L = {\"ABART 20\", \"CDXEF 50\", \"BKWRK 25\", \"BTSQZ 89\", \"DRTYM 60\"}\n" 
+			+ "You will be given a stocklist (e.g. : L) and a list of categories in capital letters e.g :\n "
+			+ "M = {\"A\", \"B\", \"C\", \"W\"} "
+			+ " and your task is to find all the books of L with codes belonging to each category of M \n" 
+			+ "and to sum their quantity according to each category.\n"
+			+ "For the lists L and M of example you have to return the string:\n"
+			+ "(A : 20) - (B : 114) - (C : 50) - (W : 0)\n"
+			+ "where A, B, C, W are the categories, 20 is the sum of the unique book of category A,\n" 
+			+ "114 the sum corresponding to \"BKWRK\" and \"BTSQZ\", 50 corresponding to \"CDXEF\" \n"
+			+ "and 0 to category 'W' since there are no code beginning with W."),
     TASK_5_1("TASK 5.1\n" + "description"),
     TASK_5_2("TASK 5.2\n" + "description"),
     TASK_5_3("TASK 5.3\n" + "description"),
