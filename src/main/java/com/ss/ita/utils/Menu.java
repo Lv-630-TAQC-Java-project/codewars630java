@@ -1,5 +1,8 @@
 package com.ss.ita.utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -119,15 +122,46 @@ public class Menu {
 	}
 
 	public void run() {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String answer = "";
+		boolean flag = true;
 
-		initUser();
-		switch (initTask()) {
-		case (1): {
-			runTasks.TASK_8_1();
+		do {
+			initUser();
+			switch (initTask()) {
+			case (1): {
+				runTasks.TASK_8_1();
 
-		}
-		}
+			}
+			}
+			do {
+				System.out.print("\nContinue (y/n)? :");
+				//answer = cs.readString();
+				try {
+					answer = br.readLine();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					if (answer.toLowerCase().equals("n") || answer.toLowerCase().equals("y")) {
+						if (answer.toLowerCase().equals("n")) {
+							flag = false;
+							System.out.print("\nApplication terminate.");
+							break;
+						}
+						break;
+					} else {
+						throw new IllegalArgumentException("Inccorect anwer. Input \'y\' or \'n\': ");
+					}
 
+				} catch (IllegalArgumentException e) {
+					System.out.println(e.getMessage());
+				}
+
+			} while (true);
+
+		} while (flag);
 	}
 
 }
