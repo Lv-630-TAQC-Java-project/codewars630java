@@ -33,6 +33,20 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
+            return "";
+        }
+        String result = "";
+        for (String firstLetter : lstOf1stLetter) {
+            int sum = 0;
+            for (String art : lstOfArt) {
+                if (art.charAt(0) == firstLetter.charAt(0)) {
+                    String[] split = art.split(" ");
+                    sum += Integer.parseInt(split[1]);
+                }
+            }
+            result += "(" + firstLetter + " : " + sum + ") - ";
+        }
+        return result.substring(0, result.length() - 3);
     }
 }
