@@ -7,13 +7,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class FiveImpl implements Five {
-   private static boolean prime(long i) {
+    private static boolean prime(long i) {
         for (long j = 2; j < i / 2; j++) {
             if (i % j == 0) {
                 return false;
             }
         }
         return true;
+    }
+
+    private static long replace(long value, int i, int j) {
+        StringBuilder builder = new StringBuilder(String.valueOf(value));
+
+        char digit = builder.charAt(i);
+        builder.deleteCharAt(i);
+        builder.insert(j, digit);
+        return Long.parseLong(builder.toString());
     }
 
     @Override
@@ -112,7 +121,7 @@ public class FiveImpl implements Five {
                 if (i == j) continue;
 
                 long replaced = replace(n, i, j);
-                if (replaced < smallestValue){
+                if (replaced < smallestValue) {
                     smallestValue = replaced;
                     smallestI = i;
                     smallestJ = j;
@@ -121,14 +130,5 @@ public class FiveImpl implements Five {
         }
 
         return new long[]{smallestValue, smallestI, smallestJ};
-    }
-
-    private static long replace(long value, int i, int j) {
-        StringBuilder builder = new StringBuilder(String.valueOf(value));
-
-        char digit = builder.charAt(i);
-        builder.deleteCharAt(i);
-        builder.insert(j, digit);
-        return Long.parseLong(builder.toString());
     }
 }

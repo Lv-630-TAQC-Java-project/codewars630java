@@ -1,7 +1,7 @@
 package com.ss.ita.utils;
 
 public enum Description {
-    TASK_8_1 ("TASK 8.1, Keep Hydrated!\n" + "Get number of litres Nathan will drink during entered time"),
+    TASK_8_1("TASK 8.1, Keep Hydrated!\n" + "Get number of litres Nathan will drink during entered time"),
     TASK_8_2("TASK 8.2, Volume of a cuboid\n" + "Calculate the volume of a cuboid "),
     TASK_8_3("TASK 8.3 Miles per gallon to kilometers per liter" + "Miles per gallon to kilometers per liter"),
     TASK_8_4("TASK 8.4 To square root or no to square\n" + "description"),
@@ -40,7 +40,7 @@ public enum Description {
             "You can do at most one operation: Choosing the index of a digit\n" +
             "in the number, remove this digit at that index and insert it back\n" +
             "to another or at the same place in the number in order to find the" +
-            "smallest number you can get.\n"+
+            "smallest number you can get.\n" +
             "Input long value:\n");
 
     private final String task;

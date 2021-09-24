@@ -1,8 +1,8 @@
 package com.ss.ita.kata.implementation.NazarYakh;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.regex.*;
 
 public class SixImpl implements com.ss.ita.kata.Six {
     @Override
@@ -57,9 +57,9 @@ public class SixImpl implements com.ss.ita.kata.Six {
         // Split strng by town
         String line = "";
         String temp = "";
-        for (String s: splitStrng){
+        for (String s : splitStrng) {
             temp = s;
-            if (town.equals(temp.split(":")[0])){
+            if (town.equals(temp.split(":")[0])) {
                 line = s;
                 System.out.println(line);
                 break;
@@ -67,7 +67,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
         }
 
         // If city is not in the list, return -1
-        if (line.length() == 0){
+        if (line.length() == 0) {
             return -1;
         }
 
@@ -76,12 +76,12 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
         // Sum of all values for the year
         double sum = 0;
-        for (String s: arrOfLine){
+        for (String s : arrOfLine) {
             sum += Double.parseDouble(s);
         }
 
         // Return average double value
-        return sum/(arrOfLine.length);
+        return sum / (arrOfLine.length);
     }
 
     @Override
@@ -94,24 +94,24 @@ public class SixImpl implements com.ss.ita.kata.Six {
         double mean = mean(town, strng);
         String temp = "";
         String line = "";
-        for (String s: arr){
+        for (String s : arr) {
             temp = s;
-            if (town.equals(temp.split(":")[0])){
+            if (town.equals(temp.split(":")[0])) {
                 line = s;
                 break;
             }
         }
 
-        if (line.length() == 0 || line.length() == town.length()){
+        if (line.length() == 0 || line.length() == town.length()) {
             return -1;
         }
 
         String[] res = line.replaceAll("[^0-9.0-9 ]", "").trim().split(" ");
-        for (String s: res){
+        for (String s : res) {
             sum += Math.pow((Double.parseDouble(s) - mean), 2);
         }
 
-        return sum/res.length;
+        return sum / res.length;
     }
 
     @Override

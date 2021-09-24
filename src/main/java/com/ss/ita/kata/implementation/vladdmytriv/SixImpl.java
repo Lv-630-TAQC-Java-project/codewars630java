@@ -5,10 +5,9 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.lang.Double.*;
+import static java.lang.Double.parseDouble;
 import static java.lang.Math.pow;
 import static java.lang.String.*;
-import static java.lang.Math.*;
 
 public class SixImpl implements com.ss.ita.kata.Six {
     private static final String data = "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" +
