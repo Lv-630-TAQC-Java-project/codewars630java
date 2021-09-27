@@ -16,7 +16,12 @@ public class EightTest extends EightDataProvider {
     }*/
 
     @Test(dataProvider = "dptpMPG")
-    public void testMpgToKPM( Eight impl,float mpg, float result) {
+    public void testMpgToKPM(Eight impl, float mpg, float result) {
         Assert.assertEquals(impl.mpgToKPM(mpg), result);
+    }
+
+    @Test(dataProvider = "wilson")
+    public void amIWilson(Eight impl, double number, boolean expected) {
+        assertEquals(impl.amIWilson(number), expected, "Error for number \"" + number + "\";");
     }
 }
