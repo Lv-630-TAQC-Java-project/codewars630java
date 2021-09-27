@@ -18,4 +18,5 @@ public interface Eight {
     double twoDecimalPlaces(final double number);
 
     int[] divisibleBy(final int[] numbers, final int divider);
+
 }
