@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.anastasia8755;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -107,6 +110,13 @@ public class EightImpl implements Eight {
             }
         }
         return divisibleByArray;
+    }
+
+    @Override
+    public String toString(){
+
+        List<String> arr = Arrays.asList( this.getClass().getPackage().getName().split("\\."));
+        return arr.get(arr.size()-1);
     }
 
 }
