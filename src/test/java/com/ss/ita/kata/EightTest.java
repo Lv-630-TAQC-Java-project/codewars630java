@@ -15,8 +15,8 @@ public class EightTest extends EightDataProvider {
     public void testGetVolumeOfCuboid() {
     }*/
 
-    @Test(dataProvider = "dptpMPG")
-    public void testMpgToKPM( Eight impl,float mpg, float result) {
+    @Test(testName = "3.Test miles per gallon to kilometers per liter", dataProvider = "dptpMPG")
+    public void testMpgToKPM(Eight impl, float mpg, float result) {
         Assert.assertEquals(impl.mpgToKPM(mpg), result);
     }
 }
