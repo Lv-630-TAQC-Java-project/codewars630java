@@ -80,12 +80,50 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+
+        String[] search = strng.split("\n");
+        String strTown = "";
+        for (String searching : search) {
+            if (searching.contains(town + ":")) {
+                strTown = searching;
+            }
+        }
+        double sum = 0;
+        if (strTown.equals("")) {
+            return -1;
+        }
+        strTown = strTown.replace(town + ":", "");
+        String[] cityData = strTown.split(",");
+        for (String i : cityData) {
+            String[] monthData = i.split(" ");
+            sum += Double.valueOf(monthData[1]);
+        }
+        return sum / cityData.length;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+
+        double average = mean(town, strng);
+        double sum = 0;
+        String[] search = strng.split("\n");
+        String strTown = "";
+        for (String searching : search) {
+            if (searching.contains(town + ":")) {
+                strTown = searching;
+            }
+        }
+        if (strTown.equals("")) {
+            return -1;
+        }
+        strTown = strTown.replace(town + ":", "");
+        String[] city = strTown.split(",");
+        for (String i : city) {
+            String[] month = i.split(" ");
+            double disp = Double.valueOf(month[1]) - average;
+            sum += Math.pow(disp, 2);
+        }
+        return sum / city.length;
     }
 
     @Override
