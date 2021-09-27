@@ -19,4 +19,8 @@ public class EightTest extends EightDataProvider {
     public void testMpgToKPM( Eight impl,float mpg, float result) {
         Assert.assertEquals(impl.mpgToKPM(mpg), result);
     }
+    @Test(dataProvider = "countPositivesSumNegatives")
+    public void testCountPositivesSumNegatives( Eight impl, int[] input, int[] result) {
+        Assert.assertEquals(impl.countPositivesSumNegatives(input), result);
+    }
 }

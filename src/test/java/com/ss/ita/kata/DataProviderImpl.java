@@ -10,7 +10,7 @@ public class DataProviderImpl {
     @DataProvider
     public static Object[][] eightImplPackProvider() {
         return new Object[][] {
-                {new com.ss.ita.kata.implementation.anastasia8755.EightImpl()},
+                {new com.ss.ita.kata.implementation.NyxLex.EightImpl()},
                 {new com.ss.ita.kata.implementation.dzhyv.EightImpl()},
                 {new com.ss.ita.kata.implementation.vladdmytriv.EightImpl()},
                 {new com.ss.ita.kata.implementation.ErrDmitry404.EightImpl()}
