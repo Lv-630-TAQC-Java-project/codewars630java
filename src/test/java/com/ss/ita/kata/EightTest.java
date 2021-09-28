@@ -25,4 +25,9 @@ public class EightTest extends EightDataProvider {
     public void testVolumeOfCuboid(Eight impl, double lenght, double wight, double height, double expectedResult) {
         Assert.assertEquals(impl.getVolumeOfCuboid(lenght, wight, height), expectedResult);
     }
+    
+    @Test(dataProvider = "dpLiters")
+    public void testLiters(Eight impl, double input, int result) {
+    	Assert.assertEquals(impl.liters(input), result);
+    }
 }

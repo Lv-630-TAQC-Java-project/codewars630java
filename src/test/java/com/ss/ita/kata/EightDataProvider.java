@@ -47,4 +47,21 @@ public class EightDataProvider extends DataProviderImpl {
 
         return combine(eightImplPackProvider(), param);
     }
+    
+    @DataProvider(name = "dpLiters")
+    public Object[][] dpLiters() {
+    	Object[][] param = new Object[][]{
+    		{1, 0},
+    		{4, 2},
+    		{3, 1},
+    		{8.6, 4},
+    		{12.9, 6},
+    		{-10.3, -1},
+    		{-1, -1},
+    		{-5, -1}
+    	};
+    	
+    	return combine(eightImplPackProvider(), param);
+    }
+    
 }
