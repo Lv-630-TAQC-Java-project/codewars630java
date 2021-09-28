@@ -109,9 +109,27 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
 	}
 
+	/**
+	 * Consider the function
+	 * 
+	 * f: x -> sqrt(1 + x) - 1 at x = 1e-15.
+	 * 
+	 * We get: f(x) = 4.44089209850062616e-16
+	 * 
+	 * or something around that, depending on the language.
+	 * 
+	 * This function involves the subtraction of a pair of similar numbers when x is
+	 * near 0 and the results are significantly erroneous in this region. Using pow
+	 * instead of sqrt doesn't give better results.
+	 * 
+	 * A "good" answer is 4.99999999999999875... * 1e-16.
+	 * 
+	 * Can you modify f(x) to give a good approximation of f(x) in the neighborhood
+	 * of 0?
+	 */
 	@Override
 	public double f(double x) {
-		return 0;
+		return x / (1 + Math.sqrt(x + 1));
 	}
 
 	@Override
@@ -250,15 +268,13 @@ public class SixImpl implements com.ss.ita.kata.Six {
 	/**
 	 * A bookseller has lots of books classified in 26 categories labeled A, B, ...
 	 * Z. Each book has a code c of 3, 4, 5 or more characters. The 1st character of
-	 * a code is a capital letter which defines the book category.
-	 * In the bookseller's stocklist each code c is followed by a space and by a
-	 * positive integer n (int n >= 0) which indicates the quantity of books of this
-	 * code in stock.
-	 * For example an extract of a stocklist could be:
-	 * L = {"ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"}. or L =
-	 * ["ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"] or .... You will
-	 * be given a stocklist (e.g. : L) and a list of categories in capital letters
-	 * e.g :
+	 * a code is a capital letter which defines the book category. In the
+	 * bookseller's stocklist each code c is followed by a space and by a positive
+	 * integer n (int n >= 0) which indicates the quantity of books of this code in
+	 * stock. For example an extract of a stocklist could be: L = {"ABART 20",
+	 * "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"}. or L = ["ABART 20", "CDXEF
+	 * 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"] or .... You will be given a
+	 * stocklist (e.g. : L) and a list of categories in capital letters e.g :
 	 * 
 	 * M = {"A", "B", "C", "W"} or M = ["A", "B", "C", "W"] or ... and your task is
 	 * to find all the books of L with codes belonging to each category of M and to
@@ -275,10 +291,10 @@ public class SixImpl implements com.ss.ita.kata.Six {
 	 * If L or M are empty return string is "" (Clojure and Racket should return an
 	 * empty array/list instead).
 	 * 
-	 * @param lstOfArt String[] stocklist
+	 * @param lstOfArt       String[] stocklist
 	 * @param lstOf1stLetter String[] category list
 	 * 
-	 * @return String 
+	 * @return String
 	 */
 	@Override
 	public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
