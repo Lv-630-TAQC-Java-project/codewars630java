@@ -9,7 +9,7 @@ public class DataProviderImpl {
 
     @DataProvider
     public static Object[][] eightImplPackProvider() {
-        return new Object[][] {
+        return new Object[][]{
                 {new com.ss.ita.kata.implementation.anastasia8755.EightImpl()},
                 {new com.ss.ita.kata.implementation.dzhyv.EightImpl()},
                 {new com.ss.ita.kata.implementation.vladdmytriv.EightImpl()},
@@ -25,7 +25,7 @@ public class DataProviderImpl {
 
     @DataProvider
     public static Object[][] sevenImplPackProvider() {
-        return new Object[][] {
+        return new Object[][]{
                 {new com.ss.ita.kata.implementation.anastasia8755.SevenImpl()},
                 {new com.ss.ita.kata.implementation.dzhyv.SevenImpl()},
                 {new com.ss.ita.kata.implementation.vladdmytriv.SevenImpl()},
@@ -39,8 +39,9 @@ public class DataProviderImpl {
 
         };
     }
+
     @DataProvider
-    public static Object[][] sixImplPackProvider(){
+    public static Object[][] sixImplPackProvider() {
         return new Object[][]{
                 {new com.ss.ita.kata.implementation.anastasia8755.SixImpl()},
                 {new com.ss.ita.kata.implementation.dzhyv.SixImpl()},
@@ -58,7 +59,7 @@ public class DataProviderImpl {
 
     @DataProvider
     public static Object[][] fiveImplPackProvider() {
-        return new Object[][] {
+        return new Object[][]{
                 {new com.ss.ita.kata.implementation.anastasia8755.FiveImpl()},
                 {new com.ss.ita.kata.implementation.dzhyv.FiveImpl()},
                 {new com.ss.ita.kata.implementation.ErrDmitry404.FiveImpl()},
@@ -74,7 +75,7 @@ public class DataProviderImpl {
     }
 
 
-    public static Object[][] combine(Object[][] impl,Object[][] data){
+    public static Object[][] combine(Object[][] impl, Object[][] data) {
         List<Object[]> matrix = new LinkedList<>();
         for (Object[] imp : impl) {
             for (Object[] inputParam : data) {

@@ -3,7 +3,6 @@ package com.ss.ita.kata;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
 
 public class SevenTest extends SevenDataProvider {
 
@@ -11,8 +10,9 @@ public class SevenTest extends SevenDataProvider {
     public void testNewAvg() {
     }
 
-    @Test
-    public void testSeriesSum() {
+    @Test(dataProvider = "dpSeriesSum")
+    public void testSeriesSum(Seven impl, int n, String expectedResult) {
+        Assert.assertEquals(impl.seriesSum(n), expectedResult);
     }
 
     @Test(testName = "12. Test where is Vasya", dataProvider = "dpWhereIsVasya")

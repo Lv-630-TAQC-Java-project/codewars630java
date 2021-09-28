@@ -5,7 +5,7 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        if (time<0) return -1;
+        if (time < 0) return -1;
         return (int) (time / 2);
     }
 
@@ -20,7 +20,7 @@ public class EightImpl implements Eight {
     public float mpgToKPM(float mpg) {
         float gallon = 4.54609188f;
         float mile = 1.609344f;
-        if(mpg<0) return -1;
+        if (mpg < 0) return -1;
         return (float) Math.round((mpg * mile) / gallon * 100) / 100;
     }
 
