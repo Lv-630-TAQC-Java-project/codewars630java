@@ -8,6 +8,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class FiveImpl implements Five {
+    static boolean prime(int n) {
+        if (n <= 1)
+            return false;
+        for (int i = 2; i < n; i++)
+            if (n % i == 0)
+                return false;
+        return true;
+    }
+
     @Override
     public int artificialRain(int[] v) {
         int count = 1;
@@ -43,15 +52,6 @@ public class FiveImpl implements Five {
         }
         System.out.println(Arrays.toString(result));
         return null;
-    }
-
-    static boolean prime(int n) {
-        if (n <= 1)
-            return false;
-        for (int i = 2; i < n; i++)
-            if (n % i == 0)
-                return false;
-        return true;
     }
 
     @Override
