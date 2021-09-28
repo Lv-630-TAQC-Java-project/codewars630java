@@ -13,7 +13,7 @@ public class EightTest extends EightDataProvider {
     }
 
     @Test(dataProvider = "dpAmIWilson")
-    public void amIWilson(Eight impl, double number, boolean expected) {
+    public void testAmIWilson(Eight impl, double number, boolean expected) {
         assertEquals(impl.amIWilson(number), expected, "Error for number \"" + number + "\";");
     }
 
