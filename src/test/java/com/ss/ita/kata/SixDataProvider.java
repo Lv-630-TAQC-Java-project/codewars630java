@@ -2,6 +2,8 @@ package com.ss.ita.kata;
 
 import org.testng.annotations.DataProvider;
 
+import static jdk.internal.org.jline.utils.Colors.C;
+
 public class SixDataProvider extends DataProviderImpl {
     // Used for rainfall tests - Kata 6
     private final String rainfallSheet =
@@ -10,8 +12,8 @@ public class SixDataProvider extends DataProviderImpl {
                     "Shipton:Jan 441,Feb 218.7,Mar 332.6,Apr 119.9,May 239.4,Jun 360,Jul 322.6,Aug 283.4,Sep 300.5,Oct 386.7,Nov 359,Dec 246.1\n" +
                     "Greenflower:Jan 247.1,Feb 226.2,Mar 140.9,Apr 350.8,May 254.7,Jun 364.3,Jul 192.4,Aug 254.6,Sep 229.2,Oct 279.9,Nov 180.1,Dec 254.9";
 
-    @DataProvider(name = "rainfallMean")
-    public Object[][] mean() {
+    @DataProvider(name = "dpRainfallMean")
+    public Object[][] dpRainfallMean() {
         Object[][] params = new Object[][]{
                 {"Ubbin Falls", rainfallSheet, 250.3},
                 {"Ubbin", rainfallSheet, -1.0},
@@ -20,12 +22,22 @@ public class SixDataProvider extends DataProviderImpl {
         return combine(sixImplPackProvider(), params);
     }
 
-    @DataProvider(name = "rainfallVariance")
-    public Object[][] variance() {
+    @DataProvider(name = "dpRainfallVariance")
+    public Object[][] dpRainfallVariance() {
         Object[][] params = new Object[][]{
                 {"Ubbin Falls", rainfallSheet, 9337.3},
                 {"Ubbin", rainfallSheet, -1.0},
                 {"a", rainfallSheet, -1.0}
+        };
+
+        return combine(sixImplPackProvider(), params);
+    }
+
+    @DataProvider(name = "dpStockSummary")
+    public Object[][] dpStockSummary() {
+        Object[][] params = new Object[][]{
+                {new String[] {"ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"},
+                        new String[] {"A", "B", "C", "W"},"(A : 20) - (B : 114) - (C : 50) - (W : 0)"},
         };
 
         return combine(sixImplPackProvider(), params);
