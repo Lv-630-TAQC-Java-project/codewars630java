@@ -13,7 +13,13 @@ public class DataProviderImpl {
                 {new com.ss.ita.kata.implementation.anastasia8755.EightImpl()},
                 {new com.ss.ita.kata.implementation.dzhyv.EightImpl()},
                 {new com.ss.ita.kata.implementation.vladdmytriv.EightImpl()},
-                {new com.ss.ita.kata.implementation.ErrDmitry404.EightImpl()}
+                {new com.ss.ita.kata.implementation.ErrDmitry404.EightImpl()},
+                {new com.ss.ita.kata.implementation.VladGranat.EightImpl()},
+                {new com.ss.ita.kata.implementation.TarasKr.EightImpl()},
+                {new com.ss.ita.kata.implementation.Percifalll.EightImpl()},
+                {new com.ss.ita.kata.implementation.NyxLex.EightImpl()},
+                {new com.ss.ita.kata.implementation.NazarYakh.EightImpl()},
+                {new com.ss.ita.kata.implementation.YevgenAleksandrovich.EightImpl()}
         };
     }
 
@@ -33,6 +39,24 @@ public class DataProviderImpl {
                 {new com.ss.ita.kata.implementation.YevgenAleksandrovich.SixImpl()},
         };
     }
+
+    @DataProvider
+    public static Object[][] sevenImplPackProvider() {
+        return new Object[][] {
+                {new com.ss.ita.kata.implementation.anastasia8755.SevenImpl()},
+                {new com.ss.ita.kata.implementation.dzhyv.SevenImpl()},
+                {new com.ss.ita.kata.implementation.vladdmytriv.SevenImpl()},
+                {new com.ss.ita.kata.implementation.ErrDmitry404.SevenImpl()},
+                {new com.ss.ita.kata.implementation.VladGranat.SevenImpl()},
+                {new com.ss.ita.kata.implementation.TarasKr.SevenImpl()},
+                {new com.ss.ita.kata.implementation.Percifalll.SevenImpl()},
+                {new com.ss.ita.kata.implementation.NyxLex.SevenImpl()},
+                {new com.ss.ita.kata.implementation.NazarYakh.SevenImpl()},
+                {new com.ss.ita.kata.implementation.YevgenAleksandrovich.SevenImpl()}
+
+        };
+    }
+
 
     public static Object[][] combine(Object[][] impl,Object[][] data){
         List<Object[]> matrix = new LinkedList<Object[]>();

@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.anastasia8755;
 
 import com.ss.ita.kata.Seven;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
@@ -34,5 +37,12 @@ public class SevenImpl implements Seven {
     @Override
     public int whereIsHe(int p, int bef, int aft) {
         return p - Math.max(bef + 1, p - aft) + 1;
+    }
+
+    @Override
+    public String toString(){
+
+        List<String> arr = Arrays.asList( this.getClass().getPackage().getName().split("\\."));
+        return arr.get(arr.size()-1);
     }
 }
