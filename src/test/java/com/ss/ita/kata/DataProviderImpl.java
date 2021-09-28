@@ -20,7 +20,6 @@ public class DataProviderImpl {
                 {new com.ss.ita.kata.implementation.vladdmytriv.EightImpl()},
                 {new com.ss.ita.kata.implementation.VladGranat.EightImpl()},
                 {new com.ss.ita.kata.implementation.YevgenAleksandrovich.EightImpl()}
-
         };
     }
 
@@ -37,7 +36,6 @@ public class DataProviderImpl {
                 {new com.ss.ita.kata.implementation.vladdmytriv.SixImpl()},
                 {new com.ss.ita.kata.implementation.VladGranat.SixImpl()},
                 {new com.ss.ita.kata.implementation.YevgenAleksandrovich.SixImpl()}
-
         };
     }
 
@@ -54,7 +52,6 @@ public class DataProviderImpl {
                 {new com.ss.ita.kata.implementation.vladdmytriv.FiveImpl()},
                 {new com.ss.ita.kata.implementation.VladGranat.FiveImpl()},
                 {new com.ss.ita.kata.implementation.YevgenAleksandrovich.FiveImpl()}
-
         };
     }
 
