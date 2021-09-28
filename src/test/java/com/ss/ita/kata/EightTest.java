@@ -16,7 +16,9 @@ public class EightTest extends EightDataProvider {
     }*/
 
     @Test(dataProvider = "dptpMPG")
-    public void testMpgToKPM( Eight impl,float mpg, float result) {
-        Assert.assertEquals(impl.mpgToKPM(mpg), result);
-    }
+    public void testMpgToKPM( Eight impl, float mpg, float result) { Assert.assertEquals(impl.mpgToKPM(mpg), result); }
+
+    @Test(dataProvider = "dpVolumeOfCuboid")
+    public void testVolumeOfCuboid(Eight impl, double lenght, double wight, double height, double expectedResult){
+        Assert.assertEquals(impl.getVolumeOfCuboid(lenght, wight, height), expectedResult);}
 }
