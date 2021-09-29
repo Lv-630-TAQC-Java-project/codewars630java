@@ -19,4 +19,15 @@ public class SevenTest extends SevenDataProvider {
     public void testWhereIsHe(Seven impl, int p, int bef, int aft, int res) {
         Assert.assertEquals(impl.whereIsHe(p, bef, aft), res);
     }
+
+    @Test(testName = "10. Test Looking for benefactor", dataProvider = "dpNewAvg" )
+    public void testNewAvg(Seven impl, double[] inputArr, double input, long result) {
+        Assert.assertEquals(impl.newAvg(inputArr, input), result);
+    }
+
+    @Test(expectedExceptions = {IllegalArgumentException.class}, testName = "10. Test exeption Looking for benefactor", dataProvider = "dpExcNewAvg")
+    public void testExcNewAvg(Seven impl, double[] inputArr, double input){
+        impl.newAvg(inputArr, input);
+    }
+
 }
