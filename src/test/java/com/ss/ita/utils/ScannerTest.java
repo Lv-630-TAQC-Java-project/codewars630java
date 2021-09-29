@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.math.BigDecimal;
 
 import static org.testng.Assert.*;
 
@@ -58,6 +59,26 @@ public class ScannerTest {
 
     @Test
     public void testReadBigDecimal() {
+        InputStream input = new ByteArrayInputStream("123".getBytes());
+        System.setIn(input);
+        Scanner scanner = new ConsoleScanner();
+        BigDecimal actual = scanner.readBigDecimal();
+        BigDecimal expected = new BigDecimal("123");
+        assertEquals(actual, expected);
+    }
+    @Test
+    public void testInvalidReadBigDecimal() {
+        InputStream input = new ByteArrayInputStream("asd\n123".getBytes());
+        System.setIn(input);
+        Scanner scanner = new ConsoleScanner();
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        scanner.readBigDecimal();
+
+        String actual = output.toString().replaceAll("\r", "");
+        assertEquals(actual, "Incorrect input! Please enter BigDecimal.\n");
     }
 
     @Test
