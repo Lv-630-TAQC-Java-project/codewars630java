@@ -10,35 +10,56 @@ import java.math.BigDecimal;
 
 import static org.testng.Assert.*;
 
-public class ScannerTest {
-    private final Scanner consoleScanner = new ConsoleScanner();
+public class ScannerTest extends ScannerDataProvider{
+    private Scanner consoleScanner;
 
-    @Test
-    public void testReadInt() {
+    @Test(dataProvider = "readValidInt")
+    public void testReadValidInt(String input, int expected) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        consoleScanner = new ConsoleScanner();
+        int actual = consoleScanner.readInt();
+        assertEquals(actual, expected);
     }
 
-    @Test
-    public void testReadLong() {
-        InputStream input = new ByteArrayInputStream("123".getBytes());
-        System.setIn(input);
-        Scanner scanner = new ConsoleScanner();
-        long actual = scanner.readLong();
-        assertEquals(actual, 123L);
-    }
-
-    @Test
-    public void testInvalidReadLong() {
-        InputStream input = new ByteArrayInputStream("jyeu\n123".getBytes());
-        System.setIn(input);
-        Scanner scanner = new ConsoleScanner();
+    @Test(dataProvider = "readInvalidInt")
+    public void testReadInvalidInt(String input){
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+        consoleScanner = new ConsoleScanner();
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        scanner.readLong();
+        consoleScanner.readInt();
 
         String actual = output.toString().replaceAll("\r", "");
-        assertEquals(actual, "Incorrect input. Please enter long.\n");
+        assertEquals(actual, "Incorrect input! Please enter int.\n");
+    }
+
+    @Test(dataProvider = "readValidLong")
+    public void testReadLong(String input, long expected) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        consoleScanner = new ConsoleScanner();
+        long actual = consoleScanner.readLong();
+        assertEquals(actual, expected);
+    }
+
+    @Test(dataProvider = "readInvalidLong")
+    public void testInvalidReadLong(String input) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+        consoleScanner = new ConsoleScanner();
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        consoleScanner.readLong();
+        String actual = output.toString().replaceAll("\r", "");
+        assertEquals(actual, "Incorrect input! Please enter long.\n");
     }
 
     @Test

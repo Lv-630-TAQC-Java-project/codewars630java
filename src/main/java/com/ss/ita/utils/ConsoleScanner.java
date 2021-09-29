@@ -10,7 +10,7 @@ public class ConsoleScanner implements Scanner {
     @Override
     public int readInt() {
         while (true) {
-            if (scanner.hasNext()) {
+            if (scanner.hasNextInt()) {
                 return scanner.nextInt();
             } else {
                 System.out.println("Incorrect input! Please enter int.");
@@ -25,7 +25,7 @@ public class ConsoleScanner implements Scanner {
             if (scanner.hasNextLong()) {
                 return scanner.nextLong();
             } else {
-                System.out.println("Incorrect input. Please enter long.");
+                System.out.println("Incorrect input! Please enter long.");
                 scanner.next();
             }
         }
