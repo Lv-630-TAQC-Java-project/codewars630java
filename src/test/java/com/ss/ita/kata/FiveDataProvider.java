@@ -21,5 +21,16 @@ public class FiveDataProvider extends DataProviderImpl {
         };
         return combine(fiveImplPackProvider(), param);
     }
+
+    @DataProvider(name = "dpZeros")
+    public Object[][] dpZeros() {
+        Object[][] param = new Object[][]{
+                {-5, -1},
+                {0, 0},
+                {6, 1},
+                {125, 31}
+        };
+        return combine(fiveImplPackProvider(), param);
+    }
 }
 
