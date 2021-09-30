@@ -73,5 +73,15 @@ public class EightDataProvider extends DataProviderImpl {
 
         return combine(eightImplPackProvider(), param);
     }
+    
+    @DataProvider (name = "dpStringToNumber")
+    public Object [][] dpStringToNumber (){
+    	 Object[][] params = new Object[][] {
+    		 {"-10", -10},{"0", 0}, {"10",10}
+    		 
+    	 };
+    	return combine(eightImplPackProvider(), params);
+    }
+    
 
 }
