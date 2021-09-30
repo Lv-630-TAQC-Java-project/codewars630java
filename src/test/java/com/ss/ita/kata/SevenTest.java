@@ -6,10 +6,6 @@ import org.testng.annotations.Test;
 
 public class SevenTest extends SevenDataProvider {
 
-    @Test
-    public void testNewAvg() {
-    }
-
     @Test(dataProvider = "dpSeriesSum")
     public void testSeriesSum(Seven impl, int n, String expectedResult) {
         Assert.assertEquals(impl.seriesSum(n), expectedResult);

@@ -1,8 +1,8 @@
 package com.ss.ita.kata.implementation.NyxLex;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,39 +26,49 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
     @Override
     public String balance(String book) {
-        String[] bookMass = book
-                .replaceAll("[-+!?/@#$%^&*(){},'`~Ё:<>=;]", "")
-                .split("\n");
-        int numberOfPurchase = bookMass.length - 1;
+        StringBuilder res = new StringBuilder();
+        StringBuilder prod = new StringBuilder();
+        int start = 0;
+        int end;
+        List<String> Book = new ArrayList<>();
+        double balance;
+        double totalExpence = 0;
+        String pattern = "[a-zA-Z 0-9\\.\\n]+";
+        Pattern p = Pattern.compile(pattern);
+        Matcher matcher = p.matcher(book);
+        if (matcher.matches()) {
+            prod = new StringBuilder(book);
+        } else {
+            matcher.reset();
 
-        double expense = 0;
-        double originalBalance = parseDouble(bookMass[0]);
-        double price;
-        double scale = Math.pow(10, 2);
-        BigDecimal bd = new BigDecimal(originalBalance);
-        bd = bd.setScale(2, RoundingMode.HALF_UP);
-        originalBalance = Math.ceil(originalBalance * scale) / scale;
-        bookMass[0] = "Original Balance: " + bd;
-        for (int i = 1; i < bookMass.length; i++) {
-            String[] oneLine = bookMass[i].split(" ");
-            price = parseDouble(oneLine[2]);
-            expense += price;
-            String newBalance = valueOf(originalBalance - price);
-
-            price = Math.ceil(price * scale) / scale;
-            originalBalance -= price;
-
-            originalBalance = Math.round(originalBalance * scale) / scale;
-
-            double number = parseDouble(newBalance);
-
-            number = Math.round(number * scale) / scale;
-
-            String newBalance_2 = valueOf(number);
-            bookMass[i] = join(" ", oneLine).concat(" Balance " + newBalance_2);
+            while (matcher.find()) {
+                prod.append(book, matcher.start(), matcher.end());
+            }
         }
-        return join("\\r\\n", bookMass).concat("\\r\\nTotal expense " + format("%.2f", expense)
-                + "\\r\\nAverage expense " + format("%.2f", expense / numberOfPurchase)).replaceAll(",", ".");
+
+        end = prod.indexOf("\n", start);
+        while (end != -1) {
+            Book.add(prod.substring(start, end));
+            start = end + 1;
+            end = prod.indexOf("\n", start);
+        }
+        Book.add(prod.substring(start));
+
+        pattern = "(\\d+)(\\D+)(\\d+\\.?\\d{0,2})";
+        p = Pattern.compile(pattern);
+        res.append("Original Balance: ").append(Book.get(0)).append("\\r\\n");
+        balance = Double.parseDouble(Book.get(0));
+        for (int i = 1; i < Book.size(); i++) {
+            matcher = p.matcher(Book.get(i));
+            while (matcher.find()) {
+                balance -= Double.parseDouble(matcher.group(3));
+                res.append(matcher.group(1)).append(" ").append(matcher.group(2).trim()).append(" ").append(matcher.group(3).trim()).append(" Balance ").append(String.format("%.2f", balance)).append("\\r\\n");
+                totalExpence += Double.parseDouble(matcher.group(3));
+            }
+        }
+        res.append("Total expense  ").append(String.format("%.2f", (totalExpence))).append("\\r\\n");
+        res.append("Average expense  ").append(String.format("%.2f", (totalExpence / (Book.size() - 1))));
+        return res.toString();
     }
 
     @Override

@@ -37,6 +37,7 @@ public class DataProviderImpl {
                 {new com.ss.ita.kata.implementation.NazarYakh.SevenImpl()},
                 {new com.ss.ita.kata.implementation.YevgenAleksandrovich.SevenImpl()}
 
+
         };
     }
 
@@ -46,14 +47,14 @@ public class DataProviderImpl {
                 {new com.ss.ita.kata.implementation.anastasia8755.SixImpl()},
                 {new com.ss.ita.kata.implementation.dzhyv.SixImpl()},
                 {new com.ss.ita.kata.implementation.ErrDmitry404.SixImpl()},
-                {new com.ss.ita.kata.implementation.vladdmytriv.SixImpl()},
                 {new com.ss.ita.kata.implementation.NazarYakh.SixImpl()},
                 {new com.ss.ita.kata.implementation.NyxLex.SixImpl()},
                 {new com.ss.ita.kata.implementation.Percifalll.SixImpl()},
                 {new com.ss.ita.kata.implementation.TarasKr.SixImpl()},
                 {new com.ss.ita.kata.implementation.vladdmytriv.SixImpl()},
                 {new com.ss.ita.kata.implementation.VladGranat.SixImpl()},
-                {new com.ss.ita.kata.implementation.YevgenAleksandrovich.SixImpl()},
+                {new com.ss.ita.kata.implementation.YevgenAleksandrovich.SixImpl()}
+
         };
     }
 
@@ -70,7 +71,6 @@ public class DataProviderImpl {
                 {new com.ss.ita.kata.implementation.vladdmytriv.FiveImpl()},
                 {new com.ss.ita.kata.implementation.VladGranat.FiveImpl()},
                 {new com.ss.ita.kata.implementation.YevgenAleksandrovich.FiveImpl()}
-
         };
     }
 
