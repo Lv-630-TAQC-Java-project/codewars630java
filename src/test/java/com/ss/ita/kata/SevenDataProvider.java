@@ -27,7 +27,7 @@ public class SevenDataProvider extends DataProviderImpl {
         Object[][] param = new Object[][]{
                 {new double[]{14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 15.0}, 92.0, 645},
                 {new double[]{14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 16.0}, 90.0, 628},
-                {new double[]{19.0, 40.0, 2.0, 33.0, 90.0, 7.0}, 99.0, 502},
+                {new double[]{4.5, 5.66, 7.8, 9.0, 22.1}, 35.0, 161},
         };
         return combine(sevenImplPackProvider(), param);
     }

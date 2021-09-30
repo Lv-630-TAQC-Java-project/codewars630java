@@ -21,7 +21,7 @@ public class SevenTest extends SevenDataProvider {
         Assert.assertEquals(impl.newAvg(inputArr, input), result);
     }
 
-    @Test(expectedExceptions = {IllegalArgumentException.class}, testName = "10. Test exeption Looking for benefactor", dataProvider = "dpExcNewAvg")
+    @Test(expectedExceptions = {IllegalArgumentException.class}, testName = "10. Test exception Looking for benefactor", dataProvider = "dpExcNewAvg")
     public void testExcNewAvg(Seven impl, double[] inputArr, double input){
         impl.newAvg(inputArr, input);
     }
