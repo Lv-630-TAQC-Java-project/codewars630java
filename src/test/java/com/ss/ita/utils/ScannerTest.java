@@ -39,7 +39,7 @@ public class ScannerTest extends ScannerDataProvider{
     }
 
     @Test(dataProvider = "readValidLong")
-    public void testReadLong(String input, long expected) {
+    public void testReadValidLong(String input, long expected) {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 
@@ -49,7 +49,7 @@ public class ScannerTest extends ScannerDataProvider{
     }
 
     @Test(dataProvider = "readInvalidLong")
-    public void testInvalidReadLong(String input) {
+    public void testReadInvalidLong(String input) {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
         consoleScanner = new ConsoleScanner();
@@ -79,7 +79,7 @@ public class ScannerTest extends ScannerDataProvider{
     }
 
     @Test
-    public void testReadBigDecimal() {
+    public void testReadValidBigDecimal() {
         InputStream input = new ByteArrayInputStream("123".getBytes());
         System.setIn(input);
         Scanner scanner = new ConsoleScanner();
@@ -88,7 +88,7 @@ public class ScannerTest extends ScannerDataProvider{
         assertEquals(actual, expected);
     }
     @Test
-    public void testInvalidReadBigDecimal() {
+    public void testInvalidReadInvalidBigDecimal() {
         InputStream input = new ByteArrayInputStream("asd\n123".getBytes());
         System.setIn(input);
         Scanner scanner = new ConsoleScanner();
