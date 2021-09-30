@@ -91,4 +91,10 @@ public class EightImpl implements Eight {
         }
         return array;
     }
+
+    @Override
+    public String toString() {
+        String[] arr = this.getClass().getPackage().getName().split("\\.");
+        return arr[arr.length - 1];
+    }
 }

@@ -164,4 +164,10 @@ public class SixImpl implements Six {
         }
         return returnString.substring(0, returnString.length() - 3);
     }
+
+    @Override
+    public String toString() {
+        String[] arr = this.getClass().getPackage().getName().split("\\.");
+        return arr[arr.length - 1];
+    }
 }
