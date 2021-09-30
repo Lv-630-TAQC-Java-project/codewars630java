@@ -5,17 +5,26 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
+    	if (time < 0.00) {
+    		return -1;
+    	}
         return (int) Math.floor(time * 0.5);
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
+    	if (length < 0.0 || width < 0.0 || height < 0.0) {
+    		return -1;
+    	}
         return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
         float kml = (float) (1.609344 / 4.54609188 * mpg);
+        if (mpg < 0) {
+        	return -1;
+        }
         float answer = Math.round(kml * 100);
         return answer / 100;
     }
@@ -61,7 +70,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return Math.round(number * 100) / 100.0;
+        return Math.round(number * 100) / 100.00;
     }
 
     @Override
