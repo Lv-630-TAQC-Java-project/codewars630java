@@ -1,6 +1,9 @@
 package com.ss.ita.kata.implementation.dzhyv;
 
 import com.ss.ita.kata.Six;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.*;
 
 public class SixImpl implements Six {
     @Override
@@ -142,7 +145,6 @@ public class SixImpl implements Six {
         return toFind + ":W=" + wins + ";D=" + draws + ";L=" + loses + ";Scored=" + scored + ";Conceded=" + conc
                 + ";Points=" + ((wins * 3) + draws);
     }
-
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
