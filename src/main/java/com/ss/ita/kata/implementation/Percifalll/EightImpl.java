@@ -5,6 +5,7 @@ import com.ss.ita.kata.Eight;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
+import java.util.List;
 
 public class EightImpl implements Eight {
 
@@ -67,6 +68,7 @@ public class EightImpl implements Eight {
      */
     @Override
     public float mpgToKPM(float mpg) {
+        if (mpg < 0) return -1;
         final float kilometresInMiles = 1.609344f;
         final float litresInGallon = 4.54609188f;
         final float coefficient = kilometresInMiles / litresInGallon;
@@ -140,6 +142,7 @@ public class EightImpl implements Eight {
      */
     @Override
     public boolean amIWilson(double n) {
+        if (n == 1) return false;
         BigDecimal leftOperand = fact(n - 1).add(BigDecimal.ONE);
         BigDecimal rightOperand = BigDecimal.valueOf(n * n);
         BigDecimal result = leftOperand.divide(rightOperand, 10, RoundingMode.FLOOR);
@@ -170,5 +173,11 @@ public class EightImpl implements Eight {
         return Arrays.stream(numbers)
                 .filter(x -> x % divider == 0)
                 .toArray();
+    }
+
+    @Override
+    public String toString() {
+        List<String> arr = Arrays.asList(this.getClass().getPackage().getName().split("\\."));
+        return arr.get(arr.size() - 1);
     }
 }
