@@ -20,5 +20,10 @@ public class FiveTest extends FiveDataProvider {
     public void testZeros(Five impl, int n, int expected) {
         Assert.assertEquals(impl.zeros(n), expected);
     }
+
+    @Test(testName = "19. Test Artificial rain", dataProvider = "dpArtificialRain")
+    public void testArtificialRain(Five impl, int[] garden, int expected){
+        Assert.assertEquals(impl.artificialRain(garden), expected);
+    }
 }
 
