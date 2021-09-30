@@ -204,4 +204,11 @@ public class SixImpl implements com.ss.ita.kata.Six {
         }
         return result.substring(0, result.length() - 3);
     }
+
+    @Override
+    public String toString() {
+
+        List<String> arr = Arrays.asList(this.getClass().getPackage().getName().split("\\."));
+        return arr.get(arr.size() - 1);
+    }
 }
