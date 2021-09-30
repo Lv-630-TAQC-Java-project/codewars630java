@@ -2,6 +2,8 @@ package com.ss.ita.utils;
 
 import org.testng.annotations.DataProvider;
 
+import java.math.BigInteger;
+
 public class ScannerDataProvider {
     @DataProvider(name = "readValidInt")
     public Object[][] readValidInt(){
@@ -38,6 +40,24 @@ public class ScannerDataProvider {
                 {"sometext\n1"},
                 {"-9223372036854775809\n1"},
                 {"9223372036854775808\n1"}
+        };
+    }
+
+    @DataProvider(name ="dpReadValidBigInteger")
+    public Object[][] readValidBigInteger(){
+        return new Object[][]{
+                {"444", new BigInteger("444")},
+                {"1234589585", new BigInteger("1234589585")},
+                {"9223372036854775807", new BigInteger("9223372036854775807")},
+                {"-9223372036854775807", new BigInteger("-9223372036854775807")}
+        };
+    }
+
+    @DataProvider(name ="dpReadInvalidBigInteger")
+    public Object[][] readInvalidBigInteger(){
+        return new Object[][]{
+                {"text\n1"},
+                {"123.5\n 1"}
         };
     }
 }
