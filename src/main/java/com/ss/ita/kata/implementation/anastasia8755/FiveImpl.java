@@ -59,7 +59,7 @@ public class FiveImpl implements Five {
 
 
         if (n < 0)
-            throw new IllegalArgumentException();
+            return -1;
         // 125/5=25 25/5=5 5/5=1 25+5+1=31
         // 125/5=25 125/25=5 125/125=1 25+5+1=31
         int trailingZeros = 0;
@@ -118,5 +118,12 @@ public class FiveImpl implements Five {
             newN.insert(i, changeElement);
         }
         return smallest;
+    }
+
+    @Override
+    public String toString() {
+
+        List<String> arr = Arrays.asList(this.getClass().getPackage().getName().split("\\."));
+        return arr.get(arr.size() - 1);
     }
 }
