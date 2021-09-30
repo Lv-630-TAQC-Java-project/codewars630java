@@ -30,18 +30,19 @@ public class SixImpl implements com.ss.ita.kata.Six {
     public String balance(String book) {
         String[] bookMass = book
                 .replaceAll("[^a-zA-Z0-9 .\n]", "")
-                //.replaceAll("[-+!?/@#$%^&*(){},'`~Ё:<>=;]", "")
                 .split("\n");
         int numberOfPurchase = bookMass.length - 1;
 
         double expense = 0;
         double originalBalance = parseDouble(bookMass[0]);
-        bookMass[0] = "Original Balance: " + originalBalance;
+        double between = originalBalance;
+        bookMass[0] = "Original Balance: " + format("%.2f",originalBalance);
         for (int i = 1; i < bookMass.length; i++) {
             String[] oneLine = bookMass[i].split(" ");
             double price = parseDouble(oneLine[2]);
             expense += price;
-            String newBalance = String.valueOf(originalBalance - price);
+            between -= price;
+            String newBalance = String.valueOf(format("%.2f", between));
             bookMass[i] = join(" ", oneLine).concat(" Balance " + newBalance);
         }
         String finalLine = join("\n", bookMass).concat("\nTotal expense " + format("%.2f", expense) + "\nAverage expense " + format("%.2f", expense / numberOfPurchase)).replaceAll(",", ".");
@@ -71,10 +72,14 @@ public class SixImpl implements com.ss.ita.kata.Six {
     public double mean(String town, String strng) {
         double perYear = 0;
         String[] monthes = getTownWithMonthRainfall(town, strng).split(",");
-            for (int k = 0; k < monthes.length; k++) {
-                perYear += parseDouble(monthes[k]);
-            }
-        return perYear / monthes.length;
+        for (int k = 0; k < monthes.length; k++) {
+            perYear += parseDouble(monthes[k]);
+        }
+        if (perYear == -1) {
+            return -1;
+        } else {
+            return perYear / monthes.length;
+        }
     }
 
 
@@ -82,14 +87,18 @@ public class SixImpl implements com.ss.ita.kata.Six {
     public double variance(String town, String strng) {
         double sumOfDiff = 0;
         double average = mean(town, strng);
-        String[] rainfallsPerMonth = getTownWithMonthRainfall(town, strng).split(",");
-        int numberOfMonths = rainfallsPerMonth.length;
-        double diff = 0;
-        for (int i = 0; i < numberOfMonths; i++) {
-            diff = pow((average - parseDouble(rainfallsPerMonth[i])), 2);
-            sumOfDiff += diff;
+        if (average == -1) {
+            return -1;
+        } else {
+            String[] rainfallsPerMonth = getTownWithMonthRainfall(town, strng).split(",");
+            int numberOfMonths = rainfallsPerMonth.length;
+            double diff = 0;
+            for (int i = 0; i < numberOfMonths; i++) {
+                diff = pow((average - parseDouble(rainfallsPerMonth[i])), 2);
+                sumOfDiff += diff;
+            }
+            return sumOfDiff / numberOfMonths;
         }
-        return sumOfDiff / numberOfMonths;
     }
 
     @Override
