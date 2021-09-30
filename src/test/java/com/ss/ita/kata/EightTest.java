@@ -31,4 +31,10 @@ public class EightTest extends EightDataProvider {
     public void testDivisibleBy(Eight impl, int[] input, int number, int[]expected) {
         assertEquals(impl.divisibleBy(input, number), expected);
     }
+
+    @Test(dataProvider = "dpLiters")
+    public void testLiters(Eight impl, double input, int result) {
+        Assert.assertEquals(impl.liters(input), result);
+    }
+
 }
