@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.VladGranat;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.Arrays;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -57,16 +59,20 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+
+        return ((n - 1) + 1) / (n * n) == 0;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+
+        return Math.round(number * 100d) / 100d;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        return Arrays.stream(numbers).filter(i -> (i % divider) == 0).toArray();
     }
+
+
 }

@@ -1,10 +1,8 @@
 package com.ss.ita.kata.implementation.dzhyv;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.*;
+import com.ss.ita.kata.Six;
 
-public class SixImpl implements com.ss.ita.kata.Six {
+public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
         long n = 0;
@@ -144,6 +142,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
         return toFind + ":W=" + wins + ";D=" + draws + ";L=" + loses + ";Scored=" + scored + ";Conceded=" + conc
                 + ";Points=" + ((wins * 3) + draws);
     }
+
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {

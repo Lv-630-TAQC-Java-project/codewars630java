@@ -5,6 +5,7 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
+        if (time < 0) return -1;
         return (int) (time / 2);
     }
 
@@ -19,6 +20,7 @@ public class EightImpl implements Eight {
     public float mpgToKPM(float mpg) {
         float gallon = 4.54609188f;
         float mile = 1.609344f;
+        if (mpg < 0) return -1;
         return (float) Math.round((mpg * mile) / gallon * 100) / 100;
     }
 
@@ -36,7 +38,6 @@ public class EightImpl implements Eight {
     public int[] countPositivesSumNegatives(int[] input) {
         int count = 0;
         int sum = 0;
-        int[] emptyArr = {};
         int[] array = new int[2];
         for (int k : input) {
             if (k > 0) count++;
@@ -46,7 +47,6 @@ public class EightImpl implements Eight {
                 array[1] = sum;
             }
         }
-        if (input == null) return emptyArr;
         return array;
     }
 
