@@ -2,7 +2,6 @@ package com.ss.ita.kata.implementation.dzhyv;
 
 import com.ss.ita.kata.Six;
 
-import java.util.Locale;
 
 public class SixImpl implements Six {
     @Override
@@ -24,7 +23,7 @@ public class SixImpl implements Six {
         redactedBook = redactedBook.trim().replaceAll(" +", " ");
         String[] splitBook = redactedBook.split("\n");
         double originalBalance = Double.valueOf(splitBook[0]);
-        String returnLine = "Original Balance: " + String.format(Locale.US,"%.2f", originalBalance) + "\\r\\n";
+        String returnLine = "Original Balance: " + String.format("%.2f", originalBalance) + "\\r\\n";
         double newBalance = originalBalance;
         double totalExpense = 0;
         int count = 0;
@@ -33,16 +32,16 @@ public class SixImpl implements Six {
                 String[] splitLine = splitBook[i].split(" ");
                 Double value = Double.valueOf(splitLine[2]);
                 newBalance = newBalance - value;
-                returnLine = returnLine + splitLine[0] + " " + splitLine[1] + " " + String.format(Locale.US,"%.2f", value)
-                        + " Balance " + String.format(Locale.US, "%.2f", newBalance) + "\\r\\n";
+                returnLine = returnLine + splitLine[0] + " " + splitLine[1] + " " + String.format("%.2f", value)
+                        + " Balance " + String.format( "%.2f", newBalance) + "\\r\\n";
                 totalExpense = totalExpense + value;
                 count++;
             } else {
                 count--;
             }
         }
-        return returnLine + "Total expense  " + String.format(Locale.US,"%.2f", totalExpense) + "\\r\\nAverage expense  "
-                + String.format(Locale.US, "%.2f", (totalExpense / count));
+        return returnLine + "Total expense  " + String.format("%.2f", totalExpense) + "\\r\\nAverage expense  "
+                + String.format( "%.2f", (totalExpense / count));
     }
 
     @Override
