@@ -2,11 +2,14 @@ package com.ss.ita.kata.implementation.NazarYakh;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        if (time <= 0.0) {
-            return 0;
+        if (time < 0) {
+            return -1;
         }
         return (int) time / 2;
     }
@@ -23,10 +26,10 @@ public class EightImpl implements Eight {
     public float mpgToKPM(float mpg) {
         float imperialgallon = 4.54609188f;
         float kminmiles = 1.609344f;
-        if (mpg <= 0) {
-            return 0;
+        if (mpg < 0) {
+            return -1;
         }
-        return (float) Math.round(mpg * kminmiles/ imperialgallon *100)/100 ;
+        return (float) Math.round(mpg * kminmiles / imperialgallon * 100) / 100;
     }
 
     @Override
@@ -62,11 +65,11 @@ public class EightImpl implements Eight {
         int positive_count = 0;
         int negative_sum = 0;
 
-        for (int element : input) {
-            if (element < 0) {
-                negative_sum += element;
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] > 0) {
+                positive_count++;
             } else {
-                positive_count += 1;
+                negative_sum += input[i];
             }
         }
 
@@ -81,16 +84,30 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        for (int j = 2; j < n; j++) {
+            if (n % j == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return (double) Math.round(number*100)/100;
+        return (double) Math.round(number * 100) / 100;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+
+        List<Integer> list = new ArrayList<>();
+
+        for (int element : numbers) {
+            if (element % divider == 0) {
+                list.add(element);
+            }
+        }
+
+        return list.stream().mapToInt(i -> i).toArray();
     }
 }

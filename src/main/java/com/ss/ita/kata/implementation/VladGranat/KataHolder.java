@@ -16,7 +16,7 @@ public class KataHolder extends Holder {
         five = new FiveImpl();
     }
 
-    public static KataHolder getInstance(){
+    public static KataHolder getInstance() {
         if (holder == null) return holder = new KataHolder();
         else return holder;
     }

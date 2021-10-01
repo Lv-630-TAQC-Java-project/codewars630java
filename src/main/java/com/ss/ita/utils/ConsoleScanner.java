@@ -10,7 +10,7 @@ public class ConsoleScanner implements Scanner {
     @Override
     public int readInt() {
         while (true) {
-            if (scanner.hasNext()) {
+            if (scanner.hasNextInt()) {
                 return scanner.nextInt();
             } else {
                 System.out.println("Incorrect input! Please enter int.");
@@ -22,10 +22,10 @@ public class ConsoleScanner implements Scanner {
     @Override
     public long readLong() {
         while (true) {
-            if (scanner.hasNext()) {
+            if (scanner.hasNextLong()) {
                 return scanner.nextLong();
             } else {
-                System.out.println("Incorrect input. Please enter long.");
+                System.out.println("Incorrect input! Please enter long.");
                 scanner.next();
             }
         }
@@ -34,7 +34,7 @@ public class ConsoleScanner implements Scanner {
     @Override
     public float readFloat() {
         while (true) {
-            if (scanner.hasNext()) {
+            if (scanner.hasNextFloat()) {
                 return scanner.nextFloat();
             } else {
                 System.out.println("Incorrect input! Please enter float.");
@@ -71,10 +71,11 @@ public class ConsoleScanner implements Scanner {
     @Override
     public BigInteger readBigInteger() {
         while (true) {
-            if (scanner.hasNext()) {
+            if (scanner.hasNextBigInteger()) {
                 return scanner.nextBigInteger();
             } else {
                 System.out.println("Incorrect input! Please enter BigInteger.");
+                scanner.next();
             }
         }
     }
@@ -82,10 +83,11 @@ public class ConsoleScanner implements Scanner {
     @Override
     public BigDecimal readBigDecimal() {
         while (true) {
-            if (scanner.hasNext()) {
+            if (scanner.hasNextBigDecimal()) {
                 return scanner.nextBigDecimal();
             } else {
                 System.out.println("Incorrect input! Please enter BigDecimal.");
+                scanner.next();
             }
         }
     }
@@ -93,7 +95,7 @@ public class ConsoleScanner implements Scanner {
     @Override
     public double[] readDoubleArray() {
         System.out.print("Length of the array:");
-        double[] array = new double[(int) readDouble()];
+        double[] array = new double[readInt()];
 
         int i = 0;
         while (i < array.length) {
