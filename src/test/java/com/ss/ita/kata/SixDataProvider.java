@@ -11,8 +11,8 @@ public class SixDataProvider  extends DataProviderImpl{
             "123 Photos;! 71.40?\n122 Picture 93.50\n132 Tyres;! 19.00,?;\n129 Stamps; 13.60\n129 Fruits{} 17.60\n129 Market;! 128.00?\n121 Gasoline;! 13.60?";
     final String b2sol = "Original Balance: 1233.00\\r\\n125 Hardware 24.80 Balance 1208,20\\r\\n123 Flowers 93.50 Balance 1114,70\\r\\n127 Meat 120.90 Balance 993,80\\r\\n120 Picture 34.00 Balance 959,80\\r\\n124 Gasoline 11.00 Balance 948,80\\r\\n123 Photos 71.40 Balance 877,40\\r\\n122 Picture 93.50 Balance 783,90\\r\\n132 Tyres 19.00 Balance 764,90\\r\\n129 Stamps 13.60 Balance 751,30\\r\\n129 Fruits 17.60 Balance 733,70\\r\\n129 Market 128.00 Balance 605,70\\r\\n121 Gasoline 13.60 Balance 592,10\\r\\nTotal expense  640,90\\r\\nAverage expense  53,41";
 
-    @DataProvider(name = "balance")
-    public Object[][] balance() {
+    @DataProvider(name = "dpBalance")
+    public Object[][] dpBalance() {
         Object[][] param = new Object[][]{
                 {b1, b1sol}, {b2, b2sol}};
         return combine(sixImplPackProvider(), param);
@@ -25,8 +25,8 @@ public class SixDataProvider  extends DataProviderImpl{
                     "Shipton:Jan 441,Feb 218.7,Mar 332.6,Apr 119.9,May 239.4,Jun 360,Jul 322.6,Aug 283.4,Sep 300.5,Oct 386.7,Nov 359,Dec 246.1\n" +
                     "Greenflower:Jan 247.1,Feb 226.2,Mar 140.9,Apr 350.8,May 254.7,Jun 364.3,Jul 192.4,Aug 254.6,Sep 229.2,Oct 279.9,Nov 180.1,Dec 254.9";
 
-    @DataProvider(name = "rainfallMean")
-    public Object[][] mean() {
+    @DataProvider(name = "dpRainfallMean")
+    public Object[][] dpRainfallMean() {
         Object[][] params = new Object[][]{
                 {"Ubbin Falls", rainfallSheet, 250.3},
                 {"Ubbin", rainfallSheet, -1.0},
@@ -35,12 +35,22 @@ public class SixDataProvider  extends DataProviderImpl{
         return combine(sixImplPackProvider(), params);
     }
 
-    @DataProvider(name = "rainfallVariance")
-    public Object[][] variance() {
+    @DataProvider(name = "dpRainfallVariance")
+    public Object[][] dpRainfallVariance() {
         Object[][] params = new Object[][]{
                 {"Ubbin Falls", rainfallSheet, 9337.3},
                 {"Ubbin", rainfallSheet, -1.0},
                 {"a", rainfallSheet, -1.0}
+        };
+
+        return combine(sixImplPackProvider(), params);
+    }
+
+    @DataProvider(name = "dpStockSummary")
+    public Object[][] dpStockSummary() {
+        Object[][] params = new Object[][]{
+                {new String[] {"ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"},
+                        new String[] {"A", "B", "C", "W"},"(A : 20) - (B : 114) - (C : 50) - (W : 0)"},
         };
 
         return combine(sixImplPackProvider(), params);

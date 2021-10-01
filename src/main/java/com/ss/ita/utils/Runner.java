@@ -1,7 +1,6 @@
 package com.ss.ita.utils;
 
 import com.ss.ita.kata.*;
-import com.ss.ita.kata.implementation.users.User;
 
 import java.util.Arrays;
 

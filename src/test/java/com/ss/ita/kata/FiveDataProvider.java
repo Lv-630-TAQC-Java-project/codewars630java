@@ -4,8 +4,8 @@ import org.testng.annotations.DataProvider;
 
 public class FiveDataProvider extends DataProviderImpl {
 
-    @DataProvider(name = "sumSolve")
-    public Object[][] sumSolve() {
+    @DataProvider(name = "dpSumSolve")
+    public Object[][] dpSumSolve() {
         Object[][] param = new Object[][]{
                 {2.00, 5.000000000000e-01},
                 {2.00, 5.000000000000e-01}};
