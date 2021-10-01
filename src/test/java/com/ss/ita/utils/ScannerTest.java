@@ -7,6 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 import static org.testng.Assert.*;
 
@@ -74,8 +75,28 @@ public class ScannerTest extends ScannerDataProvider{
     public void testReadString() {
     }
 
-    @Test
-    public void testReadBigInteger() {
+    @Test(dataProvider = "dpReadValidBigInteger")
+    public void testReadBigInteger(String input, BigInteger expected) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        consoleScanner = new ConsoleScanner();
+        BigInteger actual = consoleScanner.readBigInteger();
+        assertEquals(actual, expected);
+    }
+
+    @Test(dataProvider = "dpReadInvalidBigInteger")
+    public  void testReadInvalidBigInteger(String input){
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+        consoleScanner = new ConsoleScanner();
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        consoleScanner.readBigInteger();
+        String actual = output.toString().replaceAll("\r", "");
+        assertEquals(actual, "Incorrect input! Please enter BigInteger.\n");
     }
 
     @Test

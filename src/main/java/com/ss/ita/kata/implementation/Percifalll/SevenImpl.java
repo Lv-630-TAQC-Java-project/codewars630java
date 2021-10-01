@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.Percifalll;
 import com.ss.ita.kata.Seven;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class SevenImpl implements Seven {
     @Override
@@ -64,5 +65,11 @@ public class SevenImpl implements Seven {
             }
         }
         return positionsCount;
+    }
+
+    @Override
+    public String toString() {
+        String[] arr = this.getClass().getPackage().getName().split("\\.");
+        return arr[arr.length - 1];
     }
 }

@@ -4,6 +4,7 @@ import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.LongStream;
 
@@ -106,5 +107,11 @@ public class FiveImpl implements Five {
         }
 
         return new long[]{smallestValue, smallestI, smallestJ};
+    }
+
+    @Override
+    public String toString() {
+        String[] arr = this.getClass().getPackage().getName().split("\\.");
+        return arr[arr.length - 1];
     }
 }

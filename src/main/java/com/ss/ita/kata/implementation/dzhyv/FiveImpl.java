@@ -102,4 +102,10 @@ public class FiveImpl implements Five {
         }
         return new long[]{smallest, index, index0};
     }
+
+    @Override
+    public String toString() {
+        String[] arr = this.getClass().getPackage().getName().split("\\.");
+        return arr[arr.length - 1];
+    }
 }
