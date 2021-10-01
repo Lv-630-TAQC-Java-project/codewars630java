@@ -10,16 +10,14 @@ public class SixTest extends SixDataProvider {
         Assert.assertEquals(impl.balance(input),result);
     }
 
-}
-
     @Test(dataProvider = "rainfallMean")
     public void mean(Six impl, String town, String rainfallSheet, double expected) {
-        assertEquals(impl.mean(town, rainfallSheet), expected, 0.1);
+        Assert.assertEquals(impl.mean(town, rainfallSheet), expected, 0.1);
     }
 
     @Test(dataProvider = "rainfallVariance")
     public void variance(Six impl, String town, String rainfallSheet, double expected) {
-        assertEquals(impl.variance(town, rainfallSheet), expected, 0.1);
+        Assert.assertEquals(impl.variance(town, rainfallSheet), expected, 0.1);
     }
 }
 

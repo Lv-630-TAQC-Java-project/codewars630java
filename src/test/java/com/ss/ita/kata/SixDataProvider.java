@@ -14,8 +14,9 @@ public class SixDataProvider  extends DataProviderImpl{
     @DataProvider(name = "balance")
     public Object[][] balance() {
         Object[][] param = new Object[][]{
-                {b1, b1sol},{b2,b2sol}};
-        return combine(sixImplPackProvider(),param);
+                {b1, b1sol}, {b2, b2sol}};
+        return combine(sixImplPackProvider(), param);
+    }
 
     // Used for rainfall tests - Kata 6
     private final String rainfallSheet =
