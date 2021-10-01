@@ -1,4 +1,4 @@
-package com.ss.ita.kata.implementation.users;
+package com.ss.ita.utils;
 
 import com.ss.ita.kata.Holder;
 
