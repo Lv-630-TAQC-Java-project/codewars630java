@@ -19,6 +19,7 @@ public class SevenDataProvider extends DataProviderImpl {
                 {1, "1.00"},
                 {2, "1.25"},
                 {5, "1.57"}};
+
         return combine(sevenImplPackProvider(), param);
     }
 

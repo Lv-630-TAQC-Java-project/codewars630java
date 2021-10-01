@@ -8,8 +8,8 @@ import java.util.List;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        if (time <= 0.0) {
-            return 0;
+        if (time < 0) {
+            return -1;
         }
         return (int) time / 2;
     }
@@ -26,8 +26,8 @@ public class EightImpl implements Eight {
     public float mpgToKPM(float mpg) {
         float imperialgallon = 4.54609188f;
         float kminmiles = 1.609344f;
-        if (mpg <= 0) {
-            return 0;
+        if (mpg < 0) {
+            return -1;
         }
         return (float) Math.round(mpg * kminmiles / imperialgallon * 100) / 100;
     }
@@ -65,11 +65,11 @@ public class EightImpl implements Eight {
         int positive_count = 0;
         int negative_sum = 0;
 
-        for (int element : input) {
-            if (element < 0) {
-                negative_sum += element;
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] > 0) {
+                positive_count++;
             } else {
-                positive_count += 1;
+                negative_sum += input[i];
             }
         }
 
