@@ -17,6 +17,7 @@ public class SixDataProvider  extends DataProviderImpl{
                 {b1, b1sol}, {b2, b2sol}};
         return combine(sixImplPackProvider(), param);
     }
+
     // Used for rainfall tests - Kata 6
     private final String rainfallSheet =
             "Ubbin Falls:Jan 265.5,Feb 442.6,Mar 268.6,Apr 372.6,May 281,Jun 287.3,Jul 237.2,Aug 117,Sep 189.8,Oct 280.2,Nov 186.7,Dec 75.1\n" +

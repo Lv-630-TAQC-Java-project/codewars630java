@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.NazarYakh;
 import com.ss.ita.kata.Seven;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 public class SevenImpl implements Seven {
     @Override
@@ -24,7 +25,7 @@ public class SevenImpl implements Seven {
             iteration += 3;
         }
 
-        return String.format("%.2f", sum);
+        return String.format(Locale.US,"%.2f", sum);
     }
 
     @Override

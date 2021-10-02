@@ -30,8 +30,8 @@ public class SevenImpl implements Seven {
         for (int i = 0; i < n; i++) {
             sum += 1 / (double) (1 + i * 3);
         }
-        double newSum = Math.round(sum * 100) / 100.00;
-        return String.valueOf(newSum);
+        double newSum = Math.round(sum * 100D) / 100D;
+        return String.format("%.2f", newSum);
     }
 
     @Override
