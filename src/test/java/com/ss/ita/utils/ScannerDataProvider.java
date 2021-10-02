@@ -40,4 +40,13 @@ public class ScannerDataProvider {
                 {"9223372036854775808\n1"}
         };
     }
+
+    @DataProvider(name = "dpReadValidDoubleArray")
+    public Object[][] dpReadValidDoubleArray(){
+        return new Object[][]{
+                {new String ("2\n1.2222 2.3333") , new double[] {1.2222, 2.3333}},
+                {new String ("3\n0.00 2.5 -3.2") , new double[] {0.00, 2.5, -3.2}},
+
+        };
+    }
 }

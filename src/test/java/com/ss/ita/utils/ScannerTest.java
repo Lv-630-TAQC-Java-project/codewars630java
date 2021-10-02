@@ -102,8 +102,15 @@ public class ScannerTest extends ScannerDataProvider{
         assertEquals(actual, "Incorrect input! Please enter BigDecimal.\n");
     }
 
-    @Test
-    public void testReadDoubleArray() {
+    @Test(dataProvider = "dpReadValidDoubleArray")
+    public void testReadDoubleArray(String input, double[] expected) {
+
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        consoleScanner = new ConsoleScanner();
+        double[] actual = consoleScanner.readDoubleArray();
+        assertEquals(actual, expected);
     }
 
     @Test
