@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Arrays;
+
 
 import static org.testng.Assert.*;
 
@@ -153,7 +153,7 @@ public class ScannerTest extends ScannerDataProvider{
         scanner.onlyForStockSummaryMethod();
 
         String[] actual = new String[]{output.toString().replaceAll("\r", "")};
-        assertEquals(actual, "Incorrect input. Please enter long.\n");
+        assertEquals(actual, "Incorrect input. Please enter String[].\n");
     }
 
 
