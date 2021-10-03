@@ -21,7 +21,7 @@ public class EightImpl implements Eight {
 	@Override
 	public int liters(double time) {
 		if (time < 0) {
-			throw new IllegalArgumentException("Illegar argument! Time is non-negative.");
+			return 0;	
 		}
 		return (int) (0.5 * time);
 	}
@@ -40,7 +40,7 @@ public class EightImpl implements Eight {
 	@Override
 	public double getVolumeOfCuboid(double length, double width, double height) {
 		if (length < 0 || width < 0 || height < 0) {
-			throw new IllegalArgumentException("Illegal argument!");
+			return 0.0;
 		}
 		return length * width * height;
 	}
@@ -68,7 +68,7 @@ public class EightImpl implements Eight {
 		final float litresInGallon = 4.54609188f;
 		final float kmInMile = 1.609344f;
 		if (mpg < 0) {
-			throw new IllegalArgumentException("Error. Illegal Argument.");
+			return 0.0f;
 		}
 		return (float) Math.round(mpg * kmInMile / litresInGallon * 100) / 100;
 	}
@@ -134,15 +134,7 @@ public class EightImpl implements Eight {
 	 */
 	@Override
 	public int[] squareOrSquareRoot(int[] array) {
-		if (array.length == 0) {
-			throw new IllegalArgumentException("Error. Length of array is 0.");
-		}
-		for (int arrayElement : array) {
-			if (arrayElement < 0) {
-				throw new IllegalArgumentException("Error. Elements of array is negative.");
-			}
-
-		}
+		
 		int[] resultArray = array;
 		for (int i = 0; i < resultArray.length; i++) {
 			resultArray[i] = Math.sqrt(resultArray[i]) % 1 == 0 ? (int) Math.sqrt(resultArray[i])
@@ -208,14 +200,7 @@ public class EightImpl implements Eight {
 	@Override
 
 	public int[] divisibleBy(int[] numbers, int divider) {
-		if (numbers == null || numbers.length == 0) {
-			throw new IllegalArgumentException("Error. Array is null or empty");
-
-		}
-		if (divider == 0) {
-			throw new IllegalArgumentException("Error. Argument is 0.");
-
-		}
+		
 		List<Integer> ls = new ArrayList<Integer>();
 		for (int elementNumbers : numbers) {
 			if (elementNumbers % divider == 0) {
