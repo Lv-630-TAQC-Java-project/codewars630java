@@ -60,4 +60,12 @@ public class ScannerDataProvider {
                 {"123.5\n 1"}
         };
     }
+
+    @DataProvider(name = "dpReadInvalidDoubleArray")
+    public Object[][] dpReadInvalidDoubleArray(){
+        return new Object[][]{
+                {new String ("3\ni\n0.00 2.5 -3.2") },
+
+        };
+    }
 }

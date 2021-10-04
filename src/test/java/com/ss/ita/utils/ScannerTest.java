@@ -127,6 +127,21 @@ public class ScannerTest extends ScannerDataProvider{
     public void testReadDoubleArray() {
     }
 
+    @Test(dataProvider = "dpReadInvalidDoubleArray")
+    public void testReadInvalidDoubleArray(String input) {
+
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        consoleScanner = new ConsoleScanner();
+        consoleScanner.readDoubleArray();
+        String actual = output.toString().replaceAll("\r", "");
+        assertEquals(actual, "Length of the array:Incorrect input! Please enter double.\n");
+    }
+
     @Test
     public void testReadIntArray() {
     }
