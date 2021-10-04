@@ -46,6 +46,15 @@ public class FiveDataProvider extends DataProviderImpl {
         return combine(fiveImplPackProvider(), param);
     }
 
+    @DataProvider(name = "dpInvalidArtificialRain")
+    public Object[][] dpInvalidArtificialRain() {
+        Object[][] param = new Object[][]{
+                {new int[]{-1, 2, 5, 6, 4, 3}, -1},
+                {new int[]{ 4, 5, -2, 5, -1}, -1}
+        };
+        return combine(fiveImplPackProvider(), param);
+    }
+
     @DataProvider(name = "dpSmallest")
     public Object[][] dpSmallest() {
         Object[][] params = new Object[][]{
