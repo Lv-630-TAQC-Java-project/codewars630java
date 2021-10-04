@@ -51,10 +51,10 @@ public class EightDataProvider extends DataProviderImpl {
     @DataProvider(name = "dpDivisibleBy")
     public Object[][] dpDivisibleBy() {
         Object[][] param = new Object[][]{
-                {new int[]{2,4,6,8,3,45,0,10,-12,-14},2,
-                        new int[]{2,4,6,8,0,10,-12,-14}},
-                {new int[]{-2,23,112,6,-20,25},5,
-                        new int[]{-20,25}}};
+                {new int[]{2, 4, 6, 8, 3, 45, 0, 10, -12, -14}, 2,
+                        new int[]{2, 4, 6, 8, 0, 10, -12, -14}},
+                {new int[]{-2, 23, 112, 6, -20, 25}, 5,
+                        new int[]{-20, 25}}};
         return combine(eightImplPackProvider(), param);
     }
 
@@ -73,15 +73,15 @@ public class EightDataProvider extends DataProviderImpl {
 
         return combine(eightImplPackProvider(), param);
     }
-    
-    @DataProvider (name = "dpStringToNumber")
-    public Object [][] dpStringToNumber (){
-    	 Object[][] params = new Object[][] {
-    		 {"-10", -10},{"0", 0}, {"10",10}
-    		 
-    	 };
-    	return combine(eightImplPackProvider(), params);
+
+    @DataProvider(name = "dpStringToNumber")
+    public Object[][] dpStringToNumber() {
+        Object[][] params = new Object[][]{
+                {"-10", -10}, {"0", 0}, {"10", 10}
+
+        };
+        return combine(eightImplPackProvider(), params);
     }
-    
+
 
 }

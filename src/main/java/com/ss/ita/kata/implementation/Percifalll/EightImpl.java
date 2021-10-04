@@ -5,7 +5,6 @@ import com.ss.ita.kata.Eight;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
-import java.util.List;
 
 public class EightImpl implements Eight {
 

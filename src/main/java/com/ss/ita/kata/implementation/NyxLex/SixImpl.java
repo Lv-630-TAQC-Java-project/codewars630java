@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Math.pow;
-import static java.lang.String.*;
+import static java.lang.String.format;
 
 public class SixImpl implements com.ss.ita.kata.Six {
     @Override

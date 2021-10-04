@@ -7,7 +7,8 @@ import java.util.regex.Pattern;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Math.pow;
-import static java.lang.String.*;
+import static java.lang.String.format;
+import static java.lang.String.join;
 
 public class SixImpl implements com.ss.ita.kata.Six {
 
@@ -36,7 +37,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
         double expense = 0;
         double originalBalance = parseDouble(bookMass[0]);
         double between = originalBalance;
-        bookMass[0] = "Original Balance: " + format("%.2f",originalBalance);
+        bookMass[0] = "Original Balance: " + format("%.2f", originalBalance);
         for (int i = 1; i < bookMass.length; i++) {
             String[] oneLine = bookMass[i].split(" ");
             double price = parseDouble(oneLine[2]);

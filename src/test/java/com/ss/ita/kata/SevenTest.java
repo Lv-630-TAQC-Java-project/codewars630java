@@ -16,13 +16,13 @@ public class SevenTest extends SevenDataProvider {
         Assert.assertEquals(impl.whereIsHe(p, bef, aft), res);
     }
 
-    @Test(testName = "10. Test Looking for benefactor", dataProvider = "dpNewAvg" )
+    @Test(testName = "10. Test Looking for benefactor", dataProvider = "dpNewAvg")
     public void testNewAvg(Seven impl, double[] inputArr, double input, long result) {
         Assert.assertEquals(impl.newAvg(inputArr, input), result);
     }
 
     @Test(expectedExceptions = {IllegalArgumentException.class}, testName = "10. Test exception Looking for benefactor", dataProvider = "dpExcNewAvg")
-    public void testExcNewAvg(Seven impl, double[] inputArr, double input){
+    public void testExcNewAvg(Seven impl, double[] inputArr, double input) {
         impl.newAvg(inputArr, input);
     }
 

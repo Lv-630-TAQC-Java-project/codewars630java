@@ -26,7 +26,7 @@ public class SevenImpl implements Seven {
                 sum += 1.00 / (double) (1 + j * 3);
             }
             double sum1 = Math.round(sum * 100) / 100D;
-            return String.valueOf(format("%.2f",sum1));
+            return String.valueOf(format("%.2f", sum1));
         }
     }
 

@@ -3,7 +3,6 @@ package com.ss.ita.kata.implementation.Percifalll;
 import com.ss.ita.kata.Seven;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class SevenImpl implements Seven {
     @Override

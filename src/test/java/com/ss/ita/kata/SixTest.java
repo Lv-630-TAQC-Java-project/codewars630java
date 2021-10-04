@@ -34,6 +34,6 @@ public class SixTest extends SixDataProvider {
 
     @Test(dataProvider = "dpStockSummary")
     public void testStockSummary(Six impl, String[] letters, String[] arts, String expected) {
-        assertEquals(impl.stockSummary(letters,arts), expected);
+        assertEquals(impl.stockSummary(letters, arts), expected);
     }
 }

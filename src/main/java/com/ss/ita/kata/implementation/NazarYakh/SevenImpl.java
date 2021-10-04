@@ -25,7 +25,7 @@ public class SevenImpl implements Seven {
             iteration += 3;
         }
 
-        return String.format(Locale.US,"%.2f", sum);
+        return String.format(Locale.US, "%.2f", sum);
     }
 
     @Override

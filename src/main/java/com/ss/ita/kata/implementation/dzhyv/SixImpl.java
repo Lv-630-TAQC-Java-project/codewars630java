@@ -1,9 +1,10 @@
 package com.ss.ita.kata.implementation.dzhyv;
 
 import com.ss.ita.kata.Six;
+
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.*;
 
 
 public class SixImpl implements Six {
@@ -36,7 +37,7 @@ public class SixImpl implements Six {
                 Double value = Double.valueOf(splitLine[2]);
                 newBalance = newBalance - value;
                 returnLine = returnLine + splitLine[0] + " " + splitLine[1] + " " + String.format("%.2f", value)
-                        + " Balance " + String.format( "%.2f", newBalance) + "\\r\\n";
+                        + " Balance " + String.format("%.2f", newBalance) + "\\r\\n";
                 totalExpense = totalExpense + value;
                 count++;
             } else {
@@ -44,7 +45,7 @@ public class SixImpl implements Six {
             }
         }
         return returnLine + "Total expense  " + String.format("%.2f", totalExpense) + "\\r\\nAverage expense  "
-                + String.format( "%.2f", (totalExpense / count));
+                + String.format("%.2f", (totalExpense / count));
     }
 
     @Override

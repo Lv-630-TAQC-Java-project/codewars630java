@@ -9,10 +9,9 @@ import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+import static org.testng.Assert.assertEquals;
 
-import static org.testng.Assert.*;
-
-public class ScannerTest extends ScannerDataProvider{
+public class ScannerTest extends ScannerDataProvider {
     private Scanner consoleScanner;
 
     @Test(dataProvider = "readValidInt")
@@ -26,7 +25,7 @@ public class ScannerTest extends ScannerDataProvider{
     }
 
     @Test(dataProvider = "readInvalidInt")
-    public void testReadInvalidInt(String input){
+    public void testReadInvalidInt(String input) {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
         consoleScanner = new ConsoleScanner();
@@ -87,7 +86,7 @@ public class ScannerTest extends ScannerDataProvider{
     }
 
     @Test(dataProvider = "dpReadInvalidBigInteger")
-    public  void testReadInvalidBigInteger(String input){
+    public void testReadInvalidBigInteger(String input) {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
         consoleScanner = new ConsoleScanner();
@@ -101,7 +100,7 @@ public class ScannerTest extends ScannerDataProvider{
     }
 
     @Test(dataProvider = "readValidBigDecimal")
-    public void testReadValidBigDecimal(String input,BigDecimal expected) {
+    public void testReadValidBigDecimal(String input, BigDecimal expected) {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 
@@ -109,6 +108,7 @@ public class ScannerTest extends ScannerDataProvider{
         BigDecimal actual = consoleScanner.readBigDecimal();
         assertEquals(actual, expected);
     }
+
     @Test(dataProvider = "readInvalidBigDecimal")
     public void testInvalidReadBigDecimal(String input) {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
@@ -177,7 +177,6 @@ public class ScannerTest extends ScannerDataProvider{
         String[] actual = new String[]{output.toString().replaceAll("\r", "")};
         assertEquals(actual, "Incorrect input. Please enter String[].\n");
     }
-
 
 
     @Test

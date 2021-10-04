@@ -34,10 +34,10 @@ public class EightTest extends EightDataProvider {
     public void testLiters(Eight impl, double input, int result) {
         Assert.assertEquals(impl.liters(input), result);
     }
-    
+
     @Test(dataProvider = "dpStringToNumber")
-    public void testStringToNumber (Eight impl, String input, int output ) {
-    	Assert.assertEquals(impl.stringToNumber(input), output);
+    public void testStringToNumber(Eight impl, String input, int output) {
+        Assert.assertEquals(impl.stringToNumber(input), output);
     }
 
 }
