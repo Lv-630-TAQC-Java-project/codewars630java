@@ -2,6 +2,7 @@ package com.ss.ita.utils;
 
 import org.testng.annotations.DataProvider;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class ScannerDataProvider {
@@ -43,6 +44,13 @@ public class ScannerDataProvider {
         };
     }
 
+
+    @DataProvider(name = "dpReadValidDoubleArray")
+    public Object[][] dpReadValidDoubleArray(){
+        return new Object[][]{
+                {new String ("2\n1.2222 2.3333") , new double[] {1.2222, 2.3333}},
+                {new String ("3\n0.00 2.5 -3.2") , new double[] {0.00, 2.5, -3.2}},
+
     @DataProvider(name ="dpReadValidBigInteger")
     public Object[][] readValidBigInteger(){
         return new Object[][]{
@@ -66,6 +74,24 @@ public class ScannerDataProvider {
         return new Object[][]{
                 {new String ("3\ni\n0.00 2.5 -3.2") },
 
+        };
+    }
+          
+    @DataProvider(name ="readValidBigDecimal")
+    public Object[][] readValidBigDecimal(){
+        return new Object[][]{
+                {"444", new BigDecimal(444)},
+                {"1234589585", new BigDecimal(1234589585)},
+                {"22337203", new BigDecimal (22337203)},
+                {"-92233720", new BigDecimal (-92233720)}
+        };
+    }
+
+    @DataProvider(name ="readInvalidBigDecimal")
+    public Object[][] readInvalidBigDecimal(){
+        return new Object[][]{
+                {"text\n1"},
+                {"123.5\n 1"}
         };
     }
 }
