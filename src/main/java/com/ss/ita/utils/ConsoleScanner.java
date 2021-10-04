@@ -1,7 +1,11 @@
 package com.ss.ita.utils;
 
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class ConsoleScanner implements Scanner {
@@ -141,12 +145,24 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public String[] readStringArray() {
+//        return scanner.nextLine().split(" ");
+
+//        while (true) {
+//            if (scanner.hasNext()) {
+//                return new String[]{scanner.next()};
+//            } else {
+//                System.out.println("Incorrect input! Please enter String[].");
+//            }
+//        }
+
+        List<String> strings = new LinkedList<>();
         while (true) {
             if (scanner.hasNext()) {
-                return new String[]{scanner.next()};
-            } else {
-                System.out.println("Incorrect input! Please enter String[].");
+                String line =  scanner.nextLine();
+                if(line.equals("")) break;
+                strings.add(line);
             }
         }
+        return (String[]) strings.toArray();
     }
 }
