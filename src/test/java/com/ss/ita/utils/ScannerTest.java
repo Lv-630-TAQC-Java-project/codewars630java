@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+
 import static org.testng.Assert.*;
 
 public class ScannerTest extends ScannerDataProvider{
@@ -133,7 +134,29 @@ public class ScannerTest extends ScannerDataProvider{
 
     @Test
     public void testOnlyForStockSummaryMethod() {
+        InputStream input = new ByteArrayInputStream("123".getBytes());
+        System.setIn(input);
+        Scanner scanner = new ConsoleScanner();
+        String[] actual = scanner.onlyForStockSummaryMethod();
+        assertEquals(actual, new String[]{"123"});
     }
+
+    @Test
+    public void testInvalidOnlyForStockSummaryMethod() {
+        InputStream input = new ByteArrayInputStream("123".getBytes());
+        System.setIn(input);
+        Scanner scanner = new ConsoleScanner();
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        scanner.onlyForStockSummaryMethod();
+
+        String[] actual = new String[]{output.toString().replaceAll("\r", "")};
+        assertEquals(actual, "Incorrect input. Please enter String[].\n");
+    }
+
+
 
     @Test
     public void testReadStringArray() {
