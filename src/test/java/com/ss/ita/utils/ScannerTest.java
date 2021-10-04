@@ -99,25 +99,25 @@ public class ScannerTest extends ScannerDataProvider{
         assertEquals(actual, "Incorrect input! Please enter BigInteger.\n");
     }
 
-    @Test
-    public void testReadBigDecimal() {
-        InputStream input = new ByteArrayInputStream("123".getBytes());
-        System.setIn(input);
-        Scanner scanner = new ConsoleScanner();
-        BigDecimal actual = scanner.readBigDecimal();
-        BigDecimal expected = new BigDecimal("123");
+    @Test(dataProvider = "readValidBigDecimal")
+    public void testReadValidBigDecimal(String input,BigDecimal expected) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        consoleScanner = new ConsoleScanner();
+        BigDecimal actual = consoleScanner.readBigDecimal();
         assertEquals(actual, expected);
     }
-    @Test
-    public void testInvalidReadBigDecimal() {
-        InputStream input = new ByteArrayInputStream("asd\n123".getBytes());
-        System.setIn(input);
-        Scanner scanner = new ConsoleScanner();
+    @Test(dataProvider = "readInvalidBigDecimal")
+    public void testInvalidReadBigDecimal(String input) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+        consoleScanner = new ConsoleScanner();
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        scanner.readBigDecimal();
+        consoleScanner.readBigDecimal();
 
         String actual = output.toString().replaceAll("\r", "");
         assertEquals(actual, "Incorrect input! Please enter BigDecimal.\n");
