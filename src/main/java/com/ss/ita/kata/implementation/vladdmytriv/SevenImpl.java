@@ -8,12 +8,18 @@ public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         double sum = 0;
+        long nAvg = 0;
+
         for (int i = 0; i < arr.length; i++) {
-            sum = +arr[i];
+            sum += arr[i];
         }
-        double n = arr.length;
-        navg = 30 * (n + 1) - sum;
-        return (long) navg;
+
+        nAvg = (long) Math.ceil((navg * (arr.length + 1)) - sum);
+
+        if (nAvg <= 0) {
+            throw new IllegalArgumentException();
+        }
+        return nAvg;
     }
 
     @Override

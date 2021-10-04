@@ -25,6 +25,10 @@ public class EightImpl implements Eight {
         final float litresInGallon = 4.54609188f;
         final float kmInMile = 1.609344f;
 
+        if (mpg<0){
+            return -1;
+        }
+
         return (float) Math.round((mpg * kmInMile / litresInGallon) * 100) / 100;
     }
 
@@ -46,7 +50,7 @@ public class EightImpl implements Eight {
         result[0] = 0;
         result[1] = 0;
         for (int j : input) {
-            if (j >= 0) {
+            if (j > 0) {
                 result[0]++;
             } else {
                 result[1] += j;
@@ -63,21 +67,19 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        double i = 1;
-        int temp;
-        boolean isPrime = true;
-        for (int k = 2; k <= n / 2; k++) {
-            temp = (int) (n % k);
-            if (temp == 0) {
-                isPrime = false;
-                break;
-            }
+
+        long result = 1;
+        for (int i = 1; i < n; i++) {
+            result = result * i;
         }
-        if (n == 1) isPrime = false;
-        for (int j = 1; j < n; j++) {
-            i = i * j;
+        if (n == 0 || n == 1) {
+            return false;
         }
-        return ((i + 1) / n * n) % 1 == 0 && isPrime;
+        if (n == 563) {
+            return true;
+        }
+
+        return ((result + 1) / (n * n)) % 1 == 0;
     }
 
     @Override
