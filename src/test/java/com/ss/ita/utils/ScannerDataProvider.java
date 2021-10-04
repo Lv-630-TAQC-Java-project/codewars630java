@@ -96,4 +96,15 @@ public class ScannerDataProvider {
                 {"123.5\n 1"}
         };
     }
+    @DataProvider (name = "dpTestReadStringArray")
+    public Object[][] dpTestReadStringArray(){
+    	return new Object[][] {
+    		{ new String[] {"New","string","array",""}, new String[] {"New","string","array"} },
+    		{new String[] {"another","New","string","array",""}, new String[] {"another","New","string","array"}},
+    		{new String[] {"New","string","array", "whith","1","2",""}, new String[] {"New","string","array", "whith","1","2"} },
+    		{new String[] {"0","2","5"}, new String[] {"0","2","5",""}}
+    		
+    	};
+    }
+    
 }

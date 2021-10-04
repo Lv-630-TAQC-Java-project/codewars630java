@@ -12,174 +12,187 @@ import java.math.BigInteger;
 import static org.testng.Assert.assertEquals;
 
 public class ScannerTest extends ScannerDataProvider {
-    private Scanner consoleScanner;
+	private Scanner consoleScanner;
 
-    @Test(dataProvider = "readValidInt")
-    public void testReadValidInt(String input, int expected) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
+	@Test(dataProvider = "readValidInt")
+	public void testReadValidInt(String input, int expected) {
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
 
-        consoleScanner = new ConsoleScanner();
-        int actual = consoleScanner.readInt();
-        assertEquals(actual, expected);
-    }
+		consoleScanner = new ConsoleScanner();
+		int actual = consoleScanner.readInt();
+		assertEquals(actual, expected);
+	}
 
-    @Test(dataProvider = "readInvalidInt")
-    public void testReadInvalidInt(String input) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
-        consoleScanner = new ConsoleScanner();
+	@Test(dataProvider = "readInvalidInt")
+	public void testReadInvalidInt(String input) {
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
+		consoleScanner = new ConsoleScanner();
 
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(output));
 
-        consoleScanner.readInt();
+		consoleScanner.readInt();
 
-        String actual = output.toString().replaceAll("\r", "");
-        assertEquals(actual, "Incorrect input! Please enter int.\n");
-    }
+		String actual = output.toString().replaceAll("\r", "");
+		assertEquals(actual, "Incorrect input! Please enter int.\n");
+	}
 
-    @Test(dataProvider = "readValidLong")
-    public void testReadLong(String input, long expected) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
+	@Test(dataProvider = "readValidLong")
+	public void testReadLong(String input, long expected) {
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
 
-        consoleScanner = new ConsoleScanner();
-        long actual = consoleScanner.readLong();
-        assertEquals(actual, expected);
-    }
+		consoleScanner = new ConsoleScanner();
+		long actual = consoleScanner.readLong();
+		assertEquals(actual, expected);
+	}
 
-    @Test(dataProvider = "readInvalidLong")
-    public void testInvalidReadLong(String input) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
-        consoleScanner = new ConsoleScanner();
+	@Test(dataProvider = "readInvalidLong")
+	public void testInvalidReadLong(String input) {
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
+		consoleScanner = new ConsoleScanner();
 
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(output));
 
-        consoleScanner.readLong();
-        String actual = output.toString().replaceAll("\r", "");
-        assertEquals(actual, "Incorrect input! Please enter long.\n");
-    }
+		consoleScanner.readLong();
+		String actual = output.toString().replaceAll("\r", "");
+		assertEquals(actual, "Incorrect input! Please enter long.\n");
+	}
 
-    @Test
-    public void testReadFloat() {
-    }
+	@Test
+	public void testReadFloat() {
+	}
 
-    @Test
-    public void testReadDouble() {
-    }
+	@Test
+	public void testReadDouble() {
+	}
 
-    @Test
-    public void testReadString() {
-    }
+	@Test
+	public void testReadString() {
+	}
 
-    @Test(dataProvider = "dpReadValidBigInteger")
-    public void testReadBigInteger(String input, BigInteger expected) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
+	@Test(dataProvider = "dpReadValidBigInteger")
+	public void testReadBigInteger(String input, BigInteger expected) {
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
 
-        consoleScanner = new ConsoleScanner();
-        BigInteger actual = consoleScanner.readBigInteger();
-        assertEquals(actual, expected);
-    }
+		consoleScanner = new ConsoleScanner();
+		BigInteger actual = consoleScanner.readBigInteger();
+		assertEquals(actual, expected);
+	}
 
-    @Test(dataProvider = "dpReadInvalidBigInteger")
-    public void testReadInvalidBigInteger(String input) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
-        consoleScanner = new ConsoleScanner();
+	@Test(dataProvider = "dpReadInvalidBigInteger")
+	public void testReadInvalidBigInteger(String input) {
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
+		consoleScanner = new ConsoleScanner();
 
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(output));
 
-        consoleScanner.readBigInteger();
-        String actual = output.toString().replaceAll("\r", "");
-        assertEquals(actual, "Incorrect input! Please enter BigInteger.\n");
-    }
+		consoleScanner.readBigInteger();
+		String actual = output.toString().replaceAll("\r", "");
+		assertEquals(actual, "Incorrect input! Please enter BigInteger.\n");
+	}
 
-    @Test(dataProvider = "readValidBigDecimal")
-    public void testReadValidBigDecimal(String input, BigDecimal expected) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
+	@Test(dataProvider = "readValidBigDecimal")
+	public void testReadValidBigDecimal(String input, BigDecimal expected) {
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
 
-        consoleScanner = new ConsoleScanner();
-        BigDecimal actual = consoleScanner.readBigDecimal();
-        assertEquals(actual, expected);
-    }
+		consoleScanner = new ConsoleScanner();
+		BigDecimal actual = consoleScanner.readBigDecimal();
+		assertEquals(actual, expected);
+	}
 
-    @Test(dataProvider = "readInvalidBigDecimal")
-    public void testInvalidReadBigDecimal(String input) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
-        consoleScanner = new ConsoleScanner();
+	@Test(dataProvider = "readInvalidBigDecimal")
+	public void testInvalidReadBigDecimal(String input) {
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
+		consoleScanner = new ConsoleScanner();
 
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(output));
 
-        consoleScanner.readBigDecimal();
+		consoleScanner.readBigDecimal();
 
-        String actual = output.toString().replaceAll("\r", "");
-        assertEquals(actual, "Incorrect input! Please enter BigDecimal.\n");
-    }
+		String actual = output.toString().replaceAll("\r", "");
+		assertEquals(actual, "Incorrect input! Please enter BigDecimal.\n");
+	}
 
-    @Test(dataProvider = "dpReadValidDoubleArray")
-    public void testReadDoubleArray(String input, double[] expected) {
+	@Test(dataProvider = "dpReadValidDoubleArray")
+	public void testReadDoubleArray(String input, double[] expected) {
 
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
 
-        consoleScanner = new ConsoleScanner();
-        double[] actual = consoleScanner.readDoubleArray();
-        assertEquals(actual, expected);
-    }
+		consoleScanner = new ConsoleScanner();
+		double[] actual = consoleScanner.readDoubleArray();
+		assertEquals(actual, expected);
+	}
 
-    @Test(dataProvider = "dpReadInvalidDoubleArray")
-    public void testReadInvalidDoubleArray(String input) {
+	@Test(dataProvider = "dpReadInvalidDoubleArray")
+	public void testReadInvalidDoubleArray(String input) {
 
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
+		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+		System.setIn(inputStream);
 
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(output));
 
-        consoleScanner = new ConsoleScanner();
-        consoleScanner.readDoubleArray();
-        String actual = output.toString().replaceAll("\r", "");
-        assertEquals(actual, "Length of the array:Incorrect input! Please enter double.\n");
-    }
+		consoleScanner = new ConsoleScanner();
+		consoleScanner.readDoubleArray();
+		String actual = output.toString().replaceAll("\r", "");
+		assertEquals(actual, "Length of the array:Incorrect input! Please enter double.\n");
+	}
 
-    @Test
-    public void testReadIntArray() {
-    }
+	@Test
+	public void testReadIntArray() {
+	}
 
-    @Test
-    public void testOnlyForStockSummaryMethod() {
-        InputStream input = new ByteArrayInputStream("123".getBytes());
-        System.setIn(input);
-        Scanner scanner = new ConsoleScanner();
-        String[] actual = scanner.onlyForStockSummaryMethod();
-        assertEquals(actual, new String[]{"123"});
-    }
+	@Test
+	public void testOnlyForStockSummaryMethod() {
+		InputStream input = new ByteArrayInputStream("123".getBytes());
+		System.setIn(input);
+		Scanner scanner = new ConsoleScanner();
+		String[] actual = scanner.onlyForStockSummaryMethod();
+		assertEquals(actual, new String[] { "123" });
+	}
 
-    @Test
-    public void testInvalidOnlyForStockSummaryMethod() {
-        InputStream input = new ByteArrayInputStream("123".getBytes());
-        System.setIn(input);
-        Scanner scanner = new ConsoleScanner();
+	@Test
+	public void testInvalidOnlyForStockSummaryMethod() {
+		InputStream input = new ByteArrayInputStream("123".getBytes());
+		System.setIn(input);
+		Scanner scanner = new ConsoleScanner();
 
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(output));
 
-        scanner.onlyForStockSummaryMethod();
+		scanner.onlyForStockSummaryMethod();
 
-        String[] actual = new String[]{output.toString().replaceAll("\r", "")};
-        assertEquals(actual, "Incorrect input. Please enter String[].\n");
-    }
+		String[] actual = new String[] { output.toString().replaceAll("\r", "") };
+		assertEquals(actual, "Incorrect input. Please enter String[].\n");
+	}
 
+	@Test(dataProvider = "dpTestReadStringArray")
+	public void testReadStringArray(String[] input, String[] expected) {
+		InputStream[] inStream = new InputStream[input.length];
+		for (int i = 0; i < input.length; i++) {
+			inStream[i] = new ByteArrayInputStream(input[i].getBytes());
+		}
 
-    @Test
-    public void testReadStringArray() {
-    }
+		Scanner cs;
+		String[] actual;
+		for (int i = 0; i < input.length; i++) {
+			System.setIn(inStream[i]);
+			cs = new ConsoleScanner();
+			actual = cs.readStringArray();
+			assertEquals(actual[0], expected[i]);
+		}
+
+	}
 }
