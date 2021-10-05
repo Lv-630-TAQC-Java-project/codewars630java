@@ -17,6 +17,11 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] v) {
+        for (int check : v){
+            if (check < 0){
+                return -1;
+            }
+        }
         int leftSide = 0;
         int size = 0;
         int max = 1;

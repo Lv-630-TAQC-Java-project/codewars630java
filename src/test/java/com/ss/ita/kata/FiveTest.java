@@ -26,6 +26,11 @@ public class FiveTest extends FiveDataProvider {
         Assert.assertEquals(impl.artificialRain(garden), expected);
     }
 
+    @Test(testName = "19. Test Invalid Artificial rain", dataProvider = "dpInvalidArtificialRain")
+    public void testInvalidArtificialRain(Five impl, int[] garden, int expected) {
+        Assert.assertEquals(impl.artificialRain(garden), expected);
+    }
+
     @Test(dataProvider = "dpSmallest")
     public void testSmallest(Five impl, long number, long[] expected) {
         Assert.assertEquals(impl.smallest(number), expected);
