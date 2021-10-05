@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Arrays;
 
 import static org.testng.Assert.assertEquals;
 
@@ -179,20 +180,14 @@ public class ScannerTest extends ScannerDataProvider {
 	}
 
 	@Test(dataProvider = "dpTestReadStringArray")
-	public void testReadStringArray(String[] input, String[] expected) {
-		InputStream[] inStream = new InputStream[input.length];
-		for (int i = 0; i < input.length; i++) {
-			inStream[i] = new ByteArrayInputStream(input[i].getBytes());
-		}
-
-		Scanner cs;
-		String[] actual;
-		for (int i = 0; i < input.length; i++) {
-			System.setIn(inStream[i]);
-			cs = new ConsoleScanner();
-			actual = cs.readStringArray();
-			assertEquals(actual[0], expected[i]);
-		}
+	public void testReadStringArray(String input, String[] expected) {
+		
+		InputStream inStream = new ByteArrayInputStream (input.getBytes());
+		System.setIn(inStream);
+		Scanner cs = new ConsoleScanner();
+		String[] actual = cs.readStringArray();
+		assertEquals(actual, expected);
+		
 
 	}
 }
