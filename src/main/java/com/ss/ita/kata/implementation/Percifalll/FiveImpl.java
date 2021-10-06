@@ -27,7 +27,7 @@ public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] garden) {
         if (IntStream.of(garden).anyMatch(n -> n < 0))
-            throw new IllegalArgumentException();
+            return -1;
 
         int left = 0, area = 0, record = 1;
         for (int i = 1; i < garden.length; i++) {
