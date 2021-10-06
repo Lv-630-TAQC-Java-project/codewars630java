@@ -99,7 +99,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
         double sum = Arrays.stream(expenses).sum();
         double avg = Math.round(sum / expenses.length * 100.0) / 100.0;
 
-        cleanedLines[0] = String.format("\n\rOriginal Balance: %.2f", balance);
+        cleanedLines[0] = String.format("Original Balance: %.2f", balance);
 
         double currentBalance = balance;
         for (int i = 1; i < cleanedLines.length; i++) {
@@ -111,7 +111,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
         result[result.length - 2] = String.format("Total expense  %.2f", sum);
         result[result.length - 1] = String.format("Average_expense  %.2f", avg);
 
-        return String.join("\n\r", result);
+        return String.join("\n", result);
     }
 
     @Override
