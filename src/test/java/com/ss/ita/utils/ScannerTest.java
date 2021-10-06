@@ -182,4 +182,14 @@ public class ScannerTest extends ScannerDataProvider {
     @Test
     public void testReadStringArray() {
     }
+
+    @Test(dataProvider = "readValidString")
+    public void testReadValidString(String input, String expected) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        consoleScanner = new ConsoleScanner();
+        String actual = consoleScanner.readString();
+        assertEquals(actual, expected);
+    }
 }

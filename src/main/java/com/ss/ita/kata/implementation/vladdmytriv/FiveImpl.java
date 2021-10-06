@@ -31,6 +31,11 @@ public class FiveImpl implements Five {
         int count = 0;
         int vSize = v.length;
 
+        for (int i: v){
+            if(i<0){
+                return -1;
+            }
+        }
         if (vSize == 1)
             return 1;
 
