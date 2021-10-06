@@ -140,11 +140,11 @@ public class ScannerTest extends ScannerDataProvider {
 
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
+        consoleScanner = new ConsoleScanner();
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        consoleScanner = new ConsoleScanner();
         consoleScanner.readDoubleArray();
         String actual = output.toString().replaceAll("\r", "");
         assertEquals(actual, "Length of the array:Incorrect input! Please enter double.\n");
@@ -156,7 +156,7 @@ public class ScannerTest extends ScannerDataProvider {
 
     @Test
     public void testOnlyForStockSummaryMethod() {
-        InputStream input = new ByteArrayInputStream("123".getBytes());
+        InputStream input = new ByteArrayInputStream("1\n123".getBytes());
         System.setIn(input);
         Scanner scanner = new ConsoleScanner();
         String[] actual = scanner.onlyForStockSummaryMethod();
@@ -174,7 +174,7 @@ public class ScannerTest extends ScannerDataProvider {
 
         scanner.onlyForStockSummaryMethod();
 
-        String[] actual = new String[]{output.toString().replaceAll("\r", "")};
+        String actual = output.toString().replaceAll("\r", "");
         assertEquals(actual, "Incorrect input. Please enter String[].\n");
     }
 
