@@ -83,5 +83,13 @@ public class EightDataProvider extends DataProviderImpl {
         return combine(eightImplPackProvider(), params);
     }
 
+    @DataProvider(name = "dpSquareOrSquareRoot")
+    public Object[][] dpSquareOrSquareRoot() {
+        Object[][] params = new Object[][]{
+                {new int[]{4,3,9,7,2,1},new int[]{2,9,3,49,4,1}},
+                {new int[]{9,3,0},new int[]{3,9,0}}
+        };
+        return combine(eightImplPackProvider(), params);
+    }
 
 }

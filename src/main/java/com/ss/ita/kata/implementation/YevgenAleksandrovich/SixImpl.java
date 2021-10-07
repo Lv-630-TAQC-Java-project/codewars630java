@@ -149,32 +149,32 @@ public class SixImpl implements com.ss.ita.kata.Six {
     }
 
     @Override
-        public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-            int count = 0;
-            ArrayList<Integer> counts = new ArrayList<>();
-            ArrayList<String> category = new ArrayList<>();
+    public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
+        int count = 0;
+        ArrayList<Integer> counts = new ArrayList<Integer>();
+        ArrayList<String> category = new ArrayList<String>();
 
-            if (lstOfArt == null || lstOf1stLetter == null) {
-                return "";
-            }
-
-            for (int j = 0; j < lstOf1stLetter.length; j++) {
-                for (int i = 0; i < lstOfArt.length; i++) {
-                    if (lstOfArt[i].startsWith(lstOf1stLetter[j])) {
-                        String[] howMuch = lstOfArt[i].split(" ");
-                        count += parseDouble(howMuch[1]);
-                    }
-                }
-                counts.add(count);
-                count = 0;
-            }
-            for (int k = 0; k < lstOf1stLetter.length; k++) {
-                String categoryWithNumber = "(".concat(lstOf1stLetter[k].concat(" : " + counts.get(k))).concat(")");
-                category.add(categoryWithNumber);
-            }
-            String result = join(" - ", category);
-            return result;
+        if (lstOfArt == null || lstOf1stLetter == null) {
+            return "";
         }
+
+        for (int j = 0; j < lstOf1stLetter.length; j++) {
+            for (int i = 0; i < lstOfArt.length; i++) {
+                if (lstOfArt[i].startsWith(lstOf1stLetter[j])) {
+                    String[] howMuch = lstOfArt[i].split(" ");
+                    count += parseDouble(howMuch[1]);
+                }
+            }
+            counts.add(count);
+            count = 0;
+        }
+        for (int k = 0; k < lstOf1stLetter.length; k++) {
+            String categoryWithNumber = "(".concat(lstOf1stLetter[k].concat(" : " + counts.get(k))).concat(")");
+            category.add(categoryWithNumber);
+        }
+        String result = join(" - ", category);
+        return result;
+    }
 }
 
 

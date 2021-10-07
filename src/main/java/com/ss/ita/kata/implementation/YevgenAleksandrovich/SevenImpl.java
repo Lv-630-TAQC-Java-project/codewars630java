@@ -22,7 +22,7 @@ public class SevenImpl implements Seven {
     public String seriesSum(int n) {
         double sum = 0.00;
         if (n == 0) {
-            return String.valueOf(sum);
+            return String.valueOf(format("%.2f", sum));
         } else {
             for (int j = 0; j < n; j++) {
                 sum += 1.00 / (double) (1 + j * 3);

@@ -5,14 +5,12 @@ import com.ss.ita.kata.Eight;
 import java.util.stream.*;
 import java.util.Arrays;
 
-public class EightImpl<var> implements Eight {
-    private double time;
+public class EightImpl implements Eight {
 
     @Override
     public int liters(double time) {
-        this.time = time;
         if (time < 0) {
-            throw new IllegalArgumentException();
+            return -1;
         }
         return (int) (0.5 * time);
     }
@@ -36,6 +34,9 @@ public class EightImpl<var> implements Eight {
         final float coefficient = kmInMiles / lInGallon;
 
         float result = mpg * coefficient;
+        if (mpg<0){
+            return -1;
+        }
         return Float.parseFloat(String.format("%.2f", result));
     }
 
@@ -85,6 +86,7 @@ public class EightImpl<var> implements Eight {
         return Integer.parseInt(str);
     }
 
+//доробити
     @Override
     public boolean amIWilson(double n) {
         for (int j = 2; j < n; j++) {

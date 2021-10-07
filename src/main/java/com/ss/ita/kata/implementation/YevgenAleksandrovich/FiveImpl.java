@@ -8,11 +8,16 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] v) {
-        //
+
         int rain = 1;
         int count = 1;
         int start = 0;
 
+        for (int i : v) {
+            if (i < 0) {
+                return -1;
+            }
+        }
         for (int i = 1; i < v.length; i++) {
             if (v[i] < v[i - 1]) {
                 start = i;
