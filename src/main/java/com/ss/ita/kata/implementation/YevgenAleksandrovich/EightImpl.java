@@ -2,49 +2,111 @@ package com.ss.ita.kata.implementation.YevgenAleksandrovich;
 
 import com.ss.ita.kata.Eight;
 
-public class EightImpl implements Eight {
+import java.util.stream.*;
+import java.util.Arrays;
+
+public class EightImpl<var> implements Eight {
+    private double time;
+
     @Override
     public int liters(double time) {
-        return 0;
+        this.time = time;
+        if (time < 0) {
+            throw new IllegalArgumentException();
+        }
+        return (int) (0.5 * time);
     }
 
     @Override
+
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+
+        if (length < 0 || width < 0 || height < 0) {
+            return 0;
+        }
+        return length * width * height;
+
+
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        final float kmInMiles = 1.609344f;
+        final float lInGallon = 4.54609188f;
+        final float coefficient = kmInMiles / lInGallon;
+
+        float result = mpg * coefficient;
+        return Float.parseFloat(String.format("%.2f", result));
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+
+        if (array == null) throw new NullPointerException();
+        if (array.length == 0) throw new IllegalArgumentException();
+
+        int[] result = new int[array.length];
+
+        for (int i = 0; i < result.length; i++) {
+            double root = Math.sqrt(array[i]);
+
+            if (Math.floor(root) == root) {
+                result[i] = (int) root;
+            } else {
+                result[i] = array[i] * array[i];
+            }
+        }
+
+        return result;
+
     }
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            int[] emptyArray = {};
+            return emptyArray;
+        }
+        int count = 0;
+        int sum = 0;
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] > 0) {
+                count++;
+            } else if (input[i] < 0) {
+                sum += input[i];
+            }
+        }
+        int[] returnValues = new int[]{count, sum};
+        return returnValues;
     }
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        for (int j = 2; j < n; j++) {
+            if (n % j == 0) {
+                return false;
+            }
+        }
+        return true;
+
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Double.parseDouble(String.format("%.2f", number));
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+
+        return Arrays.stream(numbers)
+                .filter(i -> (i % divider) == 0)
+                .toArray();
+
     }
 }

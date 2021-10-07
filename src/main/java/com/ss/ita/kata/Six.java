@@ -1,5 +1,7 @@
 package com.ss.ita.kata;
 
+import java.util.List;
+
 public interface Six {
     long findNb(long m);
 
