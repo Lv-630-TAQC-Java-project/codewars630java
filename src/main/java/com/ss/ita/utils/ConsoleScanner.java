@@ -1,7 +1,5 @@
 package com.ss.ita.utils;
 
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.LinkedList;
@@ -158,8 +156,8 @@ public class ConsoleScanner implements Scanner {
         List<String> strings = new LinkedList<>();
         while (true) {
             if (scanner.hasNext()) {
-                String line =  scanner.nextLine();
-                if(line.equals("")) break;
+                String line = scanner.nextLine();
+                if (line.equals("")) break;
                 strings.add(line);
             }
         }
