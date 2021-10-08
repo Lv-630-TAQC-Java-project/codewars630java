@@ -56,7 +56,9 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] v) {
-
+        for (int j : v) {
+            if (j < 0) return -1;
+        }
         int[] arrRight = countRight(v);
         int[] arrLeft = countLeft(v);
         int count = 0;
@@ -121,42 +123,26 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
-        List<Integer> indexMinList = new LinkedList<>();
-        List<Integer> list = new LinkedList<>();
-        long min = 10;
-        String str = Long.toString(n);
-        String[] digits = Integer.toString((int) n).split("");
-        long[] arr = new long[str.length()];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = Long.parseLong(digits[i]);
-        }
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] <= min) {
-                min = arr[i];
-                indexMinList.add(i);
+        int first = 0;
+        int second = 0;
+
+        String number = String.valueOf(n);
+        for (int i = 0; i < number.length(); i++) {
+            for (int j = 0; j < number.length(); j++) {
+                if (i != j) {
+                    StringBuilder str = new StringBuilder(number);
+                    char ch = number.charAt(i);
+                    str.deleteCharAt(i);
+                    str.insert(j, ch);
+                    String result = str.toString();
+                    if (Long.parseLong(result) < n) {
+                        n = Long.parseLong(result);
+                        first = i;
+                        second = j;
+                    }
+                }
             }
         }
-        long c = arr[0];
-        arr[0] = arr[indexMinList.get(indexMinList.size() - 1)];
-        arr[indexMinList.get(indexMinList.size() - 1)] = c;
-
-        list.removeAll(indexMinList);
-
-        for (long l : arr) {
-            list.add((int) l);
-
-        }
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) != 0)
-                break;
-            while (list.get(i) == 0) {
-                list.remove(i);
-            }
-        }
-        long[] res = new long[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
-        }
-        return res;
+        return new long[]{n, first, second};
     }
 }
