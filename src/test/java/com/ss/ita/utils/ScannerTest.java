@@ -154,28 +154,29 @@ public class ScannerTest extends ScannerDataProvider {
     public void testReadIntArray() {
     }
 
-    @Test
-    public void testOnlyForStockSummaryMethod() {
-        InputStream input = new ByteArrayInputStream("123".getBytes());
-        System.setIn(input);
-        Scanner scanner = new ConsoleScanner();
-        String[] actual = scanner.onlyForStockSummaryMethod();
-        assertEquals(actual, new String[]{"123"});
+    @Test(dataProvider = "dpReadValidOnlyForStock")
+    public void testOnlyForStockSummaryMethod(String input) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+        String expected = "str ser";
+        consoleScanner = new ConsoleScanner();
+        String actual = consoleScanner.readString();
+        assertEquals(actual, expected);
     }
 
-    @Test
-    public void testInvalidOnlyForStockSummaryMethod() {
-        InputStream input = new ByteArrayInputStream("123".getBytes());
-        System.setIn(input);
-        Scanner scanner = new ConsoleScanner();
+    @Test(dataProvider = "dpReadInvalidOnlyForStock")
+    public void testReadInvalidOnlyForStockSummaryMethod(String input) {
+
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        scanner.onlyForStockSummaryMethod();
-
-        String[] actual = new String[]{output.toString().replaceAll("\r", "")};
-        assertEquals(actual, "Incorrect input. Please enter String[].\n");
+        consoleScanner = new ConsoleScanner();
+        consoleScanner.onlyForStockSummaryMethod();
+        String actual = output.toString().replaceAll("\r", "");
+        assertEquals(actual, "Incorrect input! Please enter string array.\n");
     }
 
 
