@@ -40,4 +40,8 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(impl.stringToNumber(input), output);
     }
 
+    @Test(dataProvider = "dpSquareOrSquareRoot")
+    public void testSquareOrSquareRoot(Eight impl,int[] input,int[] output) {
+        Assert.assertEquals(impl.squareOrSquareRoot(input), output);
+    }
 }
