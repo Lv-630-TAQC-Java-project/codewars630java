@@ -27,8 +27,8 @@ public class SevenImpl implements Seven {
 
         }
         double scale = Math.pow(10, 2);
-        if(n==0) return String.format(Locale.US, "%.2f",Math.round(0*scale)/scale);
-        return String.format(Locale.US, "%.2f",Math.round(sum * scale) / scale);
+        if (n == 0) return String.format(Locale.US, "%.2f", Math.round(0 * scale) / scale);
+        return String.format(Locale.US, "%.2f", Math.round(sum * scale) / scale);
     }
 
     @Override

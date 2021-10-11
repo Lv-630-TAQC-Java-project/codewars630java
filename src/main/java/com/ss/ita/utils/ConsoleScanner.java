@@ -138,14 +138,14 @@ public class ConsoleScanner implements Scanner {
     public String[] readStringArray() {
 
         List<String> strings = new LinkedList<String>();
-        while (scanner. hasNext()) {
+        while (scanner.hasNext()) {
 
-            String line =  scanner.nextLine();
-            if(line.equals("")) break;
+            String line = scanner.nextLine();
+            if (line.equals("")) break;
             strings.add(line);
 
         }
         //    String [] res = strings.toArray();
-        return strings.toArray(new String [0]);
+        return strings.toArray(new String[0]);
     }
 }

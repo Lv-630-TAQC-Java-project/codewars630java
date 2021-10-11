@@ -16,7 +16,7 @@ public class SevenDataProvider extends DataProviderImpl {
     @DataProvider(name = "dpSeriesSum")
     public Object[][] dpSeriesSum() {
         Object[][] param = new Object[][]{
-                {0,"0.00"},
+                {0, "0.00"},
                 {1, "1.00"},
                 {2, "1.25"},
                 {5, "1.57"}};

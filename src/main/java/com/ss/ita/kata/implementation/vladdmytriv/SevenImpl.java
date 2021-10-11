@@ -2,9 +2,6 @@ package com.ss.ita.kata.implementation.vladdmytriv;
 
 import com.ss.ita.kata.Seven;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static java.lang.String.format;
 
 public class SevenImpl implements Seven {

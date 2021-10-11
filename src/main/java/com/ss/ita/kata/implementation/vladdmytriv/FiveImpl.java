@@ -31,8 +31,8 @@ public class FiveImpl implements Five {
         int count = 0;
         int vSize = v.length;
 
-        for (int i: v){
-            if(i<0){
+        for (int i : v) {
+            if (i < 0) {
                 return -1;
             }
         }
@@ -61,10 +61,10 @@ public class FiveImpl implements Five {
                 if (k != 0 && v[k] < v[k - 1])
                     break;
             }
-            if (vSize <= 3 && vSize > 1){
+            if (vSize <= 3 && vSize > 1) {
                 count++;
             }
-                massOfNum.add(count);
+            massOfNum.add(count);
             count = 0;
         }
 

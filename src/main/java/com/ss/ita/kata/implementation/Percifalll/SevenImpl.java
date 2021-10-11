@@ -10,7 +10,7 @@ public class SevenImpl implements Seven {
         double sum = Arrays.stream(arr).sum();
         double result = navg * (arr.length + 1) - sum;
 
-        if(result < 0) throw new IllegalArgumentException();
+        if (result < 0) throw new IllegalArgumentException();
 
         return (long) Math.ceil(result);
     }

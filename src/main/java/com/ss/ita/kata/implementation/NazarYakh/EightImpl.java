@@ -88,16 +88,16 @@ public class EightImpl implements Eight {
         long result = 1;
         for (int j = 1; j < n; j++) {
             result = result * j;
-            }
+        }
         if (n == 0 || n == 1) {
             return false;
         }
-        if (n == 563){
+        if (n == 563) {
             return true;
         }
 
         return ((result + 1) / (n * n)) % 1 == 0;
-        }
+    }
 
 
     @Override

@@ -17,8 +17,8 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] v) {
-        for (int check : v){
-            if (check < 0){
+        for (int check : v) {
+            if (check < 0) {
                 return -1;
             }
         }

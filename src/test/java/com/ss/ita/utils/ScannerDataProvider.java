@@ -59,6 +59,7 @@ public class ScannerDataProvider {
                 {"str ser"}
         };
     }
+
     @DataProvider(name = "dpReadInvalidOnlyForStock")
     public Object[][] dpReadInvalidOnlyForStock() {
         return new Object[][]{
@@ -109,15 +110,16 @@ public class ScannerDataProvider {
                 {"text\n1"}
         };
     }
-    @DataProvider (name = "dpTestReadStringArray")
-    public Object[][] dpTestReadStringArray(){
-    	return new Object[][] {
-    		{  "New\nstring\narray\n\n", new String[] {"New","string","array"} },
+
+    @DataProvider(name = "dpTestReadStringArray")
+    public Object[][] dpTestReadStringArray() {
+        return new Object[][]{
+                {"New\nstring\narray\n\n", new String[]{"New", "string", "array"}},
 //    		{new String[] {"another","New","string","array",""}, new String[] {"another","New","string","array"}},
 //    		{new String[] {"New","string","array", "whith","1","2",""}, new String[] {"New","string","array", "whith","1","2"} },
 //    		{new String[] {"0","2","5", ""}, new String[] {"0","2","5",}}
 
-    	};
+        };
     }
 
     @DataProvider(name = "readValidString")

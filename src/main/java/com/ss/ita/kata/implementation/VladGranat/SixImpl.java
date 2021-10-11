@@ -4,7 +4,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
     @Override
     public long findNb(long m) {
         long n = 0, totalVolume = 0;
-        while (totalVolume < m){
+        while (totalVolume < m) {
             totalVolume += ++n * n * n;
         }
         return totalVolume == m ? n : -1;
