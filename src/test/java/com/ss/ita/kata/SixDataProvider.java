@@ -51,7 +51,7 @@ public class SixDataProvider extends DataProviderImpl {
                 {new String[]{"ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"},
                         new String[]{"A", "B", "C", "W"}, "(A : 20) - (B : 114) - (C : 50) - (W : 0)"},
                 {new String[]{"ABATT 120", "RDEEF 50", "LYHRK 0", "BTOKZ 89", "WLM 56"},
-                        new String[]{"A", "B", "C", "R","L"}, "(A : 120) - (B : 89) - (C : 0) - (R : 50) - (L : 0)"},
+                        new String[]{"A", "B", "C", "R", "L"}, "(A : 120) - (B : 89) - (C : 0) - (L : 0) - (R : 50)"},
                 {null, new String[]{"A"}, ""},
                 {new String[]{"ABATT 120"}, null, ""},
         };
