@@ -53,6 +53,20 @@ public class ScannerDataProvider {
         };
     }
 
+    @DataProvider(name = "dpReadValidOnlyForStock")
+    public Object[][] dpReadValidOnlyForStock() {
+        return new Object[][]{
+                {"str ser"}
+        };
+    }
+    @DataProvider(name = "dpReadInvalidOnlyForStock")
+    public Object[][] dpReadInvalidOnlyForStock() {
+        return new Object[][]{
+                {"3\ni\n0.00 2.5 -3.2"},
+
+        };
+    }
+
     @DataProvider(name = "dpReadValidBigInteger")
     public Object[][] readValidBigInteger() {
         return new Object[][]{

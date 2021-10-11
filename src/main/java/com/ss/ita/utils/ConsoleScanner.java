@@ -134,13 +134,20 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public String[] onlyForStockSummaryMethod() {
-        while (true) {
-            if (scanner.hasNext()) {
-                return new String[]{scanner.next()};
+
+        String[] array = new String[readInt()];
+
+        int i = 0;
+        while (i < array.length) {
+            String line = scanner.next();
+            if (line.matches("-?\\d+(\\.\\d+)?")) {
+
+                i++;
             } else {
-                System.out.println("Incorrect input! Please enter String[].");
+                System.out.println("Incorrect input! Please enter string array.");
             }
         }
+        return array;
     }
 
     @Override
