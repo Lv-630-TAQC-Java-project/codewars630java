@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.NyxLex;
 
 import com.ss.ita.kata.Seven;
 
+import java.util.Locale;
+
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
@@ -25,8 +27,8 @@ public class SevenImpl implements Seven {
 
         }
         double scale = Math.pow(10, 2);
-
-        return String.valueOf(Math.round(sum * scale) / scale);
+        if(n==0) return String.format(Locale.US, "%.2f",Math.round(0*scale)/scale);
+        return String.format(Locale.US, "%.2f",Math.round(sum * scale) / scale);
     }
 
     @Override
