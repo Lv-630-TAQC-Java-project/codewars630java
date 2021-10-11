@@ -155,14 +155,15 @@ public class ConsoleScanner implements Scanner {
 //            }
 //        }
 
-        List<String> strings = new LinkedList<>();
-        while (true) {
-            if (scanner.hasNext()) {
+       List<String> strings = new LinkedList<String>();
+        while (scanner. hasNext()) {
+           
                 String line =  scanner.nextLine();
                 if(line.equals("")) break;
                 strings.add(line);
-            }
+           
         }
-        return (String[]) strings.toArray();
+    //    String [] res = strings.toArray();
+        return strings.toArray(new String [0]);
     }
 }
