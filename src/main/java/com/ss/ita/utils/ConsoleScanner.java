@@ -101,15 +101,8 @@ public class ConsoleScanner implements Scanner {
         System.out.print("Length of the array:");
         double[] array = new double[readInt()];
 
-        int i = 0;
-        while (i < array.length) {
-            String line = scanner.next();
-            if (line.matches("-?\\d+(\\.\\d+)?")) {
-                array[i] = Double.parseDouble(line);
-                i++;
-            } else {
-                System.out.println("Incorrect input! Please enter double.");
-            }
+        for (int i = 0; i < array.length; i++) {
+            array[i] = readDouble();
         }
         return array;
     }
@@ -119,15 +112,8 @@ public class ConsoleScanner implements Scanner {
         System.out.print("Length of the array:");
         int[] array = new int[readInt()];
 
-        int i = 0;
-        while (i < array.length) {
-            String line = scanner.next();
-            if (line.matches("-?\\d+(\\.\\d+)?")) {
-                array[i] = Integer.parseInt(line);
-                i++;
-            } else {
-                System.out.println("Incorrect input! Please enter integer.");
-            }
+        for (int i = 0; i < array.length; i++) {
+            array[i] = readInt();
         }
         return array;
     }
@@ -152,25 +138,16 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public String[] readStringArray() {
-//        return scanner.nextLine().split(" ");
 
-//        while (true) {
-//            if (scanner.hasNext()) {
-//                return new String[]{scanner.next()};
-//            } else {
-//                System.out.println("Incorrect input! Please enter String[].");
-//            }
-//        }
-
-       List<String> strings = new LinkedList<String>();
+        List<String> strings = new LinkedList<String>();
         while (scanner. hasNext()) {
-           
-                String line =  scanner.nextLine();
-                if(line.equals("")) break;
-                strings.add(line);
-           
+
+            String line =  scanner.nextLine();
+            if(line.equals("")) break;
+            strings.add(line);
+
         }
-    //    String [] res = strings.toArray();
+        //    String [] res = strings.toArray();
         return strings.toArray(new String [0]);
     }
 }

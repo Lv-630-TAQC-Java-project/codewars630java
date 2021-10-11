@@ -106,8 +106,7 @@ public class ScannerDataProvider {
     @DataProvider(name = "readInvalidBigDecimal")
     public Object[][] readInvalidBigDecimal() {
         return new Object[][]{
-                {"text\n1"},
-                {"123.5\n 1"}
+                {"text\n1"}
         };
     }
     @DataProvider (name = "dpTestReadStringArray")

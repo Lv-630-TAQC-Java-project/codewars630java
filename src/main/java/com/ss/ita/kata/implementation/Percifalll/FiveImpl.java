@@ -5,6 +5,7 @@ import com.ss.ita.kata.Five;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 public class FiveImpl implements Five {
@@ -25,6 +26,9 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] garden) {
+        if (IntStream.of(garden).anyMatch(n -> n < 0))
+            return -1;
+
         int left = 0, area = 0, record = 1;
         for (int i = 1; i < garden.length; i++) {
             if (garden[i] < garden[i - 1]) left = i;
