@@ -1,7 +1,5 @@
 package com.ss.ita.utils;
 
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.LinkedList;

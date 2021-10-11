@@ -116,8 +116,17 @@ public class ScannerDataProvider {
 //    		{new String[] {"another","New","string","array",""}, new String[] {"another","New","string","array"}},
 //    		{new String[] {"New","string","array", "whith","1","2",""}, new String[] {"New","string","array", "whith","1","2"} },
 //    		{new String[] {"0","2","5", ""}, new String[] {"0","2","5",}}
-    		
+
     	};
     }
-    
+
+    @DataProvider(name = "readValidString")
+    public Object[][] readValidString() {
+        return new Object[][]{
+                {"12345", "12345"},
+                {"Some text", "Some text"},
+                {"2147483647dtr", "2147483647dtr"},
+                {"-1234567890_+=/.,!@#$%^&*()|~`", "-1234567890_+=/.,!@#$%^&*()|~`"},
+        };
+    }
 }

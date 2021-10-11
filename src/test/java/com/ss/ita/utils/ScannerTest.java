@@ -114,11 +114,11 @@ public class ScannerTest extends ScannerDataProvider {
 	public void testInvalidReadBigDecimal(String input) {
 		InputStream inputStream = new ByteArrayInputStream(input.getBytes());
 		System.setIn(inputStream);
-		consoleScanner = new ConsoleScanner();
 
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(output));
 
+		consoleScanner = new ConsoleScanner();
 		consoleScanner.readBigDecimal();
 
 		String actual = output.toString().replaceAll("\r", "");
@@ -183,12 +183,20 @@ public class ScannerTest extends ScannerDataProvider {
 	@Test(dataProvider = "dpTestReadStringArray")
 	public void testReadStringArray(String input, String[] expected) {
 
-		InputStream inStream = new ByteArrayInputStream (input.getBytes());
-		System.setIn(inStream);
-		Scanner cs = new ConsoleScanner();
-		String[] actual = cs.readStringArray();
-		assertEquals(actual, expected);
+        InputStream inStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inStream);
+        Scanner cs = new ConsoleScanner();
+        String[] actual = cs.readStringArray();
+        assertEquals(actual, expected);
+    }
 
+    @Test(dataProvider = "readValidString")
+    public void testReadValidString(String input, String expected) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
 
-	}
+        consoleScanner = new ConsoleScanner();
+        String actual = consoleScanner.readString();
+        assertEquals(actual, expected);
+    }
 }

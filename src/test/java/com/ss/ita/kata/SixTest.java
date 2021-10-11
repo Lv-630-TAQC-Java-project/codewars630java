@@ -1,15 +1,14 @@
 package com.ss.ita.kata;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 public class SixTest extends SixDataProvider {
 
     @Test(dataProvider = "dpBalance")
     public void testBalance(Six impl, String input, String result) {
-        Assert.assertEquals(impl.balance(input), result);
+        assertEquals(impl.balance(input), result);
     }
 
     @Test(dataProvider = "dpRainfallMean")

@@ -28,15 +28,13 @@ public class SevenImpl implements Seven {
     @Override
     public String seriesSum(int n) {
         double sum = 0.00;
-        if (n == 0) {
-            return String.valueOf(sum);
-        } else {
+        if (n != 0) {
             for (int j = 0; j < n; j++) {
                 sum += 1.00 / (double) (1 + j * 3);
             }
-            double sum1 = Math.round(sum * 100) / 100D;
-            return String.valueOf(format("%.2f", sum1));
+            sum = Math.round(sum * 100) / 100D;
         }
+        return String.valueOf(format("%.2f", sum));
     }
 
     @Override
