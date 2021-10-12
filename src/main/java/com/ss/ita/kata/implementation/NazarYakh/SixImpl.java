@@ -2,6 +2,7 @@ package com.ss.ita.kata.implementation.NazarYakh;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class SixImpl implements com.ss.ita.kata.Six {
@@ -33,10 +34,10 @@ public class SixImpl implements com.ss.ita.kata.Six {
             String[] line = arr[i].split("[ ]+");
             current -= Double.parseDouble(line[2]);
             total += Double.parseDouble(line[2]);
-            String u = String.format("\\r\n%s %s %s Balance %.2f", line[0], line[1], line[2], current);
+            String u = String.format(Locale.US,"\n%s %s %s Balance %.2f", line[0], line[1], line[2], current);
             result.append(u);
         }
-        result.append(String.format("\\r\nTotal expense  %.2f\\r\nAverage expense  %.2f", total, total / count));
+        result.append(String.format(Locale.US,"\nTotal expense %.2f\nAverage expense %.2f", total, total / count));
         return result.toString();
     }
 
@@ -179,8 +180,8 @@ public class SixImpl implements com.ss.ita.kata.Six {
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
 
-        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0)
-            return "";
+        if (lstOfArt == null || lstOfArt.length == 0) return "";
+        if (lstOf1stLetter == null || lstOf1stLetter.length == 0) return "";
 
         StringBuilder output = new StringBuilder();
 
