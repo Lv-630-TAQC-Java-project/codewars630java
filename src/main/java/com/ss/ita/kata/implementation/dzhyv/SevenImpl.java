@@ -25,7 +25,7 @@ public class SevenImpl implements Seven {
             sum = sum + 1 / divisor;
             divisor = divisor + 3;
         }
-        return String.format("%.2f", sum);
+        return (String.format("%.2f", sum)).replaceAll("," , ".");
     }
 
     @Override

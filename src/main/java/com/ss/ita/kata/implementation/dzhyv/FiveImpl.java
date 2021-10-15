@@ -56,6 +56,9 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
+        if (n < -1) {
+            return -1;
+        }
         int count = 0;
         for (int i = 5; n / i >= 1; i = i * 5) {
             count = count + n / i;
