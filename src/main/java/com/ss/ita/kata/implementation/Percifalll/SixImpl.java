@@ -192,7 +192,7 @@ public class SixImpl implements com.ss.ita.kata.Six {
         if (lstOfArt == null || lstOfArt.length == 0) return "";
         if (lstOf1stLetter == null || lstOf1stLetter.length == 0) return "";
 
-        Map<String, List<String>> map = new TreeMap<>();
+        Map<String, List<String>> map = new LinkedHashMap<>();
         List<String> categories = Arrays.asList(lstOf1stLetter);
         categories.forEach(c -> map.put(c, new ArrayList<>()));
 
