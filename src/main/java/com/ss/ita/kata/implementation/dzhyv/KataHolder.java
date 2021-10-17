@@ -1,7 +1,6 @@
 package com.ss.ita.kata.implementation.dzhyv;
 
 import com.ss.ita.kata.*;
-import com.ss.ita.kata.implementation.ErrDmitry404.SixImpl;
 
 public class KataHolder extends Holder {
     private static KataHolder holder;
