@@ -4,6 +4,7 @@ import com.ss.ita.kata.Seven;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class SevenImpl implements Seven {
     @Override
@@ -31,7 +32,7 @@ public class SevenImpl implements Seven {
             sum += 1 / (double) (1 + i * 3);
         }
         double newSum = Math.round(sum * 100D) / 100D;
-        return String.format("%.2f", newSum);
+        return String.format(Locale.US, "%.2f", newSum);
     }
 
     @Override
