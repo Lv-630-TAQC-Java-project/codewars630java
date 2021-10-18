@@ -70,6 +70,8 @@ public class ConsoleScanner implements Scanner {
         }
     }
 
+
+
     @Override
     public BigInteger readBigInteger() {
         while (true) {
@@ -132,6 +134,18 @@ public class ConsoleScanner implements Scanner {
             }
         }
         return array;
+    }
+
+    public String readStrng() {
+        while (true) {
+            if (scanner.hasNext()) {
+                String input = scanner.next();
+                return input;
+            } else {
+                System.out.println("Incorrect input! Please enter string.");
+                scanner.next();
+            }
+        }
     }
 
     @Override

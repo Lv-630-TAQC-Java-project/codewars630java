@@ -198,7 +198,7 @@ public class Runner {
         System.out.println("We have such data for input:\n" + input1 + "\n. Default town - London");
         System.out.println("\nDo you want to change it?\n1-Yes\n2-No");
         if (scanner.readInt() == 1) {
-            input2 = scanner.readString();
+            input2 = scanner.readStrng();
         }
         String res1 = Double.toString(six.mean(input2, input0));
         String res2 = Double.toString(six.variance(input2, input0));
