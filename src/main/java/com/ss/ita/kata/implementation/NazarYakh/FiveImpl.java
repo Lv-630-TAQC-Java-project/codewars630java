@@ -9,6 +9,11 @@ import java.util.List;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
+        for (int check : v){
+            if (check < 0) {
+                return -1;
+            }
+        }
         int rain = 1;
         int count = 1;
         int start = 0;
