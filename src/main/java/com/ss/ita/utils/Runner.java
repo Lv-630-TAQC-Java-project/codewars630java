@@ -216,9 +216,9 @@ public class Runner {
 
     public void TASK_6_6() {
         System.out.println(Description.TASK_6_6.getTask());
-        System.out.println("Enter array of codes. Example code: ABART 20. To stop type 'end'");
+        System.out.println("Enter array of codes. Example code: ABART 20. Type 'end' to submit");
         String[] stocklist = scanner.readStringArray();
-        System.out.println("Enter array of categories. Example category: A. To stop type");
+        System.out.println("Enter array of categories. Example category: A. Type 'end' to submit");
         String[] categories = scanner.readStringArray();
         String res = six.stockSummary(stocklist, categories);
         System.out.println("Result: " + res);
