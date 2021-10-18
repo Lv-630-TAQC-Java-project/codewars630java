@@ -27,7 +27,7 @@ public class SixImpl implements Six {
         redactedBook = redactedBook.trim().replaceAll(" +", " ");
         String[] splitBook = redactedBook.split("\n");
         double originalBalance = Double.valueOf(splitBook[0]);
-        String returnLine = "Original Balance: " + String.format("%.2f", originalBalance) + "\\r\\n";
+        String returnLine = "Original Balance: " + String.format("%.2f", originalBalance) + "\n";
         double newBalance = originalBalance;
         double totalExpense = 0;
         int count = 0;
@@ -37,15 +37,15 @@ public class SixImpl implements Six {
                 Double value = Double.valueOf(splitLine[2]);
                 newBalance = newBalance - value;
                 returnLine = returnLine + splitLine[0] + " " + splitLine[1] + " " + String.format("%.2f", value)
-                        + " Balance " + String.format("%.2f", newBalance) + "\\r\\n";
+                        + " Balance " + String.format("%.2f", newBalance) + "\n";
                 totalExpense = totalExpense + value;
                 count++;
             } else {
                 count--;
             }
         }
-        return returnLine + "Total expense  " + String.format("%.2f", totalExpense) + "\\r\\nAverage expense  "
-                + String.format("%.2f", (totalExpense / count));
+        return (returnLine + "Total expense " + String.format("%.2f", totalExpense) + "\nAverage expense "
+                + String.format("%.2f", (totalExpense / count))).replaceAll(",",".");
     }
 
     @Override
@@ -150,9 +150,9 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
-            return "";
-        }
+        if (lstOfArt == null || lstOf1stLetter == null) return  "";
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) return "";
+
         String returnString = "";
         for (String firstLetter : lstOf1stLetter) {
             int sum = 0;
