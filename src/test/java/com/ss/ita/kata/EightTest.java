@@ -40,4 +40,9 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(impl.stringToNumber(input), output);
     }
 
+    @Test(dataProvider = "dpTwoDecimalPlaces")
+    public void testTwoDecimalPlaces(Eight impl,double number,double result) {
+        Assert.assertEquals(impl.twoDecimalPlaces(number),result);
+    }
+
 }

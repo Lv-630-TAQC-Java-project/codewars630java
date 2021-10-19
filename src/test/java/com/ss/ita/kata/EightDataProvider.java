@@ -83,5 +83,12 @@ public class EightDataProvider extends DataProviderImpl {
         return combine(eightImplPackProvider(), params);
     }
 
+    @DataProvider(name = "dpTwoDecimalPlaces")
+    public Object[][] dpTwoDecimalPlaces(){
+        Object [][] params = new Object[][] {
+                {2.321,2.32}
+        };
+        return combine(eightImplPackProvider(),params);
+    }
 
 }
