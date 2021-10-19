@@ -1,10 +1,7 @@
 package com.ss.ita.kata.implementation.VladGranat;
 
 import com.ss.ita.kata.*;
-import com.ss.ita.kata.implementation.Percifalll.EightImpl;
-import com.ss.ita.kata.implementation.Percifalll.FiveImpl;
-import com.ss.ita.kata.implementation.Percifalll.SevenImpl;
-import com.ss.ita.kata.implementation.Percifalll.SixImpl;
+
 
 public class KataHolder extends Holder {
     private static KataHolder holder;
