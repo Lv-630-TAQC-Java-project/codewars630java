@@ -155,7 +155,7 @@ public class ConsoleScanner implements Scanner {
         while (scanner.hasNext()) {
 
             String line = scanner.nextLine();
-            if (line.equals("")) break;
+            if (line.equals("end")) break;
             strings.add(line);
 
         }
