@@ -139,7 +139,7 @@ public class Runner {
     public void TASK_6_1() {
         System.out.println(Description.TASK_6_1.getTask());
 
-        System.out.println("Input the total volume m of the building example 4183059834009L ");
+        System.out.println("Input the total volume m of the building example 4183059834009 ");
         long m = scanner.readLong();
 
         long result = six.findNb(m);

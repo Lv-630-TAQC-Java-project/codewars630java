@@ -59,19 +59,20 @@ public class SixImpl implements com.ss.ita.kata.Six {
 
         pattern = "(\\d+)(\\D+)(\\d+\\.{0,1}\\d{0,2})";
         p = Pattern.compile(pattern);
-        resultBook += "Original Balance: " + Book.get(0) + "\\r\\n";
+        resultBook += "Original Balance: " + Book.get(0) + "\n";
         balance = Double.valueOf(Book.get(0));
         for (int i = 1; i < Book.size(); i++) {
             m = p.matcher(Book.get(i));
             while (m.find()) {
                 balance -= Double.valueOf(m.group(3));
                 resultBook = resultBook + m.group(1) + " " + m.group(2).trim() + " " + m.group(3).trim() + " Balance "
-                        + String.format("%.2f", balance) + "\\r\\n";
+                        + String.format("%.2f", balance) + "\n";
                 totalExpence += Double.valueOf(m.group(3));
             }
         }
-        resultBook += "Total expense  " + String.format("%.2f", (totalExpence)) + "\\r\\n";
-        resultBook += "Average expense  " + String.format("%.2f", (totalExpence / (Book.size() - 1)));
+        resultBook += "Total expense " + String.format("%.2f", (totalExpence)) + "\n";
+        resultBook += "Average expense " + String.format("%.2f", (totalExpence / (Book.size() - 1)));
+        resultBook=resultBook.replaceAll(",",".");
         return resultBook;
     }
 
